@@ -1,0 +1,419 @@
+      
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Hammersmith One', sans-serif;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+.top-container {
+    width: 100%;
+    height: 6rem;
+    position: absolute;
+}
+
+
+/* ################### NAVIGATION ##################### */
+
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.6rem 2rem;
+    margin: 0rem 2rem;
+    flex-wrap: wrap;
+}
+
+.navigation .logo {
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+    color: white;
+    margin: 1rem;
+}
+
+.navigation .logo:hover {
+    color: #3ccc11;
+}
+
+.navigation .links {
+    display: flex;
+    list-style: none;
+}
+
+.navigation .links li a {
+    text-decoration: none;
+    margin-left: 4rem;
+    font-size: 1.5rem;
+    color: white;
+    transition: all 0.5s ease-in-out;
+}
+
+.navigation .links li a:hover {
+    color: #3ccc11;
+    border-bottom: 0.2rem solid #3ccc11;
+    font-size: 1.7rem;
+}
+
+
+/* ################# MAIN ######################## */
+
+.main {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?ixid=MXwxMjA3fDB8MHxzZWFyY2h8M3x8cmVzdGF1cmFudHxlbnwwfDB8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.295);
+}
+
+.main h1 {
+    font-weight: bold;
+    font-size: 8rem;
+    margin: 0.5rem;
+    color: #3ccc11;
+}
+
+.main .mainbtn {
+    text-decoration: none;
+    font-size: 4rem;
+    font-weight: bold;
+    color: #3ccc11;
+    background-color: white;
+    border-radius: 4rem;
+    padding: 0.58rem 4rem;
+    transition: all 0.5s ease-in-out;
+}
+
+.main .mainbtn:hover {
+    background-color: #3ccc11;
+    color: white;
+    padding: 0.58rem 4.5rem;
+}
+
+
+/* ########################## SERVICES ##################### */
+
+.services {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 2rem 2rem;
+    height: 100%;
+}
+
+.services .text-box {
+    width: 48%;
+}
+
+.services .text-box h1 {
+    font-size: 12rem;
+    font-weight: bold;
+    color: black;
+    text-align: left;
+    width: 30%;
+    margin: 0 6rem;
+}
+
+.services .text-box p {
+    font-size: 2rem;
+    font-weight: lighter;
+    text-align: left;
+    /* width: 30%; */
+    margin: 0 6rem;
+}
+
+.services .img-box {
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: 2rem;
+}
+
+.services .img-box p {
+    font-size: 2rem;
+    transform: rotate(-90deg);
+    margin-left: -27.8rem;
+    text-shadow: 0 0 3px black;
+}
+
+.services .img-box img {
+    width: 25rem;
+    height: 25rem;
+    box-shadow: 5px 5px 10px 1px black;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    transition: all 0.5s ease-in-out;
+}
+
+.services .img-box img:hover {
+    width: 26rem;
+    height: 26rem;
+}
+
+
+/* ############################# ABOUT ##################### */
+
+.about {
+    height: 100%;
+    width: 100%;
+    padding: 0 6rem;
+}
+
+.about h1 {
+    height: 20%;
+    font-size: 10rem;
+    margin: 0 2rem;
+}
+
+.about .about-box {
+    display: flex;
+    height: 46%;
+    justify-content: space-evenly;
+    align-items: center;
+    /* flex-wrap: wrap; */
+}
+
+.about .about-box .about-img {
+    width: auto;
+}
+
+.about .about-box .about-img img {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 65rem;
+    height: 46%;
+    margin: 0 1rem;
+}
+
+.about .about-box .about-content {
+    width: auto;
+    margin: 0 1rem;
+}
+
+.about .about-box .about-content p {
+    font-size: 4rem;
+    text-align: left;
+    margin: 0 1rem;
+}
+
+
+/* #################### CONTACT US ################## */
+
+.contact {
+    padding: 6rem 7rem;
+    /* width: 100%;
+    height: 100%; */
+}
+
+.contact h1 {
+    font-size: 10rem;
+    font-weight: bold;
+}
+
+.contact .contact-box {
+    background: url(https://images.unsplash.com/photo-1428515613728-6b4607e44363?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mnx8cmVzdGF1cmFudHxlbnwwfDB8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 50rem;
+}
+
+.contact .box-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: -4rem -1rem;
+    padding: 2rem 6rem;
+    background-color: white;
+}
+
+.contact .box-wrap .box {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.contact .box-wrap .box1 h3 {
+    font-size: 1.5rem;
+}
+
+.fas {
+    font-size: 3rem;
+    margin: 0 4rem;
+}
+
+
+.contact .box-wrap .box1 p {
+    font-size: 0.9rem;
+}
+
+footer {
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 6rem;
+    font-size: 2rem;
+}
+
+
+/* ########### RESPONSIVE ############## */
+
+@media only screen and (max-width: 1025px) {
+    .about .about-box {
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    .about .about-box .about-img img {
+        width: 100%;
+        margin: auto;
+    }
+    .about .about-box .about-content p {
+        padding: 0;
+    }
+}
+
+@media only screen and (max-width: 1024px) and (min-width: 769px) {
+    html {
+        font-size: 40%;
+    }
+    .navigation {
+        flex-direction: column;
+        padding: 2rem;
+    }
+    .navigation .logo {
+        font-size: 4rem;
+    }
+    .navigation .links li a {
+        font-size: 3.5rem;
+    }
+    .navigation .links li a:hover {
+        font-size: 3.9rem;
+    }
+    .services .text-box p {
+        width: auto;
+    }
+    .services .img-box {
+        margin: 5rem;
+    }
+    .about .about-box .about-img {
+        width: auto;
+    }
+    .about .about-box .about-content {
+        width: auto;
+    }
+}
+
+@media only screen and (max-width: 768px) and (min-width: 481px) {
+    html {
+        font-size: 30%;
+    }
+    .navigation {
+        flex-direction: column;
+        padding: 2rem;
+    }
+    .navigation .logo {
+        font-size: 4rem;
+    }
+    .navigation .links li a {
+        font-size: 3.5rem;
+    }
+    .navigation .links li a:hover {
+        font-size: 3.9rem;
+    }
+    .services .text-box p {
+        width: auto;
+    }
+    .services .img-box img {
+        width: 20rem;
+        height: 20rem;
+    }
+    .services .img-box p {
+        margin-top: 3.2rem;
+        text-align: center;
+        text-shadow: none;
+        transform: none;
+        margin-left: auto;
+    }
+    .about .about-box .about-img {
+        width: auto;
+    }
+    .about .about-box .about-content {
+        width: auto;
+    }
+}
+
+@media only screen and (max-width: 480px) and (min-width: 320px) {
+    html {
+        font-size: 20%;
+    }
+    .navigation {
+        flex-direction: column;
+        padding: 2rem;
+    }
+    .navigation .logo {
+        font-size: 4rem;
+    }
+    .navigation .links li a {
+        font-size: 3.5rem;
+    }
+    .navigation .links li a:hover {
+        font-size: 3.9rem;
+    }
+    .services {
+        flex-direction: column;
+        align-items: initial;
+    }
+    .services .text-box {
+        margin: 2rem 6rem;
+        width: auto;
+    }
+    .services .text-box h1 {
+        margin: 0;
+        width: auto;
+        font-size: 10rem;
+    }
+    .services .text-box p {
+        width: auto;
+        margin: 1rem 0;
+        font-size: 4rem;
+    }
+    .services .img-box {
+        width: auto;
+    }
+    .services .img-box p {
+        font-size: 3rem;
+    }
+    .services .img-box img {
+        width: 20rem;
+        height: 20rem;
+        margin: 2rem;
+    }
+    .services .img-box p {
+        margin-top: 3.2rem;
+        text-align: center;
+        text-shadow: none;
+        transform: none;
+        margin-left: auto;
+    }
+    .about .about-box .about-img {
+        width: auto;
+    }
+    .about .about-box .about-content {
+        width: auto;
+    }
+}
