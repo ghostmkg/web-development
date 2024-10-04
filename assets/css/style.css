@@ -108,3 +108,21 @@ body{
 #signup_msg{
     left: 25%;
 }
+
+<!-- Example of a simple login button -->
+<button type="submit" class="login-btn">Login</button>
+
+<style>
+    .login-btn {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .login-btn:hover {
+        background-color: #45a049;
+    }
+</style>
