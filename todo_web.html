@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List Web App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #app {
+            background-color: white;
+            width: 350px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        #task-input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        #add-btn {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        #add-btn:hover {
+            background-color: #218838;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: #f9f9f9;
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        li.completed {
+            text-decoration: line-through;
+            color: grey;
+        }
+
+        .delete-btn {
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .delete-btn:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="app">
+        <h1>To-Do List</h1>
+        <input type="text" id="task-input" placeholder="Enter a new task">
+        <button id="add-btn">Add Task</button>
+        <ul id="task-list"></ul>
+    </div>
+
+    <script>
+        // Get elements from the DOM
+        const taskInput = document.getElementById('task-input');
+        const addBtn = document.getElementById('add-btn');
+        const taskList = document.getElementById('task-list');
+
+        // Function to add a new task
+        function addTask() {
+            const taskText = taskInput.value.trim(); // Get the task input
+
+            if (taskText === "") {
+                alert("Please enter a task!");
+                return;
+            }
+
+            // Create a new list item (li)
+            const li = document.createElement('li');
+            li.innerHTML = `${taskText} <button class="delete-btn">Delete</button>`;
+            
+            // Add event listener to mark task as completed
+            li.addEventListener('click', function () {
+                li.classList.toggle('completed');
+            });
+
+            // Add event listener to the delete button
+            const deleteBtn = li.querySelector('.delete-btn');
+            deleteBtn.addEventListener('click', function (e) {
+                e.stopPropagation(); // Prevent triggering the complete task event
+                taskList.removeChild(li);
+            });
+
+            // Append the new task to the list
+            taskList.appendChild(li);
+
+            // Clear the input field
+            taskInput.value = "";
+        }
+
+        // Add task when clicking the button
+        addBtn.addEventListener('click', addTask);
+
+        // Add task when pressing Enter key
+        taskInput.addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                addTask();
+            }
+        });
+    </script>
+
+</body>
+</html>
