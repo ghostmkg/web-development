@@ -1,0 +1,69 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f3f5f7;
+    font-family: 'Arial', sans-serif;
+}
+h1 {
+    text-align: center;
+    margin-bottom: 2px;
+    color: #333;
+    font-family:cursive;
+}
+
+#status{
+    font-family:cursive;
+}
+
+.container {
+    text-align: center;
+}
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 16px;
+    margin: 30px auto 30px auto;
+}
+.cell {
+    width: 100px;
+    height: 100px;
+    background-color: #c795ed;
+    border-radius: 14px;
+    font-size: 2em;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 40px;
+    font-weight: bolder;
+    font-family: cursive;
+}
+.cell:hover {
+    background-color: #e0e0e0;
+    transform: translate(2px, 4px);
+    transition: transform 5ms ease-in-out;
+}
+
+.status {
+    margin: 20px 0;
+    font-size: 1.5em;
+    color: #333;
+}
+.restart-btn {
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.restart-btn:hover {
+    background-color: #45a049;
+}
