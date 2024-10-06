@@ -1,0 +1,374 @@
+* {
+      margin: 0;
+      font-family: Arial;
+      border: border-box;
+}
+
+.navbar {
+      height: 60px;
+      background: black;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+}
+
+.navlo {
+      height: 50px;
+      width: 100px;
+}
+
+.logo {
+
+      background-image: url("https://th.bing.com/th?id=OIP.KTDfEdLrGrelL8iwrLr99QHaEo&w=316&h=197&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2");
+      height: 50px;
+      width: 100%;
+      background-size: cover;
+}
+
+.border {
+      border: 2px solid transparent;
+}
+
+.border:hover {
+      border: 1.5px solid white;
+}
+
+.addfirst {
+      color: #cccccc;
+      font-size: 0.85rem;
+      margin-left: 15px;
+}
+
+.addsecond {
+      font-size: 1rem;
+      margin-left: 3px;
+}
+
+.addicon {
+      display: flex;
+      align-items: center;
+
+}
+
+.address {
+      margin-left: 5px;
+}
+
+.address:hover {
+      border: 1.5px solid white;
+}
+
+.navsearch:hover {
+      border: 2px solid orange;
+}
+
+.navsearch {
+      background: pink;
+      display: flex;
+      justify-content: space-evenly;
+      width: 620px;
+      height: 40px;
+      border-radius: 4px;
+}
+
+.search-select {
+      background: #f3f3f3;
+      width: 50px;
+      text-align: centre;
+      border-top-left-radius: 4px;
+      border-bottom-left: 4px;
+      border: none;
+}
+
+.search-input {
+      width: 100%;
+      font-size: 1rem;
+      border: none;
+
+}
+
+.searchicon {
+      width: 45px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.3rem;
+      background: rgb(221, 133, 9);
+      border-top-right-radius: 2px;
+      border-bottom-right-radius: 2px;
+}
+
+span {
+      font-size: .7rem;
+}
+
+.nav-second {
+      font-size: .85rem;
+      font-weight: 700;
+}
+
+.navcart i {
+      font-size: 30px;
+}
+
+.navcart {
+      font-size: .85rem;
+      font-weight: 700;
+}
+
+.navcart:hover {
+      border: 2px solid white;
+}
+
+.pannel {
+      height: 40px;
+      display: flex;
+      background: #808284;
+      align-items: center;
+      justify-content: space-evenly;
+}
+
+
+.pannel-op p {
+      display: inline;
+      color: white;
+      margin-left: 15px;
+
+}
+
+.pannel-op p:hover {
+      color: rgb(11, 10, 11);
+}
+
+.pannel-op {
+      width: 70%;
+      font:.85rem;
+}
+
+.pannelall {
+      color: white;
+}
+
+.pannelall:hover {
+      color: rgb(11, 10, 11);
+}
+
+.pannel-deal {
+      color: white;
+      font-size: .9rem;
+      font-weight: 700;
+}
+
+.pannel-deal:hover {
+      color: rgb(12, 11, 12);
+}
+
+.herosection {
+      background-image: url("https://images-eu.ssl-images-amazon.com/images/G/31/img22/march/brands/GW/Under_1499_Tallhero_3000x1200._CB561212093_.jpg");
+      background-size: cover;
+      height: 400px;
+      display: flex;
+      justify-content: center;
+      align-items: end;
+
+}
+
+.heromessage {
+      background: white;
+      color: black;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .85rem;
+      width: 80%;
+      margin-bottom: 25px;
+}
+
+.heromessage a {
+      color: #007185;
+}
+
+.shop {
+      background: #f4d9a8;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+}
+
+.box {
+      margin-top: 15px;
+
+      height: 400px;
+      width: 23%;
+      background: white;
+      padding: 20px 0px 15px;
+
+}
+
+.box p:hover {
+      color: rgb(0, 38, 255);
+      text-decoration: underline;
+
+}
+
+#box1 {
+
+      height: 300px;
+      background-image: url("https://th.bing.com/th?q=Health+Care+Products&w=120&h=120&c=1&rs=1&qlt=90&cb=1&dpr=1.3&pid=InlineBlock&mkt=en-IN&cc=IN&setlang=en&adlt=moderate&t=1&mw=247");
+      background-size: cover;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+}
+
+#box2 {
+      height: 320px;
+      background-image: url("https://m.media-amazon.com/images/I/517jNc-SAqL._AC_UL480_FMwebp_QL65_.jpg");
+      background-size: cover;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+}
+
+#box3 {
+      height: 320px;
+      background-image: url("https://m.media-amazon.com/images/I/61NGBwLsHJL._AC_UY327_FMwebp_QL65_.jpg");
+      background-size: contain;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+}
+
+#box4 {
+      height: 320px;
+      background-image: url("https://m.media-amazon.com/images/I/91sYhwLmH2L._AC_UY327_FMwebp_QL65_.jpg");
+      background-size: cover;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+}
+
+#box5 {
+      height: 320px;
+      background-image: url("https://m.media-amazon.com/images/I/71ejZ3V9Q-L._AC_UL480_FMwebp_QL65_.jpg");
+      background-size: cover;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+}
+
+#box6 {
+      height: 320px;
+      background-image: url("https://m.media-amazon.com/images/I/616xchp1ECL._AC_UL480_FMwebp_QL65_.jpg");
+      background-size: cover;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+}
+
+#box7 {
+      height: 320px;
+      background-image: url("https://m.media-amazon.com/images/I/51T0RbnCy6L._AC_UL480_FMwebp_QL65_.jpg");
+      background-size: cover;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+}
+
+#box8 {
+      height: 320px;
+      background-image: url("https://m.media-amazon.com/images/I/61ZrgXDRBOL._AC_UL480_FMwebp_QL65_.jpg");
+      background-size: cover;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+}
+
+.boxcontent {
+      margin-right: .85rem;
+      margin-left: .85rem;
+
+}
+
+.boxcontent p {
+      color: #007185;
+
+}
+
+footer {
+      margin-top: 15px;
+}
+
+.footpannel {
+      color: white;
+      background: #37575a;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-synthesis: .58rem;
+}
+
+.footpannel2 {
+      height: 250px;
+      color: white;
+      background: #222f3d;
+      display: flex;
+      justify-content: space-evenly;
+}
+
+ul p {
+      font-size: large;
+      font-weight: bold;
+      margin-top: 15px;
+}
+
+ul a {
+      font-size: 0.85rem;
+      display: block;
+      margin-top: 10px;
+      color: dddddd;
+}
+
+.footpannel3 {
+      border: .5px solid white;
+      background: #000000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+}
+
+.logo {
+
+      background-image: url("https://th.bing.com/th?id=OIP.KTDfEdLrGrelL8iwrLr99QHaEo&w=316&h=197&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2");
+      height: 50px;
+      width: 100px;
+      background-size: cover;
+
+}
+
+.footpannel4 {
+      background: #000;
+      color: white;
+      font-size: 0.7rem;
+      text-align: center;
+      height: 80px;
+}
+
+.footop {
+
+
+      padding-top: 25px;
+}
+
+.copyright {
+      padding-top: 5px;
+}
+
+#b1 {
+      margin-left: 7px;
+      margin-right: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+}
+
+#b2 {
+      background-image: url;
+}
