@@ -1,0 +1,144 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+html,
+body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  font-family: "Roboto" !important;
+  color: white;
+  font-size: 9px;
+}
+
+#magic {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  display: block;
+  top: 0;
+  left: 0;
+  z-index: -99;
+}
+
+.playground {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  display: block;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+.bottomPosition {
+  margin-bottom: 50px;
+}
+.minText {
+  font-size: 14px;
+}
+
+a {
+  color: white;
+  font-size: 12px;
+  text-decoration: none;
+}
+
+.logo {
+  width: 50px;
+  height: 50px;
+}
+
+/* // compiled css  */
+
+input {
+  border-style: none;
+  background: transparent;
+  outline: none;
+}
+
+button {
+  padding: 0;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+@-webkit-keyframes gradient {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% 0;
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% 0;
+  }
+}
+.webflow-style-input {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  width: 130%;
+  max-width: 60rem;
+  margin: 0 auto;
+  border-radius: 2px;
+  padding: 1.4rem 2rem 1.6rem;
+  background: transparent;
+}
+.webflow-style-input:after {
+  content: "";
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  z-index: 999;
+  height: 2px;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+  background-position: 0% 0%;
+  background: linear-gradient(
+    to right,
+    #b294ff,
+    #57e6e6,
+    #feffb8,
+    #57e6e6,
+    #b294ff,
+    #57e6e6
+  );
+  background-size: 500% auto;
+  -webkit-animation: gradient 3s linear infinite;
+  animation: gradient 3s linear infinite;
+}
+
+.webflow-style-input input {
+  flex-grow: 1;
+  color: #bfd2ff;
+  font-size: 1.8rem;
+  line-height: 2.4rem;
+  vertical-align: middle;
+  z-index: 9999;
+}
+.webflow-style-input input::-webkit-input-placeholder {
+  color: #7881a1;
+}
+
+.webflow-style-input button {
+  color: #7881a1;
+  font-size: 2.4rem;
+  line-height: 2.4rem;
+  vertical-align: middle;
+  transition: color 0.25s;
+  cursor: pointer;
+  z-index: 9999;
+}
+.webflow-style-input button:hover {
+  color: #bfd2ff;
+}
