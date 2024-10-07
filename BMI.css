@@ -1,0 +1,87 @@
+.container {
+    width: 575px;
+    height: 825px;
+  
+    background-color: #797978;
+    padding-left: 30px;
+  }
+  #height,
+  #weight {
+    width: 150px;
+    height: 25px;
+    margin-top: 30px;
+  }
+  
+  #weight-guide {
+    margin-left: 75px;
+    margin-top: 25px;
+  }
+  
+  #results {
+    font-size: 35px;
+    margin-left: 90px;
+    margin-top: 20px;
+    color: rgb(241, 241, 241);
+  }
+  
+  button {
+    width: 150px;
+    height: 35px;
+    margin-left: 90px;
+    margin-top: 25px;
+    background-color: #fff;
+    padding: 1px 30px;
+    border-radius: 8px;
+    color: #212121;
+    text-decoration: none;
+    border: 2px solid #212121;
+  
+    font-size: 25px;
+  }
+  
+  h1 {
+    padding-left: 15px;
+    padding-top: 25px;
+    
+  }
+  
+  
+/* Responsive design */
+
+/* Tablet and larger screens */
+@media only screen and (min-width: 768px) {
+  .container {
+    max-width: 80%;
+    margin: 40px auto;
+  }
+  #height, #weight {
+    width: 200px;
+  }
+  button {
+    width: 200px;
+  }
+}
+
+/* Mobile screens */
+@media only screen and (max-width: 767px) {
+  .container {
+    width: 90%;
+    margin: 20px auto;
+    height: auto;
+  }
+  #height, #weight {
+    width: 100%;
+    margin-top: 15px;
+  }
+  button {
+    width: 100%;
+    margin-top: 15px;
+  }
+  #results {
+    font-size: 25px;
+    margin-left: 20px;
+  }
+  #weight-guide {
+    margin-left: 20px;
+  }
+}
