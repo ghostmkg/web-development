@@ -1,0 +1,38 @@
+{
+  "name": "express-formidable",
+  "version": "1.2.0",
+  "description": "An Express middleware of Formidable that just works.",
+  "author": "Jun <me@noraesae.net>",
+  "main": "./lib/middleware.js",
+  "engines": {
+    "node": ">= 8"
+  },
+  "scripts": {
+    "test": "eslint . && jest test/middleware.test.js --forceExit --detectOpenHandles"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/noraesae/express-formidable.git"
+  },
+  "keywords": [
+    "express",
+    "middleware",
+    "formidable"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/noraesae/express-formidable/issues"
+  },
+  "homepage": "https://github.com/noraesae/express-formidable",
+  "dependencies": {
+    "formidable": "^1.0.17"
+  },
+  "devDependencies": {
+    "eslint": "^3.7.1",
+    "eslint-config-airbnb-base": "^8.0.0",
+    "eslint-plugin-import": "^1.16.0",
+    "express": "^4.14.0",
+    "jest": "^23.6.0",
+    "request": "^2.88.0"
+  }
+}

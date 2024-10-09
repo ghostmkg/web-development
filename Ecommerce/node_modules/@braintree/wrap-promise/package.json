@@ -1,0 +1,39 @@
+{
+  "name": "@braintree/wrap-promise",
+  "version": "2.1.0",
+  "description": "A small lib to return promises or use callbacks",
+  "main": "dist/wrap-promise.js",
+  "types": "dist/wrap-promise.d.ts",
+  "files": [
+    "dist"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "@types/jest": "^25.2.1",
+    "eslint": "^6.8.0",
+    "eslint-config-braintree": "5.0.0-typescript-prep-rc.17",
+    "jest": "^25.3.0",
+    "prettier": "^2.0.4",
+    "ts-jest": "^25.3.1",
+    "typescript": "^3.8.3"
+  },
+  "scripts": {
+    "prepublishOnly": "npm run build",
+    "prebuild": "prettier --write .",
+    "build": "tsc --declaration",
+    "lint": "eslint --ext .js,.ts .",
+    "posttest": "npm run lint",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/braintree/wrap-promise.git"
+  },
+  "keywords": [],
+  "author": "Braintree <code@getbraintree.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/braintree/wrap-promise/issues"
+  },
+  "homepage": "https://github.com/braintree/wrap-promise#readme"
+}
