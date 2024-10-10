@@ -1,0 +1,113 @@
+/* Styles for the image */
+body{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+#Banner {
+    max-width: 300px;  /* Adjusted size to make room for the card */
+    height: auto;     /* Maintain aspect ratio */
+    margin-right: 20px; /* Space between image and card */
+    border: 5px solid gold;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent background */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Container for image and card */
+.image-card-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: nowrap; /* Ensure both image and card stay on the same line */
+    margin-top: 20px;
+    max-width: 800px; /* Limit the container width for better alignment */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Styles for the card */
+.card1 {
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent background */
+    border: solid goldenrod;
+    color: #7934DF;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px; /* Reduced card width */
+    width: 100%; /* Make card full width within its container */
+    padding: 15px;
+    border-radius: 5px; /* Optional: rounded corners */
+    margin-top: 0;
+}
+
+/* Styles for card title */
+.card-title {
+    color: goldenrod;
+    font-size: 1.5rem; /* Adjust font size as needed */
+}
+
+/* Styles for star rating */
+.star-rating {
+    font-size: 1.2rem; /* Adjust font size for stars */
+    color: gold;
+}
+
+.star {
+    display: inline-block;
+    font-size: 1.5rem; /* Size of the stars */
+}
+
+.star.full {
+    color: gold;
+}
+
+.star.half {
+    position: relative;
+}
+
+.star.half::after {
+    content: '★';
+    position: absolute;
+    color: gray;
+    width: 50%;
+    overflow: hidden;
+}
+
+.star.empty {
+    color: gray;
+}
+
+.star-rating h6 {
+    font-weight: bolder;
+}
+
+#but {
+    background-color: #7934DF;
+    width: 100%; /* Make button full width */
+}
+
+/* Media Queries for responsive design */
+@media (max-width: 768px) {
+    #Banner {
+        max-width: 100%;
+        margin-right: 0;
+    }
+
+    .image-card-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card1 {
+        max-width: 100%;
+        width: auto;
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    #Banner {
+        margin-right: 0;
+    }
+
+    .card1 {
+        margin-top: 15px;
+    }
+}

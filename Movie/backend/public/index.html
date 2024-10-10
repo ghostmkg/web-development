@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movies List</title>
+  <style>
+    /* Add some basic styling */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .movie-card {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 16px;
+      margin: 10px;
+      display: inline-block;
+      width: calc(33% - 40px);
+      box-sizing: border-box;
+    }
+    .movie-card img {
+      max-width: 100%;
+      border-radius: 8px;
+    }
+    .movie-card h3 {
+      margin: 0;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Movies List</h1>
+  <div id="movies-container"></div>
+  <script>
+    // Fetch data from the API and render it on the page
+    fetch('http://localhost:5002/api/movies')
+      .then(response => response.json())
+      .then(data => {
+        const moviesContainer = document.getElementById('movies-container');
+        const movies = data.movies; // Adjust based on the structure of your JSON
+
+        movies.forEach(movie => {
+          // Create a movie card for each movie
+          const movieCard = document.createElement('div');
+          movieCard.className = 'movie-card';
+          
+          // Add movie poster
+          const moviePoster = document.createElement('img');
+          moviePoster.src = movie.poster_path; // Adjust based on your JSON
+          moviePoster.alt = movie.title;
+          movieCard.appendChild(moviePoster);
+          
+          // Add movie title
+          const movieTitle = document.createElement('h3');
+          movieTitle.textContent = movie.title;
+          movieCard.appendChild(movieTitle);
+          
+          // Add movie overview
+          const movieOverview = document.createElement('p');
+          movieOverview.textContent = movie.overview;
+          movieCard.appendChild(movieOverview);
+          
+          // Append movie card to the container
+          moviesContainer.appendChild(movieCard);
+        });
+      })
+      .catch(error => {
+        console.error('Error fetching movies:', error);
+      });
+  </script>
+</body>
+</html>

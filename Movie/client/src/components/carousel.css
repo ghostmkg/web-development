@@ -1,0 +1,16 @@
+/* Ensure the carousel item takes up full width and height */
+.carousel-item {
+  height: 600px; /* Adjust height as needed */
+}
+
+#sii {
+  width: 100%; /* Ensure image takes full width of the carousel item */
+  height: 80%; /* Ensure image takes full height of the carousel item */
+  object-fit: cover; /* Ensures image covers the area without distortion */
+}
+h5{
+  color: beige;
+}
+p{
+  color: burlywood;
+}

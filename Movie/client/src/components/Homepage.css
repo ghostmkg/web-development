@@ -1,0 +1,124 @@
+/* Ensure the navbar stays fixed at the top */
+#nav1 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Ensures the navbar stays on top of other content */
+    height: 80px; /* Adjust the height of the navbar as needed */
+    display: flex;
+    align-items: center;
+}
+
+/* Add padding to the body to avoid content being hidden behind the navbar */
+body {
+    padding-top: 80px; /* Adjust based on the height of your navbar */
+}
+
+/* General styles for the hero sections */
+.hero-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: #f8f9fa; /* Light background color for fallback */
+    background-size: cover;
+    background-position: center;
+    transition: opacity 1s ease-in-out, background-color 1s ease-in-out; /* Smooth transitions */
+    opacity: 0;
+    animation: fadeIn 2s forwards, backgroundSlide 30s infinite alternate; /* Fade-in and background slide animations */
+    position: relative;
+    overflow: hidden;
+}
+
+/* Keyframes for fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Keyframes for background slide animation */
+@keyframes backgroundSlide {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: 100% 100%;
+    }
+}
+
+/* Styles for the text overlay */
+.hero-text {
+    color: white;
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for text readability */
+    border-radius: 10px;
+}
+
+/* Button styles */
+.btn-get-started {
+    display: block;
+    margin: 20px auto;
+    background-color: #000; /* Black color for the button */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+    transform: scale(1); /* Default scale */
+}
+
+.btn-get-started:hover {
+    background-color: #7934DF; /* New color on hover */
+    transform: scale(1.05); /* Slightly enlarge the button on hover */
+}
+
+/* Footer styles */
+.footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.footer .contact-info {
+    margin-bottom: 10px;
+}
+
+.footer .contact-info h5 {
+    margin-bottom: 5px;
+}
+
+.footer .copyright {
+    font-size: 14px;
+}
+
+/* Styles for the navbar brand and logo */
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    height: 100%; /* Ensure the brand is centered vertically */
+}
+
+.logo-img {
+    width: 250px; /* Set width to 250px */
+    height: 350px; /* Set height to 300px */
+    margin-right: 10px; /* Space between logo and text */
+    margin-bottom: 10px; /* Space between the bottom of the logo and the bottom of the navbar */
+    object-fit: contain; /* Ensure logo scales properly */
+}

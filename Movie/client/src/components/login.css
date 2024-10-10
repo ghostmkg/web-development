@@ -1,0 +1,17 @@
+.cards1 {
+    display: flex;
+    justify-content: center;  /* Center horizontally */
+    align-items: center;      /* Center vertically */
+            /* Full viewport height */
+  }
+  .custom-button {
+    margin-top: 1rem;
+    background-color: #333;
+    border-color: rosybrown;
+  }
+  
+  .custom-button:hover {
+    background-color:#7934DF;
+    border-color: #7934DF;
+  }
+  

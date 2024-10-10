@@ -1,0 +1,64 @@
+/* Movieslist.css */
+
+body h1 {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.container {
+  padding: 20px;
+}
+
+.card {
+  position: relative; /* Required for absolute positioning of the overlay */
+  overflow: hidden; /* Hide any overflow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease; /* Add filter transition */
+  border-radius: 8px; /* Rounded corners for the card */
+}
+
+.card:hover {
+  transform: scale(1.05); /* Slightly enlarge the card on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Add shadow effect */
+  filter: brightness(1.1); /* Slightly brighten the card on hover */
+}
+
+.card-img-top {
+  width: 100%;
+  height: 400px; /* Adjust to fit your design */
+  object-fit: cover; /* Maintain aspect ratio */
+  transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth fade and zoom effects */
+}
+
+.card:hover .card-img-top {
+  opacity: 0.8; /* Slightly fade the image on hover */
+  transform: scale(1.1); /* Slightly zoom in the image on hover */
+}
+
+.card-body {
+  position: relative; /* Required for positioning of the overlay text */
+  z-index: 1; /* Ensure text is above the overlay */
+}
+
+.release-date, .description {
+  display: none; /* Hide text by default */
+  color: #fff; /* Ensure text is readable */
+  background: rgba(0, 0, 0, 0.6); /* Background to ensure readability */
+  padding: 10px;
+  border-radius: 4px;
+  opacity: 0; /* Start with invisible text */
+  transition: opacity 0.3s ease, transform 0.3s ease, background-color 0.3s ease; /* Smooth transitions for opacity, position, and background color */
+  transform: translateY(10px); /* Slightly offset text */
+  background-color: rgba(0, 0, 0, 0.5); /* Slightly darker background */
+}
+
+.card:hover .release-date,
+.card:hover .description {
+  display: block; /* Show text on hover */
+  opacity: 1; /* Fully visible */
+  transform: translateY(0); /* Move to original position */
+  background-color: rgba(0, 0, 0, 0.7); /* Darker background on hover */
+}
+
+/* Optional: You can add additional styling to the overlay text */
+.description {
+  font-size: 0.8em;
+}
