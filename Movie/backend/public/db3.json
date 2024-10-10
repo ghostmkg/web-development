@@ -1,0 +1,49 @@
+{
+    "events": [
+      {
+        "id": "1",
+        "title": "Rock Concert",
+        "description": "A thrilling rock concert featuring top bands in the city.",
+        "date": "2024-09-15",
+        "image":"/images/rock.jpg",
+        "time": "19:00",
+        "venue": "City Arena",
+        "city": "Mumbai",
+        "category": "Concert"
+      },
+      {
+        "id": "2",
+        "title": "Shakespeare Play",
+        "description": "A dramatic presentation of Shakespeare's famous play.",
+        "date": "2024-08-20",
+        "image":"/images/shakes.jpg",
+        "time": "18:30",
+        "venue": "Grand Theater",
+        "city": "Chennai",
+        "category": "Drama"
+      },
+      {
+        "id": "3",
+        "title": "Art Competition",
+        "description": "An art competition showcasing local talent.",
+        "date": "2024-08-25",
+        "image":"/images/art.jpeg",
+        "time": "10:00",
+        "venue": "Art Gallery",
+        "city": "Metropolis",
+        "category": "Competition"
+      },
+      {
+        "id": "4",
+        "title": "Food Festival",
+        "description": "A food festival featuring a variety of cuisines from around the world.",
+        "date": "2024-09-01",
+        "image":"/images/food.jpeg",
+        "time": "12:00",
+        "venue": "Central Park",
+        "city": "Bangalore",
+        "category": "Festival"
+      }
+    ]
+  }
+  

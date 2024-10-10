@@ -1,0 +1,60 @@
+/* Global styles */
+body {
+    background-color: #333;
+}
+
+/* Heading styles */
+h1 {
+    color: aliceblue;
+}
+
+/* Styles for the LatestMovies component */
+
+
+.movie-card {
+    background-color: white; /* Adjust this color to contrast with the navbar */
+    border: none;
+    border-radius: 8px;
+    overflow: hidden;
+    height: 350px; /* Adjust the height as needed */
+    width: 100%; /* Ensure the card fits its container */
+    max-width: 300px; /* Set a maximum width for consistency */
+    display: flex;
+    flex-direction: column;
+    margin: auto; /* Center the card within its column */
+}
+
+.movie-card-img {
+    height: 180px; /* Adjust height as needed */
+    width: 100%; /* Ensure the image covers the full width */
+    object-fit: cover;
+}
+
+.movie-card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px; /* Adjust padding for smaller cards */
+    flex-grow: 1; /* Allow the body to take up remaining space */
+}
+
+.movie-card-title {
+    font-size: 1.1rem; /* Adjust font size as needed */
+    margin-bottom: 8px; /* Reduce margin for smaller cards */
+}
+
+.movie-card-text {
+    font-size: 0.85rem; /* Adjust font size for smaller text */
+    flex-grow: 1; /* Allow text to grow and push the button down */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-bottom: 10px; /* Add space before the button */
+}
+
+.movie-card-button {
+    width: 80px;
+    align-self: center; /* Center the button horizontally */
+    margin-top: auto; /* Push the button up within the card */
+    margin-bottom: 10px; /* Adjust to move the button up */
+}

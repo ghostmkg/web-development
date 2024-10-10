@@ -1,0 +1,64 @@
+.trailer-card {
+    position: relative;
+    border: none;
+    border-radius: 8px;
+    overflow: hidden;
+    height: 170px;
+    width: 100%;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    transition: transform 0.3s ease;
+}
+
+.trailer-card:hover {
+    transform: scale(1.03); /* Slight zoom effect on hover */
+}
+
+.trailer-card-img-container {
+    position: relative;
+    height: 180px;
+}
+
+.trailer-card-img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.trailer-card-title-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    text-align: center;
+    padding: 10px;
+    font-size: 1rem;
+}
+
+.trailer-card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+    flex-grow: 1;
+    position: relative;
+}
+
+.trailer-card-body .btn-primary {
+    position: absolute;
+    bottom: 10px; /* Position it at the bottom of the card */
+    left: 50%;
+    transform: translateX(-50%); /* Center it horizontally */
+    opacity: 0; /* Initially hide the button */
+    transition: opacity 0.3s ease;
+}
+
+.trailer-card:hover .trailer-card-body .btn-primary {
+    opacity: 1; /* Show the button on hover */
+    z-index: 10; /* Ensure the button is above other elements */
+}
+
+

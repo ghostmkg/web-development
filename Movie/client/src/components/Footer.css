@@ -1,0 +1,33 @@
+/* Footer styles */
+.footer {
+    background-color: #343a40; /* Dark background color for footer */
+    color: #fff; /* White text color */
+    padding: 20px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
+.footer .contact-info {
+    margin: 0;
+}
+
+.footer .contact-info h5 {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.footer .contact-info p {
+    margin: 5px 0;
+}
+
+.footer .copyright {
+    font-size: 14px;
+}

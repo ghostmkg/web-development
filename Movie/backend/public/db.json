@@ -1,0 +1,409 @@
+{
+    "page": 1,
+    "results": [
+        {
+            "adult": false,
+            "backdrop_path": "/tncbMvfV0V07UZozXdBEq4Wu9HH.jpg",
+            "genre_ids": [
+                28,
+                80,
+                53,
+                35
+            ],
+            "id": 573435,
+            "original_language": "en",
+            "original_title": "Bad Boys: Ride or Die",
+            "overview": "After their late former Captain is framed, Lowrey and Burnett try to clear his name, only to end up on the run themselves.",
+            "popularity": 7285.79,
+            "poster_path": "/images/badboys.jpg",
+            "release_date": "2024-06-05",
+            "title": "Bad Boys: Ride or Die",
+            "video": false,
+            "vote_average": 7.653,
+            "vote_count": 1132
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/9l1eZiJHmhr5jIlthMdJN5WYoff.jpg",
+            "genre_ids": [
+                28,
+                35,
+                878
+            ],
+            "id": 533535,
+            "original_language": "en",
+            "original_title": "Deadpool & Wolverine",
+            "overview": "A listless Wade Wilson toils away in civilian life with his days as the morally flexible mercenary, Deadpool, behind him. But when his homeworld faces an existential threat, Wade must reluctantly suit-up again with an even more reluctant Wolverine.",
+            "popularity": 7220.83,
+            "poster_path": "/images/dead2.jpeg",
+            "release_date": "2024-07-24",
+            "title": "Deadpool & Wolverine",
+            "video": false,
+            "vote_average": 8.066,
+            "vote_count": 801
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/stKGOm8UyhuLPR9sZLjs5AkmncA.jpg",
+            "genre_ids": [
+                16,
+                10751,
+                12,
+                35
+            ],
+            "id": 1022789,
+            "original_language": "en",
+            "original_title": "Inside Out 2",
+            "overview": "Teenager Riley's mind headquarters is undergoing a sudden demolition to make room for something entirely unexpected: new Emotions! Joy, Sadness, Anger, Fear and Disgust, who’ve long been running a successful operation by all accounts, aren’t sure how to feel when Anxiety shows up. And it looks like she’s not alone.",
+            "popularity": 4207.244,
+            "poster_path": "/images/ins.jpg",
+            "release_date": "2024-06-11",
+            "title": "Inside Out 2",
+            "video": false,
+            "vote_average": 7.635,
+            "vote_count": 2143
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/5g2n3ilC8DpYv4diJeuQ1vKG2Kb.jpg",
+            "genre_ids": [
+                16,
+                10751,
+                35,
+                28
+            ],
+            "id": 519182,
+            "original_language": "en",
+            "original_title": "Despicable Me 4",
+            "overview": "Gru and Lucy and their girls — Margo, Edith and Agnes — welcome a new member to the Gru family, Gru Jr., who is intent on tormenting his dad. Meanwhile, Gru faces a new nemesis in Maxime Le Mal and his femme fatale girlfriend Valentina, forcing the family to go on the run.",
+            "popularity": 3400.94,
+            "poster_path": "/images/desc.jpg",
+            "release_date": "2024-06-20",
+            "title": "Despicable Me 4",
+            "video": false,
+            "vote_average": 7.198,
+            "vote_count": 456
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/dsGwCEO8tda4FlgHKvL95f0oQbH.jpg",
+            "genre_ids": [
+                16,
+                878,
+                28
+            ],
+            "id": 1209290,
+            "original_language": "en",
+            "original_title": "Justice League: Crisis on Infinite Earths Part Three",
+            "overview": "Now fully revealed as the ultimate threat to existence, the Anti-Monitor wages an unrelenting attack on the surviving Earths that struggle for survival in a pocket universe. One by one, these worlds and all their inhabitants are vaporized! On the planets that remain, even time itself is shattered, and heroes from the past join the Justice League and their rag-tag allies against the epitome of evil. But as they make their last stand, will the sacrifice of the superheroes be enough to save us all?",
+            "popularity": 1656.771,
+            "poster_path": "/images/just.jpg",
+            "release_date": "2024-07-16",
+            "title": "Justice League: Crisis on Infinite Earths Part Three",
+            "video": false,
+            "vote_average": 7.718,
+            "vote_count": 103
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/Akv9GlCCMrzcDkVz4ad8MdLl9DK.jpg",
+            "genre_ids": [
+                16,
+                35,
+                10751,
+                12
+            ],
+            "id": 748783,
+            "original_language": "en",
+            "original_title": "The Garfield Movie",
+            "overview": "Garfield, the world-famous, Monday-hating, lasagna-loving indoor cat, is about to have a wild outdoor adventure! After an unexpected reunion with his long-lost father – scruffy street cat Vic – Garfield and his canine friend Odie are forced from their perfectly pampered life into joining Vic in a hilarious, high-stakes heist.",
+            "popularity": 1614.576,
+            "poster_path": "/images/gar.jpg",
+            "release_date": "/images/2024-04-30",
+            "title": "The Garfield Movie",
+            "video": false,
+            "vote_average": 7.205,
+            "vote_count": 620
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/en971MEXui9diirXlogOrPKmsEn.jpg",
+            "genre_ids": [
+                28,
+                12,
+                35
+            ],
+            "id": 293660,
+            "original_language": "en",
+            "original_title": "Deadpool",
+            "overview": "The origin story of former Special Forces operative turned mercenary Wade Wilson, who, after being subjected to a rogue experiment that leaves him with accelerated healing powers, adopts the alter ego Deadpool. Armed with his new abilities and a dark, twisted sense of humor, Deadpool hunts down the man who nearly destroyed his life.",
+            "popularity": 1576.742,
+            "poster_path": "/images/deap.jpg",
+            "release_date": "2016-02-09",
+            "title": "Deadpool",
+            "video": false,
+            "vote_average": 7.619,
+            "vote_count": 30303
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/iIvjwrDPQHCU4NjbbKpNs88uk6G.jpg",
+            "genre_ids": [
+                28,
+                35
+            ],
+            "id": 1048241,
+            "original_language": "en",
+            "original_title": "My Spy The Eternal City",
+            "overview": "JJ, a veteran CIA agent, reunites with his protégé Sophie, in order to prevent a catastrophic nuclear plot targeting the Vatican.",
+            "popularity": 1533.287,
+            "poster_path": "/images/spy.jpg",
+            "release_date": "2024-07-18",
+            "title": "My Spy The Eternal City",
+            "video": false,
+            "vote_average": 6.8,
+            "vote_count": 157
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/fqv8v6AycXKsivp1T5yKtLbGXce.jpg",
+            "genre_ids": [
+                878,
+                12,
+                28
+            ],
+            "id": 653346,
+            "original_language": "en",
+            "original_title": "Kingdom of the Planet of the Apes",
+            "overview": "Several generations following Caesar's reign, apes – now the dominant species – live harmoniously while humans have been reduced to living in the shadows. As a new tyrannical ape leader builds his empire, one young ape undertakes a harrowing journey that will cause him to question all he's known about the past and to make choices that will define a future for apes and humans alike.",
+            "popularity": 1362.39,
+            "poster_path": "/images/apes.jpg",
+            "release_date": "2024-05-08",
+            "title": "Kingdom of the Planet of the Apes",
+            "video": false,
+            "vote_average": 7.172,
+            "vote_count": 2152
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/wNAhuOZ3Zf84jCIlrcI6JhgmY5q.jpg",
+            "genre_ids": [
+                28,
+                12,
+                878
+            ],
+            "id": 786892,
+            "original_language": "en",
+            "original_title": "Furiosa: A Mad Max Saga",
+            "overview": "As the world fell, young Furiosa is snatched from the Green Place of Many Mothers and falls into the hands of a great Biker Horde led by the Warlord Dementus. Sweeping through the Wasteland they come across the Citadel presided over by The Immortan Joe. While the two Tyrants war for dominance, Furiosa must survive many trials as she puts together the means to find her way home.",
+            "popularity": 1337.854,
+            "poster_path": "/images/FuriosaP.jpg",
+            "release_date": "2024-05-22",
+            "title": "Furiosa: A Mad Max Saga",
+            "video": false,
+            "vote_average": 7.655,
+            "vote_count": 2380
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/dn3gbDpXPSwC6saMJOHkCiFA9jn.jpg",
+            "genre_ids": [
+                14,
+                12,
+                10751,
+                35
+            ],
+            "id": 974262,
+            "original_language": "en",
+            "original_title": "Descendants: The Rise of Red",
+            "overview": "After the Queen of Hearts incites a coup on Auradon, her rebellious daughter Red and Cinderella's perfectionist daughter Chloe join forces and travel back in time to try to undo the traumatic event that set Red's mother down her villainous path.",
+            "popularity": 1125.012,
+            "poster_path": "/images/descendant.jpg",
+            "release_date": "2024-07-11",
+            "title": "Descendants: The Rise of Red",
+            "video": false,
+            "vote_average": 7.102,
+            "vote_count": 205
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/3P52oz9HPQWxcwHOwxtyrVV1LKi.jpg",
+            "genre_ids": [
+                28,
+                35,
+                12
+            ],
+            "id": 383498,
+            "original_language": "en",
+            "original_title": "Deadpool 2",
+            "overview": "Wisecracking mercenary Deadpool battles the evil and powerful Cable and other bad guys to save a boy's life.",
+            "popularity": 1069.328,
+            "poster_path": "/images/dead2.jpeg",
+            "release_date": "2018-05-10",
+            "title": "Deadpool 2",
+            "video": false,
+            "vote_average": 7.491,
+            "vote_count": 17363
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/9Y9wTgrMk4G1YNPDDekNk7dybwx.jpg",
+            "genre_ids": [
+                28,
+                12,
+                10752
+            ],
+            "id": 1152624,
+            "original_language": "en",
+            "original_title": "3 Days in Malay",
+            "overview": "Marines stationed at an airfield in Malay during WWII get wind of a coming raid by the Japanese. Unable to get reinforcements approved, they engage in a harrowing 3-day battle against enemy forces.",
+            "popularity": 1017.186,
+            "poster_path":"/images/malay3.jpg",
+            "release_date": "2023-08-11",
+            "title": "3 Days in Malay",
+            "video": false,
+            "vote_average": 5.031,
+            "vote_count": 16
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/wPNI1fd18z5TKBOK9Mv9Rfjb0j0.jpg",
+            "genre_ids": [
+                53,
+                18,
+                28,
+                80
+            ],
+            "id": 729165,
+            "original_language": "en",
+            "original_title": "Out of Exile",
+            "overview": "Recently paroled thief Gabriel Russell tries to balance his life and mend a troubled family as an FBI agent hunts him down, along with his crew after a botched armored car robbery.",
+            "popularity": 1006.516,
+            "poster_path": "/images/outofexile.jpg",
+            "release_date": "2023-01-20",
+            "title": "Out of Exile",
+            "video": false,
+            "vote_average": 6.397,
+            "vote_count": 29
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/2RVcJbWFmICRDsVxRI8F5xRmRsK.jpg",
+            "genre_ids": [
+                27,
+                878,
+                53
+            ],
+            "id": 762441,
+            "original_language": "en",
+            "original_title": "A Quiet Place: Day One",
+            "overview": "As New York City is invaded by alien creatures who hunt by sound, a woman named Sam fights to survive with her cat.",
+            "popularity": 969.283,
+            "poster_path": "/images/quiet.jpg",
+            "release_date": "2024-06-26",
+            "title": "A Quiet Place: Day One",
+            "video": false,
+            "vote_average": 6.8,
+            "vote_count": 547
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/59AJ2w9tKRSbBpnxKfB5UyIg6Jf.jpg",
+            "genre_ids": [
+                27,
+                53
+            ],
+            "id": 1010600,
+            "original_language": "en",
+            "original_title": "The Strangers: Chapter 1",
+            "overview": "After their car breaks down in an eerie small town, a young couple are forced to spend the night in a remote cabin. Panic ensues as they are terrorized by three masked strangers who strike with no mercy and seemingly no motives.",
+            "popularity": 910.449,
+            "poster_path": "/images/st.jpeg",
+            "release_date": "2024-05-15",
+            "title": "The Strangers: Chapter 1",
+            "video": false,
+            "vote_average": 5.976,
+            "vote_count": 231
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/xk2y81O2FljJwuyFP1HoJnCO8ed.jpg",
+            "genre_ids": [
+                878,
+                28,
+                12
+            ],
+            "id": 823464,
+            "original_language": "en",
+            "original_title": "Godzilla x Kong: The New Empire",
+            "overview": "Following their explosive showdown, Godzilla and Kong must reunite against a colossal undiscovered threat hidden within our world, challenging their very existence – and our own.",
+            "popularity": 886.302,
+            "poster_path": "/images/god.jpg",
+            "release_date": "2024-03-27",
+            "title": "Godzilla x Kong: The New Empire",
+            "video": false,
+            "vote_average": 7.188,
+            "vote_count": 3304
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/z121dSTR7PY9KxKuvwiIFSYW8cf.jpg",
+            "genre_ids": [
+                10752,
+                28,
+                18
+            ],
+            "id": 929590,
+            "original_language": "en",
+            "original_title": "Civil War",
+            "overview": "In the near future, a group of war journalists attempt to survive while reporting the truth as the United States stands on the brink of civil war.",
+            "popularity": 864.282,
+            "poster_path": "/images/civil.jpg",
+            "release_date": "2024-04-10",
+            "title": "Civil War",
+            "video": false,
+            "vote_average": 6.978,
+            "vote_count": 2024
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/8fNBsXpgMvqk75SPsZzTmIqSRxY.jpg",
+            "genre_ids": [
+                27,
+                53
+            ],
+            "id": 646683,
+            "original_language": "en",
+            "original_title": "The Exorcism",
+            "overview": "A troubled actor begins to unravel while shooting a supernatural horror film, leading his estranged daughter to wonder if he's slipping back into his past addictions or if there's something more sinister at play.",
+            "popularity": 840.217,
+            "poster_path": "/images/exor.jpg",
+            "release_date": "2024-05-30",
+            "title": "The Exorcism",
+            "video": false,
+            "vote_average": 4.506,
+            "vote_count": 88
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/xKJTWGvheOMMlTHgrjN18KaD9Ra.jpg",
+            "genre_ids": [
+                27,
+                53
+            ],
+            "id": 1174618,
+            "original_language": "en",
+            "original_title": "Alice in Terrorland",
+            "overview": "A recently bereaved teenage girl goes to live with her aunt in a secluded woodland house, unaware that sinister forces lurk within.",
+            "popularity": 825.12,
+            "poster_path": "/images/terrorland.jpg",
+            "release_date": "2023-12-26",
+            "title": "Alice in Terrorland",
+            "video": false,
+            "vote_average": 6.1,
+            "vote_count": 111
+        }
+    ],
+    "total_pages": 45331,
+    "total_results": 906603
+}

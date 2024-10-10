@@ -1,0 +1,121 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif; /* Apply the modern font */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
+}
+
+/* Ensure the navbar stays fixed at the top */
+.navbar1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+    background-color: #7934DF;
+    padding: 0 20px;
+    position: fixed; /* Fix the navbar to the top */
+    top: 0; /* Position at the top */
+    left: 0;
+    width: 100%; /* Full width of the viewport */
+    z-index: 1000; /* Ensure it stays on top of other content */
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+}
+
+/* Adjust the logo styling */
+.logo {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.logo img {
+    width: 350px; /* Adjusted width */
+    height: 250px; /* Adjusted height */
+    margin-right: 10px;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease; /* Smooth transition for scaling */
+}
+
+.logo img:hover {
+    transform: scale(1.05); /* Slightly scale up on hover */
+}
+
+/* Style for nav links */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth transitions for transform and opacity */
+}
+
+.nav-links li {
+    display: inline;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1em;
+    font-weight: 400; /* Use regular font weight */
+    transition: color 0.3s, font-weight 0.3s; /* Smooth transitions for color and font-weight */
+}
+
+.nav-links a:hover {
+    color: #f0a500;
+    font-weight: 700; /* Make font bold on hover */
+}
+
+/* Burger menu styling */
+.burger {
+    display: none;
+    cursor: pointer;
+    transition: transform 0.3s ease; /* Smooth transition for burger icon */
+}
+
+.burger div {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 5px;
+    transition: all 0.3s ease; /* Smooth transition for lines */
+}
+
+/* Animation for burger menu lines */
+.burger.active div:nth-child(1) {
+    transform: rotate(45deg) translateY(8px); /* Top line to middle position */
+}
+
+.burger.active div:nth-child(2) {
+    opacity: 0; /* Hide middle line */
+}
+
+.burger.active div:nth-child(3) {
+    transform: rotate(-45deg) translateY(-8px); /* Bottom line to middle position */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 70px; /* Position below the fixed navbar */
+        left: 0;
+        background-color: #333;
+        opacity: 0; /* Start hidden */
+        transform: translateY(-20px); /* Start above the visible area */
+    }
+
+    .nav-links.active {
+        display: flex;
+        opacity: 1; /* Fade in */
+        transform: translateY(0); /* Slide down */
+    }
+
+    .burger {
+        display: block;
+    }
+}
