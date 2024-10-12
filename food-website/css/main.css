@@ -118,7 +118,7 @@ html {
 .services .text-box h1 {
     font-size: 12rem;
     font-weight: bold;
-    color: black;
+    color: #242323;
     text-align: left;
     width: 30%;
     margin: 0 6rem;
@@ -130,6 +130,8 @@ html {
     text-align: left;
     /* width: 30%; */
     margin: 0 6rem;
+    color: #1f1e1e;
+
 }
 
 .services .img-box {
@@ -150,7 +152,7 @@ html {
 .services .img-box img {
     width: 25rem;
     height: 25rem;
-    box-shadow: 5px 5px 10px 1px black;
+    box-shadow: 5px 5px 10px 1px #1f1e1e;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -166,47 +168,71 @@ html {
 /* ############################# ABOUT ##################### */
 
 .about {
-    height: 100%;
+    height: 100vh;
     width: 100%;
     padding: 0 6rem;
+    margin-top: 10em;
 }
 
 .about h1 {
     height: 20%;
     font-size: 10rem;
-    margin: 0 2rem;
+    text-align: center;
+    font-weight: 600;
+    color: #242323;
+    margin-bottom: 3rem;
 }
 
 .about .about-box {
     display: flex;
-    height: 46%;
-    justify-content: space-evenly;
-    align-items: center;
+    height: 60%;
+    justify-content: space-between;
+    /* background-color: red; */
+    padding-right: 5em;
     /* flex-wrap: wrap; */
 }
 
 .about .about-box .about-img {
-    width: auto;
+    height: 100%;
+    width: 40%;
+    /* background-color: blue; */
 }
 
 .about .about-box .about-img img {
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 65rem;
-    height: 46%;
-    margin: 0 1rem;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
 }
 
 .about .about-box .about-content {
-    width: auto;
-    margin: 0 1rem;
+    width: 54%;
+    height: 92%;
+    margin-top: 3rem;
 }
 
 .about .about-box .about-content p {
-    font-size: 4rem;
+    font-size: 3rem;
     text-align: left;
     margin: 0 1rem;
+    font-weight: 400;
+    color: #1f1e1e;
+}
+
+.about .about-box .about-content button {
+    margin: 3rem 1rem;
+    padding: 2rem 2rem;
+    font-size: 2.1rem;
+    font-weight: 400;
+    background: #fafafa;
+    border: 2px solid #1f1e1e;
+    border-radius: 30px;
+    color: #1f1e1e;
+    cursor: pointer;
+
+    &:hover{
+        background-color: #1f1e1e;
+        color: #fafafa;
+    }
 }
 
 
@@ -219,6 +245,7 @@ html {
 }
 
 .contact h1 {
+    color: #1f1e1e;
     font-size: 10rem;
     font-weight: bold;
 }
