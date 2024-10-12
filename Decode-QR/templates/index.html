@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Decoder</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #0f172a;
+            color: #e2e8f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background-color: #1e293b;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 400px;
+        }
+        h1 {
+            color: #60a5fa;
+            margin-bottom: 1.5rem;
+        }
+        input[type="file"] {
+            display: none;
+        }
+        label {
+            background-color: #3b82f6;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+        }
+        label:hover {
+            background-color: #2563eb;
+        }
+        .result {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            border-radius: 4px;
+            font-size: 1rem;
+            word-break: break-all;
+        }
+        .result .error {
+            background-color: #dc2626;
+            color: #fecaca;
+        }
+        .result .success {
+            background-color: #059669;
+            color: #d1fae5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>QR Code Decoder</h1>
+        <form id="upload-form" enctype="multipart/form-data">
+            <label for="file-input">Upload QR Code Image</label>
+            <input type="file" id="file-input" name="file" accept="image/*">
+            <div class="result"></div>
+        </form>
+    </div>
+    <script>
+        const form = document.getElementById('upload-form');
+        const fileInput = document.getElementById('file-input');
+        const resultDiv = document.querySelector('.result');
+
+        fileInput.addEventListener('change', function() {
+            const formData = new FormData();
+            formData.append('file', fileInput.files[0]);
+
+            resultDiv.innerHTML = '<p>Processing...</p>';
+            resultDiv.className = 'result';
+
+            fetch('/upload', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    resultDiv.innerHTML = `<p>${data.error}</p>`;
+                    resultDiv.className = 'result error';
+                } else {
+                    resultDiv.innerHTML = `<p>QR Code Data: ${data.data}</p>`;
+                    resultDiv.className = 'result success';
+                }
+            })
+            .catch(error => {
+                resultDiv.innerHTML = `<p>Error decoding the QR code</p>`;
+                resultDiv.className = 'result error';
+            });
+        });
+    </script>
+</body>
+</html>

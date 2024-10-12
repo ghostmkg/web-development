@@ -58,6 +58,96 @@ nav ul li a:hover {
     align-items: center;
 }
 
+/* General Styling for the Navbar */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #2874f0; /* Flipkart's blue color */
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000; /* Ensures the navbar stays on top */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Adds a shadow to the navbar */
+}
+
+/* Logo */
+.logo {
+    margin-left: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+}
+
+/* Navigation Links Styling */
+nav ul {
+    list-style: none;
+    display: flex;
+    margin-right: 50px;
+}
+
+nav ul li {
+    margin: 0 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease; /* Smooth transition for hover */
+}
+
+nav ul li a:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Search Bar Styling */
+.search-container {
+    display: flex;
+    align-items: center;
+    margin-right: 50px;
+}
+
+.search-container input[type="text"] {
+    padding: 8px;
+    font-size: 14px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    width: 300px;
+}
+
+.search-container button {
+    padding: 8px 12px;
+    margin-left: 10px;
+    background-color: #0056b3; /* Initial color */
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Add smooth transition */
+}
+
+.search-container button:hover {
+    background-color: #003d80; /* Darker color on hover */
+    transform: translateX(5px); /* Small movement to the right on hover */
+}
+
+/* Add margin-top to the content so it doesn't overlap with fixed navbar */
+.content {
+    margin-top: 80px;
+}
+
+/* Navbar Links Hover */
+nav ul li a:hover {
+    background-color: #0369d6; /* Darker blue on hover */
+}
+
 .search input {
     height: 25px;
     width: 30vw;
@@ -69,9 +159,13 @@ nav ul li a:hover {
 .search button {
     font-weight: 900;
     font-family: 'Lato', sans-serif;
-    border: 2px solid #1f62ce;
+    border: 2px solid #eeeff1;
+    
 }
-
+.search button:hover {
+    background-color: #039129; /* Color change on hover (new color) */
+    transform: translateX(5px); /* Slight move on hover */
+}
 .slider {
     width: 74vw;
     margin: 12px auto;
