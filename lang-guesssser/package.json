@@ -1,0 +1,17 @@
+{
+  "name": "lang-guesser",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Arya Kumar",
+  "license": "ISC",
+  "description": "",
+  "type": "module",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "franc": "^6.2.0",
+    "langs": "^2.0.0"
+  }
+}
