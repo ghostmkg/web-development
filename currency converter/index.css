@@ -1,0 +1,98 @@
+*
+{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+body
+{
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    min-height: 100vh;
+    background-image:url("bg.jpg");
+    background-size: cover;
+    background-position:center;
+}
+.container
+{
+   background-color:#F8F0E5;
+   padding:1rem;
+   border-radius:1rem;  
+   height:55vh;       
+   width:55vh;  
+   margin-left:550px;      
+}
+.amount p
+{
+    font-size:1.5rem;
+}
+form
+{
+    margin:2rem 0 1rem 0;
+}
+form select , button , input
+{
+    width:100%;
+    border:none;
+    outline:none;
+    border-radius:0.75rem;
+}
+form input
+{
+    border:1px solid grey;
+    font-size:1rem;
+    height:3rem;
+    padding-left:0.5rem;
+}
+.dropdown
+{
+    display:flex;
+    justify-content:space-between;
+    align-items: center;
+    margin-top:2rem;
+}
+.dropdown i 
+{
+    font-size:1.5rem;
+}
+.select-container img
+{
+    max-width: 2rem;
+}
+.select-container
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.5rem;
+    border:1px solid lightgrey;
+
+    width:6rem;
+}
+.select-container select
+{
+    font-size:1.1rem;
+    width:auto;
+}
+.msg
+{
+    margin:2rem 0 2rem;
+}
+form button 
+{
+    height:3rem;
+    cursor:pointer;
+    background-color:#e0ac69;
+    font-size:1.15rem;
+
+}
+
+form button:hover
+{
+    background-color:transparent;
+    border:2px solid grey;
+    transition:0.3s;
+
+}
