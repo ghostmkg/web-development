@@ -1,0 +1,61 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f0f0f0;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 1.2rem;
+}
+
+.game-container {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.hole {
+    width: 100px;
+    height: 100px;
+    background-color: #8b4513;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+}
+
+.mole {
+    width: 80px;
+    height: 80px;
+    background-color: #555;
+    border-radius: 50%;
+    position: absolute;
+    bottom: -80px;
+    left: 10px;
+    transition: all 0.3s ease;
+}
+
+.mole.up {
+    bottom: 10px;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
