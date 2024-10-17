@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="web.css">
+    <title>Days and Years Calculator</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Days and Years Calculator</h1>
+        <label for="startDate">Start Date:</label>
+        <input type="date" id="startDate">
+
+        <label for="endDate">End Date:</label>
+        <input type="date" id="endDate">
+
+        <button onclick="calculateDaysAndYears()">Calculate</button>
+
+        <p id="result">Number of days: <span id="outputDays"></span></p>
+        <p id="result">Number of years: <span id="outputYears"></span></p>
+    </div>
+
+    <script type="text/javascript" src="web.js"></script>
+</body>
+
+</html>
