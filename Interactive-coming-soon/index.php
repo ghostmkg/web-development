@@ -9,8 +9,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $to = 'amit3445078@gmail.com';
         $subject = 'New Subscription Request';
         $message = "New subscription request:\n\nEmail: $email";
-        $headers = 'From: no-reply@ar-magic.com' . "\r\n" .
-                   'Reply-To: no-reply@ar-magic.com' . "\r\n" .
+        $headers = 'From: no-reply@vishalvoid.com' . "\r\n" .
+                   'Reply-To: no-reply@vishalvoid.com' . "\r\n" .
                    'X-Mailer: PHP/' . phpversion();
 
         // Send email
