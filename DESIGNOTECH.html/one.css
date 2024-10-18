@@ -1,0 +1,161 @@
+*
+{
+    padding:0;
+    margin:0;
+    box-sizing:border-box;
+    font-family:sans-serif;
+}
+.header
+{
+    width:100%;
+    height:100px;
+    display:flex;
+    justify-content: space-between;
+    background-image:linear-gradient(rgb(129, 129, 173),rgb(239, 234, 234));
+    background-repeat:repeat;
+    color:white;
+    opacity:0.9;
+}
+.header img
+{
+    height:100px;
+    width:80px; 
+
+}
+.header h1
+{
+    margin-left:40px;
+    margin-top:20px;
+    font-size:50px;
+    color:black;
+    animation:jump 3s infinite;
+}
+@keyframes jump
+{
+    transform: scaleX(20deg);
+}
+.mid-content
+{
+    background-image:url("img1.jpg");
+    height:300px;
+    width:100%;
+}
+.w-content
+{
+  width:100%;
+  height:600px;
+  display:flex;
+  justify-content: space-around;
+  background-image:linear-gradient(rgb(129, 129, 173),rgb(239, 234, 234));
+
+}
+.services
+{
+    height:530px;
+    width:300px;
+    border-radius:10px;
+    background-color:wheat;
+    margin-top:40px;
+    margin-left:30px;
+}
+.services h1
+{
+    border-radius:8px;
+}
+.services img
+{
+    border-radius:50%;
+}
+.services p
+{
+    text-align: justify;
+}
+.equipmentm
+{
+    height:530px;
+    width:300px;
+    border-radius:10px;
+    background-color:silver;
+    margin-top:40px;
+    margin-left:60px;
+}
+.equipmentm h1
+{
+    border-radius:8px;
+}
+.equipmentm p   
+{
+    text-align: justify;
+}
+.equipmentm img
+{
+    border-radius:50%;
+    margin-left:20px;
+
+}
+.offshore
+{
+
+    height:530px;
+    width:300px;
+    border-radius:10px;
+    background-color:rgb(164, 162, 158);    
+    margin-top:40px;
+    margin-left:60px;
+}
+.offshore h1
+{
+
+    border-radius:8px;  
+}
+.offshore p
+{
+    text-align: justify;
+}
+.blog
+{
+    height:300px;
+    width:100%;
+
+}
+.blog
+{
+    background-image:linear-gradient(rgb(129, 129, 173),rgb(239, 234, 234));
+}
+fieldset
+{
+    background-image:linear-gradient(rgb(129, 129, 173),rgb(239, 234, 234));
+}
+.footer
+{
+    height:105px;
+    width:100%;
+    margin-top:48px;
+    margin-left:0px;
+}
+input
+{
+    font-size:20px;
+    background-image:linear-gradient(rgb(129, 129, 173),rgb(239, 234, 234));
+}
+button
+{
+    font-size:20px;
+}
+.map iframe
+{
+    width:100%;
+    height:500px;
+    margin-top:0px;
+}
+.contact-us
+{
+    background-image:linear-gradient(rgb(129, 129, 173),rgb(239, 234, 234));
+}
+.contact-us a 
+{
+    font-size:30px;
+}
+
+
+
