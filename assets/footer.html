@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Footer</title>
+    <script src="https://kit.fontawesome.com/e53e5049e2.js" crossorigin="anonymous"></script>
+    <style>
+        
+
+
+
+footer{
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    background: linear-gradient(to right, #00093c, #2d0b00);
+    color: #fff;
+    padding: 100px 0 30px;
+    border-top-left-radius: 125px;
+    font-size: 13px;
+    line-height: 20px;
+    left: 0;
+    right: 0;
+
+}
+
+.row{
+    width: 85%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+
+.col{
+    flex-basis:20%;
+    padding: 10px;
+}
+
+.col:nth-child(2) .col:nth-child(3){
+    flex-basis: 15%;
+}
+
+.logo{
+    width: 60px;
+    border-radius: 50%;
+    margin-bottom: 5px;
+}
+
+.col h3{
+    width: fit-content;
+    margin-bottom: 40px;
+    position: relative;
+    font-size: 20px;
+}
+.email-id{
+    width: fit-content;
+    border-bottom: 1px solid #ccc ;
+    margin: 20px 0;
+}
+
+.col p a{
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    
+}
+
+.col p{
+    color: #fff;
+    font-size: 18px;
+}
+
+form{
+    padding-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 50px;
+}
+
+form .far{
+    font-size: 18px;
+    margin-right: 10px;
+}
+
+form input{
+    width: 100%;
+    background-color: transparent;
+    color: #ccc;
+    border: 0;
+    outline: none;
+}
+
+form button{
+    background: transparent;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+}
+
+form button .fas{
+    font-size: 16px;
+    color: #ccc;
+
+
+}
+
+.social-icons .fa-brands{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    font-size: 20px;
+    color: #000;
+    background: #fff;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+hr{
+    width: 90%;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+    margin: 20px auto;
+}
+
+.footer-p{
+    font-size: 15px;
+    text-align: center;
+}
+
+.underline{
+    width: 100%;
+    height: 5px;
+    background:#767676;
+    border-radius: 3px;
+    position: absolute;
+    top: 25px;
+    left: 0;
+    overflow: hidden;
+}
+
+.underline span{
+    width: 15px;
+    height: 100%;
+    background-color: #fff;
+    border-radius: 3px;
+    position: absolute;
+    top: 0;
+    left: 10px;
+    animation: moving 2s linear infinite;
+}
+
+@keyframes moving{
+    0%{
+        left: -20px;
+    }
+    100%{
+        left: 100%;
+    }
+
+}
+
+@media (max-width: 670px){
+    footer{
+        bottom: unset;
+    }
+
+    .col{
+        flex-basis: 100%;
+    }
+
+    .col:nth-child(2) .col:nth-child(3){
+        flex-basis: 100%;
+    }
+}
+    </style>
+</head>
+
+<body>
+    <footer>
+        <div class="row">
+            <div class="col"><img src="avatar.jpg" alt="" class="logo">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias labore temporibus ullam, officia
+                    dolores non vel placeat illo qu......</p>
+            </div>
+            <div class="col">
+                <h3>Office <div class="underline"><span></span></div></h3>
+                <p>Address line 1</p>
+                <p>Address line 2</p>
+                <p>address line 3</p>
+                <p class="email-id">
+                    info@medilife.com
+                </p>
+                <h4>+91-1234567890</h4>
+            </div>
+            <div class="col">
+                <h3>Links <div class="underline"><span></span></div></h3>
+
+                <p><a href="">Home</a></p>
+                <p><a href="">Home</a></p>
+                <p><a href="">Home</a></p>
+                <p><a href="">Home</a></p>
+                <p><a href="">Home</a></p>
+
+            </div>
+            <div class="col">
+                <h3>Newsletter <div class="underline"><span></span></div></h3>
+
+                <form>
+
+
+                    <i class="far fa-envelope"></i>
+
+                    <input type="email" placeholder="Enter your email id" required>
+                    <button><i class="fas fa-arrow-right"></i></button>
+                </form>
+                <div class="social-icons">
+                    <i class="fa-brands fa-facebook-f"></i>
+                    <i class="fa-brands fa-instagram"></i>
+                    <i class="fa-brands fa-x-twitter"></i>
+                    <i class="fa-brands fa-whatsapp"></i>
+
+                </div>
+            </div>
+
+
+        </div>
+        <hr>
+        <p class="footer-p">Made with love by Pratish Khandelwal</p>
+    </footer>
+
+
+</body>
+
+</html>
