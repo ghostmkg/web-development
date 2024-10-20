@@ -6,6 +6,7 @@ function createSnakeGame(canvas) {
     let food = { x: 15, y: 15 };
     let score = 0;
     let highScore = 0;
+    let gamePaused = false; 
 
     function draw() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -64,6 +65,9 @@ function createSnakeGame(canvas) {
     }
 
     document.addEventListener('keydown', (e) => {
+        if (e.code === 'Space') {  // Check for space bar key press
+            gamePaused = !gamePaused;  // Toggle game pause state
+        } else if (!gamePaused) {
         if (e.key === 'ArrowUp' && dy === 0) {
             dx = 0;
             dy = -10;
@@ -77,11 +81,14 @@ function createSnakeGame(canvas) {
             dx = 10;
             dy = 0;
         }
+    }
     });
 
     function gameLoop() {
+        if (!gamePaused) {
         move();
         draw();
+        }
         setTimeout(gameLoop, 100);
     }
 
