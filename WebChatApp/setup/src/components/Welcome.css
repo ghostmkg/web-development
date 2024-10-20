@@ -1,0 +1,57 @@
+/* Welcome.css */
+
+/* Container for the entire component */
+.welcome-container {
+    text-align: center;
+    padding: 20px;
+    background-color: #f2f2f2;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  /* Title styling */
+  .welcome-title {
+    font-size: 24px;
+    color: #333;
+    margin-top: 20px;
+  }
+  
+  /* Logo styling */
+  .logo {
+    width: 50px;
+    height: 50px;
+    margin-top: 20px;
+  }
+  
+  /* Text styling */
+  .welcome-text {
+    font-size: 16px;
+    color: #555;
+    margin-top: 20px;
+  }
+  
+  /* Sign-in button styling */
+  .sign-in-button {
+    background-color: #4285f4; /* Google blue */
+    color: #fff;
+    border: black;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  
+  /* Google Sign-in image styling */
+  .google-signin-image {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+  }
+  
+  /* Hover effect on the sign-in button */
+  .sign-in-button:hover {
+    background-color: #357ae8; /* Slightly darker blue on hover */
+  }
+  
