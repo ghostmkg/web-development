@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GitHub Repositories Viewer</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+ 
+  <style>
+    body {
+      background-color: #f0f0f0;
+    }
+
+    .container {
+      margin-top: 50px;
+    }
+
+    .box-container {
+      background-color: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+    }
+
+    .logo {
+      max-width: 100%;
+      height: auto;
+    }
+
+    h1 {
+      text-align: center;
+      color: #343a40;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .btn-gh-green {
+      background-color: #21b799;
+      border-color: #21b799;
+      color: #fff;
+    }
+
+    .btn-gh-green:hover {
+      background-color: #159575;
+      border-color: #159575;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8 col-lg-6">
+        <div class="box-container">
+          <img src="github-mark.png" alt="GitHub Logo" class="logo mb-4 d-block mx-auto">
+          <h1 class="mb-4">GitHub Repositories Viewer</h1>
+          <form id="githubForm">
+            <div class="form-group">
+              <label for="username" class="sr-only">GitHub Username</label>
+              <input type="text" class="form-control" id="username" placeholder="Enter GitHub Username">
+            </div>
+            <button type="button" class="btn btn-gh-green btn-block" onclick="fetchRepositories()">Fetch Repositories</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="results.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
