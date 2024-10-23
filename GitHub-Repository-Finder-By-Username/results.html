@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Repositories Viewer - Results</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+    
+         .page-link {
+    color: #28a745;
+  }
+
+
+        .box-container {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin-bottom: 20px;
+        }
+
+        .logo {
+            max-width: 10%;
+            height: auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #343a40;
+        }
+
+        .user-details {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .user-avatar {
+            max-width: 100px;
+            height: auto;
+            border-radius: 50%;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .btn-gh-green {
+            background-color: #28a745;
+            border-color: #28a745;
+            color: #fff;
+        }
+
+        .btn-gh-green:hover {
+            background-color: #218838;
+            border-color: #218838;
+        }
+
+        .pagination {
+            justify-content: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-6">
+                <div class="box-container">
+                    <img src="github-mark.png" alt="GitHub Logo" class="logo mb-4 d-block mx-auto">
+                    <h1 class="mb-4">GitHub Repositories</h1>
+
+                    <!-- Display user details: username and avatar -->
+                    <div class="user-details">
+                        <img src="" alt="User Avatar" class="user-avatar" id="userAvatar">
+                        <h3 id="username"></h3>
+                    </div>
+
+                    <!-- Display options: repositories per page, search bar -->
+                    <div class="d-flex justify-content-between mb-4">
+                        <div class="form-group">
+                            <label for="reposPerPage">Repositories per page:</label>
+                            <select id="reposPerPage" class="form-control">
+                                <option value="10" selected>10</option>
+                                <option value="20">20</option>
+                                <option value="50">50</option>
+                                <option value="100">100</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="searchRepo">Search repositories:</label>
+                            <input type="text" id="searchRepo" class="form-control" placeholder="Enter repository name">
+                        </div>
+                    </div>
+
+                    <!-- Display loader when API calls are in progress -->
+                    <div id="loader" class="text-center">
+                        <div class="spinner-border text-success" role="status">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                        <p>Loading repositories...</p>
+                    </div>
+
+                    <!-- Display repositories -->
+                    <div id="repositories"></div>
+
+                    <!-- Pagination controls -->
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination" id="pagination"></ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="results.js"></script>
+</body>
+</html>
