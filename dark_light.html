@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Mode / Light Mode Toggle</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .container {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        body.light-mode {
+            background-color: #ffffff;
+            color: #000000;
+        }
+
+        body.dark-mode {
+            background-color: #000000;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Dark Mode / Light Mode Toggle</h1>
+        <button id="toggle-button">Toggle Dark/Light Mode</button>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const toggleButton = document.getElementById('toggle-button');
+
+            // Check if dark mode preference is already saved in localStorage
+            if (localStorage.getItem('mode') === 'dark') {
+                document.body.classList.add('dark-mode');
+            } else {
+                document.body.classList.add('light-mode');
+            }
+
+            toggleButton.addEventListener('click', function () {
+                document.body.classList.toggle('dark-mode');
+                document.body.classList.toggle('light-mode');
+
+                // Save the current mode in localStorage
+                if (document.body.classList.contains('dark-mode')) {
+                    localStorage.setItem('mode', 'dark');
+                } else {
+                    localStorage.setItem('mode', 'light');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
