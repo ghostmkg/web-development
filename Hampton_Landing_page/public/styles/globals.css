@@ -1,0 +1,162 @@
+/* Reset styles */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+html {
+  font-size: 15px;
+  -webkit-user-select: none;
+  user-select: none;
+}
+body {
+  min-height: 100dvh;
+  background-image: url(../../images/12983307_5119498.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #fff;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  display: inline-block;
+}
+
+a:visited {
+  color: rebeccapurple;
+}
+
+li {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+/* Typography styles */
+
+h1,
+h2,
+h3 {
+  font-size: 2.35rem;
+  line-height: 1.3;
+  margin-top: 0;
+}
+
+/* reused styles */
+
+.container {
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 18px;
+}
+
+/* button components */
+
+.btn {
+  background-color: hsl(271, 89%, 33%);
+  color: hsl(0, 0%, 96%);
+  padding: 0.55rem 0.98rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-weight: 400;
+  transition: background-color 2ms ease-in;
+  border: none;
+  outline: none;
+}
+
+.btn:hover {
+  background-color: hsl(271, 84%, 42%);
+}
+.btn-ouline {
+  background-color: transparent;
+}
+
+/* Nav section */
+.navbar {
+  padding: 1.5rem 0;
+}
+
+.navbar .navlink-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.brand {
+  text-transform: uppercase;
+}
+ul {
+  display: none;
+}
+
+.navlink {
+  padding-left: 15px;
+}
+
+/* Hero contents styling */
+.hero {
+  padding: 3.5rem 0;
+  height: 80vh;
+}
+
+.hero-wrapper {
+  display: -moz-grid;
+  display: grid;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.hero-subtext {
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 300;
+  letter-spacing: 0.035em;
+  color: hsl(0, 1%, 48%);
+}
+
+.hero-title {
+  font-size: clamp(22px, 3.8rem, 68px);
+  line-height: 1.2;
+  margin-bottom: 1.3rem;
+}
+
+.hero-title span {
+  color: hsl(271, 76%, 53%);
+}
+
+.hero-description {
+  margin-bottom: 1.4rem;
+}
+
+.illustration-img {
+  background-image: url(../../images/hero-img.jpg);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: 40% 10%;
+  border-radius: 10px;
+  aspect-ratio: 2/2;
+  height: 80%;
+  width: 80%;
+}
+
+/* media-queries */
+
+@media screen and (width >= 1024px) {
+  ul {
+    display: flex;
+  }
+
+  .hero-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+  }
+}
