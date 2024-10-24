@@ -1,0 +1,97 @@
+/* Basic styling for the page */
+body, html {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+    background-size: 400% 400%;
+    animation: gradientAnimation 15s ease infinite;
+    color: #ffffff;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Gradient animation for background */
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Container for the game */
+.game-container {
+    width: 600px;
+    height: 400px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 2px solid #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Paddle styling */
+.paddle {
+    width: 100px;
+    height: 20px;
+    background: linear-gradient(90deg, #ff6347, #ff4500);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 69, 0, 0.8);
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: transform 0.1s ease-in-out, background 0.3s ease-in-out;
+}
+
+/* Paddle movement animation */
+.paddle:active {
+    transform: scale(0.95);
+    background: linear-gradient(90deg, #ff4500, #ff6347);
+}
+
+/* Ball styling */
+.ball {
+    width: 20px;
+    height: 20px;
+    background: radial-gradient(circle, #00bfff, #1e90ff);
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(30, 144, 255, 0.8);
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: ballBounce 0.5s infinite alternate ease-in-out;
+}
+
+/* Ball bounce animation */
+@keyframes ballBounce {
+    0% { transform: translateY(0) scale(1); }
+    100% { transform: translateY(-15px) scale(1.1); }
+}
+
+/* Scoreboard styling */
+.scoreboard {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 5px 15px;
+    border-radius: 5px;
+    font-size: 20px;
+    color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+    animation: scoreFlash 0.3s ease-in-out;
+}
+
+/* Scoreboard score update animation */
+@keyframes scoreFlash {
+    0% { transform: scale(1); color: #fff; }
+    50% { transform: scale(1.2); color: #ffff00; }
+    100% { transform: scale(1); color: #fff; }
+}
