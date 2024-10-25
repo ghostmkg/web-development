@@ -1,0 +1,184 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Even Odd Finder</title>
+
+    <style>
+
+        body {
+
+            background-color: #f0f8ff;
+
+            font-family: 'Arial', sans-serif;
+
+            margin: 0;
+
+            padding: 0;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            height: 100vh;
+
+            color: #333;
+
+        }
+
+        .container {
+
+            text-align: center;
+
+            background: white;
+
+            padding: 40px;
+
+            border-radius: 15px;
+
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+
+        }
+
+        h1 {
+
+            font-size: 48px;
+
+            margin-bottom: 20px;
+
+            color: #4a90e2;
+
+        }
+
+        input[type="number"] {
+
+            font-size: 24px;
+
+            padding: 10px;
+
+            width: 300px;
+
+            border-radius: 10px;
+
+            border: 1px solid #ddd;
+
+            margin-bottom: 20px;
+
+            transition: border-color 0.3s ease;
+
+        }
+
+        input[type="number"]:focus {
+
+            border-color: #4a90e2;
+
+            outline: none;
+
+        }
+
+        input[type="submit"] {
+
+            font-size: 24px;
+
+            padding: 10px 20px;
+
+            color: white;
+
+            background-color: #4a90e2;
+
+            border: none;
+
+            border-radius: 10px;
+
+            cursor: pointer;
+
+            transition: background-color 0.3s ease;
+
+        }
+
+        input[type="submit"]:hover {
+
+            background-color: #357abd;
+
+        }
+
+        #ans {
+
+            font-size: 36px;
+
+            margin-top: 20px;
+
+            color: #333;
+
+        }
+
+    </style>
+
+    <script>
+
+        function find() {
+
+            event.preventDefault();
+
+            let num = document.getElementById("num");
+
+            let ans = document.getElementById("ans");
+
+            if(num.value.length == 0) {
+
+                alert("Please enter a valid integer.");
+
+                num.focus(); 
+
+                ans.innerHTML = ""; 
+
+                return;
+
+            }
+
+            let n = parseInt(num.value);
+
+            let r = n % 2 === 0 ? "Even" : "Odd";
+
+            let msg = "Result: " + r;
+
+            ans.innerHTML = msg;
+
+        }
+
+    </script>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Even Odd Finder</h1>
+
+        <form onsubmit="return find()">
+
+            <input type="number" placeholder="Enter an integer" id="num" required/>
+
+            <br>
+
+            <input type="submit" value="Find"/>
+
+        </form>
+
+        <div id="ans"></div>
+
+    </div>
+
+</body>
+
+</html>
