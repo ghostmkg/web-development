@@ -1,100 +1,190 @@
-body{
-    background-color: black;
+:root {
+  --background: black;
+  --text: white;
+  --card: #333;
+  --box: #ff5945;
+}
+
+* {
+  margin: 0;
+}
+
+body {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  background-color: var(--background);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.application {
+  background-color: var(--card);
+  padding: 30px;
+  border-radius: 1.3rem;
+  transition: all 0.5s ease;
+
+  &:hover {
+    background-color: #444444af; /* Slightly lighter than the original */
+    transform: scale(1.2); /* Slightly increases size */
+    box-shadow: 1px 0px 70px 20px var(--box); /* Deeper shadow on hover */
+  }
+
+  /* heading changes color when hovered */
+  &:hover h1 {
+    color: var(--box);
+  }
+
+  /* button changes color when hovered */
+  &:hover .row button {
+    background-color: var(--box);
+    color: var(--text);
+
+  }
+
+  /* inputbox changes color when hovered */
+  &:hover .row input {
+    color: var(--box);
+    background-color: var(--text);
+
+  }
+
+  &:hover .row
+  {
+    transform: scale(1.1);
+  }
+
 
 }
 
-.message{
-    width: 300px;
-    margin: 22% auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
+/* placeholder changes text color changes color when hovered */
+.application:hover .row input::placeholder {
+  color: var(--box);
 }
 
-.hide{
-    display: none;
+h1 {
+  color: var(--text);
+  transition: all 0.5s ease;
 }
 
-.alert{
-    width: 200px;
-    height: 50px;
-    background-color:darkcyan;
-    color:  white;
-    border-radius: 5px;
-    border: 3px solid darkcyan;
-    font-family: monospace;
-    font-size: 30px;
-    font-weight: bold;
+.row {
+  margin: 2rem auto;
+  display: flex;
+  width: 20vw;
+  justify-content: center;
+  border-radius: 1000px;
+  padding: 30px 30px;
+  background-color: var(--background);
+  transition: all 0.5s ease;
+}
+
+.row input {
+  width: 100%;
+  padding: 1.25rem;
+  border-radius: 30px 0px 0px 30px;
+  text-align: center;
+  background-color: var(--card);
+  font-size: 1.3rem;
+  font-weight: bold;
+  border: none;
+  transition: all 0.5s ease;
+  color: var(--text);
+
+  &:focus {
+    outline: none;
+  }
+
+  &::placeholder {
+    color: var(--text);
+    transition: all 0.5s ease;
+  }
+}
+
+.row button {
+  background-color: var(--text);
+  font-weight: bolder;
+  font-size: 1.3rem;
+  text-align: left;
+  padding: 0px 2.5rem;
+  border-radius: 0px 30px 30px 0px;
+  transition: all 0.5s ease;
+  border: none;
+}
+
+ul li {
+  list-style: none;
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin: 1.1rem;
+  padding: 20px;
+  background-color: var(--background);
+  border-radius: 3rem;
+  user-select: none;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease;
+
+  &::after {
+    content: "";
+    position: absolute;
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+    background-image: url(icons/unchecked.png);
+    background-size: cover;
+    background-position: center;
+    top: 17px;
+    left: -40px;
+    transition: all 0.3s ease; /* Added for smooth transition */
+  }
+
+  &:hover
+  {
+    background-color: var(--box);
+    transform: scale(1.1);
+
+  }
+}
+
+ul li.check {
+  color: #ff58457c;
+  text-decoration: line-through;
+
+  &:hover
+  {
+    color: var(--text); 
+  }
+
+  /* Changes the icon to 'checked' when .check is applied */
+  &::after {
+    background-image: url(icons/checked.png);
+  }
+}
+
+
+ul li span
+{
+    position: absolute;
+    right:10px;
+
+    top: 9px;
+    width: 3rem;
+    height: 3rem;
+    font-size: 2rem;
+    color: #555;
+    line-height: 48px;
     text-align: center;
-    border: 3px solid white;
-}
+    transition: all 0.3s ease;
+    background-color: rgb(255, 255, 255);
+    border-radius: 50px;
 
-.bbt{
-    width: 200px;
-    height: 50px;
-    background-color: white;
-    color: darkcyan;
-    border-radius: 5px;
-    border: 3px solid darkcyan;
-    font-family: monospace;
-    font-size: 30px;
-    font-weight: bold;
-
-}
-
-.game{
-    width: 300px;
-    height: 350px;
-    background-color: darkcyan;
-    margin:  19vh auto;
-    border-radius: 10px;
-    border: 3px solid white;
-    padding: 30px;
-    text-align: center;
-    font-weight: 900;
-    color: aliceblue;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
-
-.btn{
-
-    margin:40px auto;
-    width: 300px;
-    height: 300px;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    gap: 10px;
-}
-
-.btn button{
-    border-radius: 10px;
-    font-size: 50px;
-    font-weight: 700;
-
-    &:hover{
-        background-color:darkcyan;
-        color: aliceblue;
+    &:hover
+    {
+        border-radius: 50px;
+        background-color: var(--card);
+        color: var(--text);
     }
-}
 
-.name{
-    font-size: 40px;
-    margin-bottom: -30px;
-    border: 2px solid;
 
-}
-
-.reset{
-    width: 200px;
-    height: 50px;
-    background-color: white;
-    color: darkcyan;
-    border-radius: 5px;
-    border: 3px solid darkcyan;
-    font-family: monospace;
-    font-size: 30px;
-    font-weight: bold;
 }
