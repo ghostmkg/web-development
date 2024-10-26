@@ -3,33 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <div class="message hide">
-            <div class="alert hide winner ">Winner</div>
-            <div class="alert draw hide">Match Tied</div>
-            <button class="bbt hide">New game</button>
+    <div class="application">
+        <h1>To-Do List</h1>
+        <div class="row">
+            <input type="text" placeholder="Enter Text Here">
+            <button btn onclick="addNote()">Add</button>
+        </div>
+
+        <ul id="list">
+            <!-- <li class="check">Tasst 1</li>
+            <li>Tasst 1</li>
+            <li>Tasst 1</li> -->
+        </ul>
     </div>
-    <main>
-        <div class="game">
-            <div class="name">TIK-TAK-TOE</div>
-            <div class="btn">
-            <button class="box box1"></button>
-            <button class="box box2"></button>
-            <button class="box box3"></button>
-            <button class="box box4"></button>
-            <button class="box box5"></button>
-            <button class="box box6"></button>
-            <button class="box box7"></button>
-            <button class="box box8"></button>
-            <button class="box box9"></button>
-        </div>
-        <button class="reset">Reset game</button>
-        </div>
-    </main>
-    
+
     <script src="script.js"></script>
 </body>
 </html>

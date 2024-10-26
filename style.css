@@ -1,3 +1,4 @@
+
 body{
     background-color: black;
 
@@ -98,3 +99,115 @@ body{
     font-size: 30px;
     font-weight: bold;
 }
+
+
+
+
+body
+{
+
+    background-image: url(wallhaven-mdv78k.jpg);
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+
+.application
+{
+    background: rgb(0 0 0  43%);
+    border-radius: 25px;
+    padding: 32px;
+    box-shadow: 9px -16px 20px 20px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(11px);
+    text-align: center;
+}
+
+
+.search input
+{
+    border: 3px solid #ffffff;
+    width: 400px;
+    font-size: xx-large;
+    height: 50px;
+    background: rgb(0 0 0 / 70%);
+    border-radius: 50px;
+    text-align: center;
+    color: white;
+    outline: none;
+
+    ::placeholder
+    {
+        color: rgba(255, 255, 255, 0.452);
+    }
+
+}
+
+
+.search button
+{
+    border: 3px solid #ffffff;
+    height: 60px;
+    background: rgb(0 0 0 / 70%);
+    border-radius: 50px;
+    font-size: xx-large;
+    padding-bottom: 3px;
+    cursor: pointer;
+
+    &:hover
+    {
+        background-color: rgba(255, 255, 255, 0.7);
+    }
+
+    &:active
+    {
+        background: rgb(0 0 0 / 70%);
+    }
+}
+
+
+.temperature
+{
+    margin: 40px;
+}
+
+.temperature .degree
+{
+    color: white;
+    font-size: 98px;
+    font-weight: bold;
+}
+
+.temperature .description
+{
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+
+
+.others
+{
+    background: rgb(0 0 0 / 58%);
+    color: white;
+    border-radius: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 30px;
+    font-weight: bolder;
+    font-size: 20px;
+    width: 500px;
+    padding: 30px;
+    backdrop-filter: blur(11px);
+
+
+    visibility: hidden; /* Keep the space occupied but hide it */
+    height: auto; /* Set height to auto to adjust dynamically */
+    opacity: 0; /* Make it fully transparent */
+    transition: opacity 0.3s ease; /* Add a smooth transition */
+}
+
