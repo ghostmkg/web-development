@@ -1,44 +1,35 @@
-<!DOCTYPE html>-
-<html lang="en" dir="ltr">
-    <head>
-      <title>Home Page</title>
-        <meta charset="utf-8">
-        <link href="assets/css/style.css" rel="stylesheet"/>
-        <script src="jquery-1.10.2.min.js"></script>
-    </head>
-    <body>
-        <div id="box">
-            <div id="main"></div>
-
-            <div id="loginform">
-                <h1>LOGIN</h1>
-                <input type="email" placeholder="Email"/><br>
-                <input type="password" placeholder="Password"/><br>
-                <button>Login</button>
-            </div>
-
-            <div id="signupform">
-                <h1>SIGN UP</h1>
-                <input type="text" placeholder="Full Name"/><br>
-                <input type="email" placeholder="Email"/><br>
-                <input type="password" placeholder="Password"/><br>
-                <button>Sign Up</button>
-            </div>
-
-            <div id="login_msg">Have an account?</div>
-            <div id="signup_msg">Don't have an account?</div>
-
-            <button id="login_btn">Login</button>
-            <button id="signup_btn">Sign Up</button>
-                
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="message hide">
+            <div class="alert hide winner ">Winner</div>
+            <div class="alert draw hide">Match Tied</div>
+            <button class="bbt hide">New game</button>
+    </div>
+    <main>
+        <div class="game">
+            <div class="name">TIK-TAK-TOE</div>
+            <div class="btn">
+            <button class="box box1"></button>
+            <button class="box box2"></button>
+            <button class="box box3"></button>
+            <button class="box box4"></button>
+            <button class="box box5"></button>
+            <button class="box box6"></button>
+            <button class="box box7"></button>
+            <button class="box box8"></button>
+            <button class="box box9"></button>
         </div>
-
-        <div>
-            <h1>Welcome To The Html WebPage</h1>
+        <button class="reset">Reset game</button>
         </div>
-
-        
-        <script src="assets/js/script.js"></script>
-    </body>
+    </main>
+    
+    <script src="script.js"></script>
+</body>
 </html>
