@@ -1,190 +1,110 @@
-:root {
-  --background: black;
-  --text: white;
-  --card: #333;
-  --box: #ff5945;
-}
-
-* {
-  margin: 0;
-}
-
-body {
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  background-color: var(--background);
-  color: var(--text);
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.application {
-  background-color: var(--card);
-  padding: 30px;
-  border-radius: 1.3rem;
-  transition: all 0.5s ease;
-
-  &:hover {
-    background-color: #444444af; /* Slightly lighter than the original */
-    transform: scale(1.2); /* Slightly increases size */
-    box-shadow: 1px 0px 70px 20px var(--box); /* Deeper shadow on hover */
-  }
-
-  /* heading changes color when hovered */
-  &:hover h1 {
-    color: var(--box);
-  }
-
-  /* button changes color when hovered */
-  &:hover .row button {
-    background-color: var(--box);
-    color: var(--text);
-
-  }
-
-  /* inputbox changes color when hovered */
-  &:hover .row input {
-    color: var(--box);
-    background-color: var(--text);
-
-  }
-
-  &:hover .row
-  {
-    transform: scale(1.1);
-  }
 
 
-}
 
-/* placeholder changes text color changes color when hovered */
-.application:hover .row input::placeholder {
-  color: var(--box);
-}
-
-h1 {
-  color: var(--text);
-  transition: all 0.5s ease;
-}
-
-.row {
-  margin: 2rem auto;
-  display: flex;
-  width: 20vw;
-  justify-content: center;
-  border-radius: 1000px;
-  padding: 30px 30px;
-  background-color: var(--background);
-  transition: all 0.5s ease;
-}
-
-.row input {
-  width: 100%;
-  padding: 1.25rem;
-  border-radius: 30px 0px 0px 30px;
-  text-align: center;
-  background-color: var(--card);
-  font-size: 1.3rem;
-  font-weight: bold;
-  border: none;
-  transition: all 0.5s ease;
-  color: var(--text);
-
-  &:focus {
-    outline: none;
-  }
-
-  &::placeholder {
-    color: var(--text);
-    transition: all 0.5s ease;
-  }
-}
-
-.row button {
-  background-color: var(--text);
-  font-weight: bolder;
-  font-size: 1.3rem;
-  text-align: left;
-  padding: 0px 2.5rem;
-  border-radius: 0px 30px 30px 0px;
-  transition: all 0.5s ease;
-  border: none;
-}
-
-ul li {
-  list-style: none;
-  font-size: 1.4rem;
-  font-weight: bold;
-  margin: 1.1rem;
-  padding: 20px;
-  background-color: var(--background);
-  border-radius: 3rem;
-  user-select: none;
-  cursor: pointer;
-  position: relative;
-  transition: all 0.3s ease;
-
-  &::after {
-    content: "";
-    position: absolute;
-    height: 2rem;
-    width: 2rem;
-    border-radius: 50%;
-    background-image: url(icons/unchecked.png);
-    background-size: cover;
-    background-position: center;
-    top: 17px;
-    left: -40px;
-    transition: all 0.3s ease; /* Added for smooth transition */
-  }
-
-  &:hover
-  {
-    background-color: var(--box);
-    transform: scale(1.1);
-
-  }
-}
-
-ul li.check {
-  color: #ff58457c;
-  text-decoration: line-through;
-
-  &:hover
-  {
-    color: var(--text); 
-  }
-
-  /* Changes the icon to 'checked' when .check is applied */
-  &::after {
-    background-image: url(icons/checked.png);
-  }
-}
-
-
-ul li span
+body
 {
-    position: absolute;
-    right:10px;
 
-    top: 9px;
-    width: 3rem;
-    height: 3rem;
-    font-size: 2rem;
-    color: #555;
-    line-height: 48px;
+    background-image: url(wallhaven-mdv78k.jpg);
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+
+.application
+{
+    background: rgb(0 0 0  43%);
+    border-radius: 25px;
+    padding: 32px;
+    box-shadow: 9px -16px 20px 20px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(11px);
     text-align: center;
-    transition: all 0.3s ease;
-    background-color: rgb(255, 255, 255);
+}
+
+
+.search input
+{
+    border: 3px solid #ffffff;
+    width: 400px;
+    font-size: xx-large;
+    height: 50px;
+    background: rgb(0 0 0 / 70%);
     border-radius: 50px;
+    text-align: center;
+    color: white;
+    outline: none;
+
+    ::placeholder
+    {
+        color: rgba(255, 255, 255, 0.452);
+    }
+
+}
+
+
+.search button
+{
+    border: 3px solid #ffffff;
+    height: 60px;
+    background: rgb(0 0 0 / 70%);
+    border-radius: 50px;
+    font-size: xx-large;
+    padding-bottom: 3px;
+    cursor: pointer;
 
     &:hover
     {
-        border-radius: 50px;
-        background-color: var(--card);
-        color: var(--text);
+        background-color: rgba(255, 255, 255, 0.7);
     }
 
+    &:active
+    {
+        background: rgb(0 0 0 / 70%);
+    }
+}
 
+
+.temperature
+{
+    margin: 40px;
+}
+
+.temperature .degree
+{
+    color: white;
+    font-size: 98px;
+    font-weight: bold;
+}
+
+.temperature .description
+{
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+
+
+.others
+{
+    background: rgb(0 0 0 / 58%);
+    color: white;
+    border-radius: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 30px;
+    font-weight: bolder;
+    font-size: 20px;
+    width: 500px;
+    padding: 30px;
+    backdrop-filter: blur(11px);
+
+
+    visibility: hidden; /* Keep the space occupied but hide it */
+    height: auto; /* Set height to auto to adjust dynamically */
+    opacity: 0; /* Make it fully transparent */
+    transition: opacity 0.3s ease; /* Add a smooth transition */
 }
