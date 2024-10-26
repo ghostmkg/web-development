@@ -1,0 +1,100 @@
+body{
+    background-color: black;
+
+}
+
+.message{
+    width: 300px;
+    margin: 22% auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.hide{
+    display: none;
+}
+
+.alert{
+    width: 200px;
+    height: 50px;
+    background-color:darkcyan;
+    color:  white;
+    border-radius: 5px;
+    border: 3px solid darkcyan;
+    font-family: monospace;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    border: 3px solid white;
+}
+
+.bbt{
+    width: 200px;
+    height: 50px;
+    background-color: white;
+    color: darkcyan;
+    border-radius: 5px;
+    border: 3px solid darkcyan;
+    font-family: monospace;
+    font-size: 30px;
+    font-weight: bold;
+
+}
+
+.game{
+    width: 300px;
+    height: 350px;
+    background-color: darkcyan;
+    margin:  19vh auto;
+    border-radius: 10px;
+    border: 3px solid white;
+    padding: 30px;
+    text-align: center;
+    font-weight: 900;
+    color: aliceblue;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.btn{
+
+    margin:40px auto;
+    width: 300px;
+    height: 300px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 10px;
+}
+
+.btn button{
+    border-radius: 10px;
+    font-size: 50px;
+    font-weight: 700;
+
+    &:hover{
+        background-color:darkcyan;
+        color: aliceblue;
+    }
+}
+
+.name{
+    font-size: 40px;
+    margin-bottom: -30px;
+    border: 2px solid;
+
+}
+
+.reset{
+    width: 200px;
+    height: 50px;
+    background-color: white;
+    color: darkcyan;
+    border-radius: 5px;
+    border: 3px solid darkcyan;
+    font-family: monospace;
+    font-size: 30px;
+    font-weight: bold;
+}
