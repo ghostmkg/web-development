@@ -1,0 +1,47 @@
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+#gameCanvas {
+    background-color: #001f3f;
+    display: block;
+    border: 3px solid white;
+    animation: scrollBackground 10s linear infinite; /* Background scrolling effect */
+}
+
+#gameOver {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: red;
+    font-size: 30px;
+    text-align: center;
+    display: none;
+}
+
+#score {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: white;
+    font-size: 20px;
+}
+
+/* Glowing laser effect */
+.glow {
+    box-shadow: 0 0 15px red;
+}
+
+/* Animation for the background scrolling */
+@keyframes scrollBackground {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 100%; }
+}
