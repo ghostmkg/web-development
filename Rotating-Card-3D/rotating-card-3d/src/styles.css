@@ -1,4 +1,4 @@
-/* General Reset */
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -6,7 +6,6 @@
     font-family: Arial, sans-serif;
 }
 
-/* App styling */
 .app {
     display: flex;
     flex-direction: column;
@@ -18,13 +17,12 @@
     text-align: center;
 }
 
-/* Card container with 3D perspective */
 .card-container {
     perspective: 1200px;
     margin-top: 20px;
 }
 
-/* Main card styling */
+
 .card {
     width: 300px;
     height: 200px;
@@ -35,12 +33,11 @@
     border-radius: 15px;
 }
 
-/* Rotate on hover */
 .card:hover {
     transform: rotateY(180deg);
 }
 
-/* Face styling */
+
 .card-face {
     position: absolute;
     width: 100%;
@@ -57,7 +54,6 @@
     font-size: 1.4em;
 }
 
-/* Glassmorphism style */
 .card-face {
     background: rgba(255, 255, 255, 0.1);
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
@@ -66,7 +62,7 @@
     border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
-/* Specific faces */
+
 .card-front {
     transform: rotateY(0deg);
 }
