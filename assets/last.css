@@ -1,0 +1,637 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f9f9f9; /* Page background color */
+    min-height: 100vh; /* Ensure the body takes up at least the full viewport height */
+    display: flex;
+    flex-direction: column; /* Align items vertically */
+}
+
+/* Header Styles */
+header {
+    background-color: #fff; /* White background */
+    color: #000; /* Black text */
+    padding: 10px 20px;
+    border-bottom: 1px solid #ddd; /* Subtle border */
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative; /* Needed for absolute positioning of the logo hover effect */
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between logo and app name */
+    transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition for hover effects */
+}
+
+.logo img {
+    height: 60px; /* Increased size */
+    border-radius: 50%; /* Rounded corners for the logo */
+    border: 3px solid #4A90E2; /* Border around the logo */
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s; /* Smooth transition for hover effects */
+}
+
+.logo:hover img {
+    transform: scale(1.1); /* Slightly zoom in the logo on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Add shadow on hover */
+    border-color: #FF6F91; /* Change border color on hover */
+}
+
+.logo h1 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #000; /* Black text */
+    transition: color 0.3s; /* Smooth transition for hover effect */
+}
+
+.menu {
+    display: flex;
+    gap: 15px;
+}
+
+.menu a {
+    color: #000; /* Black text */
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.menu a:hover {
+    background-color: #f0f0f0; /* Light gray background */
+    color: #4A90E2; /* Bright blue text */
+}
+
+/* Main Content Styles */
+main {
+    flex: 1; /* Take up remaining space */
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center content horizontally */
+    justify-content: center; /* Center content vertically */
+    text-align: center;
+    padding: 20px;
+}
+
+.highlight-line {
+    font-size: 5rem; /* Larger text size */
+    font-weight: bold;
+    margin: 0; /* Remove default margin */
+    padding: 20px 0; /* Padding for spacing */
+    color: #FF6F91; /* Light pink color */
+    background: none; /* No background */
+    font-family: 'Playfair Display', serif; /* Elegant font */
+}
+
+p {
+    max-width: 600px;
+    margin: 20px auto; /* Center the paragraph horizontally */
+    padding: 0 20px;
+    font-size: 1.4rem; /* Slightly increased font size */
+    color: #333; /* Dark gray color to complement the background */
+    line-height: 1.6; /* Improved readability */
+}
+
+/* Info Boxes Styles */
+.info-boxes {
+    display: flex;
+    justify-content: space-between; /* Space between the boxes */
+    padding: 20px;
+    margin-top: 20px;
+    width: 100%; /* Ensure the container takes full width */
+    margin-top: 10px; /* Move the entire row of boxes up slightly */
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    border: none;
+}
+
+.box {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 20px; /* Adjusted padding */
+    flex: 1; /* Each box takes equal space */
+    min-height: 220px; /* Increased minimum height */
+    margin: 0 20px; /* Space between boxes */
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+    position: relative; /* Ensure proper stacking */
+    overflow: hidden; /* Hide overflow for the animation */
+    box-sizing: border-box; /* Include padding and border in the box's total width and height */
+}
+
+/* Hover effect for the box */
+.box:hover {
+    transform: scale(1.05); /* Slightly scale up */
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2); /* Enhanced shadow */
+    background-color: #f5f5f5; /* Light gray background */
+    border-color: #4A90E2; /* Change border color on hover */
+}
+
+/* Read-more button styles */
+.read-more {
+    display: none; /* Hide the button by default */
+    position: absolute;
+    bottom: 20px;
+    background-color: #4A90E2; /* Bright blue background */
+    color: #fff; /* White text */
+    padding: 10px 20px;
+    border-radius: 25px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Shadow for the button */
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+    z-index: 1; /* Ensure it appears above other content */
+    opacity: 0; /* Start with hidden opacity */
+    transform: translateY(20px); /* Start with shifted position */
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+/* Remove hover effect for the read-more button */
+.box:hover .read-more {
+    display: none; /* Ensure it stays hidden on hover */
+    opacity: 0; /* Ensure it remains hidden */
+    transform: translateY(20px); /* Maintain shifted position */
+}
+
+/* Specific styles for the new boxes */
+.box1 {
+    background-color: #eaf7f2; /* Light green background */
+}
+
+.box2 {
+    background-color: #f2eaf7; /* Light purple background */
+}
+
+.box3 {
+    background-color: #f7f2ea; /* Light beige background */
+}
+
+/* Logo inside the box */
+.box-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.box-logo img {
+    border-radius: 50%;
+    width: 80px; /* Adjust size as needed */
+    height: 80px; /* Adjust size as needed */
+    object-fit: cover; /* Ensure the image covers the circle */
+}
+
+/* Box headings */
+.box h2 {
+    font-size: 1.5rem;
+    color: #4A90E2; /* Color for headings */
+    margin-bottom: 14px;
+    text-decoration: none;
+    border: none;
+}
+
+/* Box text */
+.box p {
+    font-size: 1.2rem;
+    color: #666; /* Darker gray for the text */
+    line-height: 1.5;
+    max-width: 90%; /* Ensure text fits inside the box */
+    margin: 0 auto;
+    text-decoration: none;
+    border: none;
+}
+
+/* Styling for the inner boxes inside box3 */
+.inner-boxes {
+    display: flex;
+    justify-content: space-between; /* Space out the boxes */
+    margin-top: 20px; /* Space between text and inner boxes */
+    width: 100%; /* Ensure the inner boxes take the full width of the parent */
+    box-sizing: border-box; /* Include padding and border in the box's total width and height */
+}
+
+.inner-box {
+    background-color: #f2f2f2; /* Light gray background */
+    border: 1px solid #ddd; /* Light border */
+    border-radius: 8px; /* Rounded corners */
+    padding: 10px; /* Padding inside each inner box */
+    flex: 1; /* Each inner box takes equal space */
+    text-align: center; /* Center the text */
+    margin: 0 10px; /* Space between the inner boxes */
+    text-decoration: none;
+}
+
+.inner-box:first-child {
+    margin-left: 0; /* Remove left margin from the first box */
+}
+
+.inner-box:last-child {
+    margin-right: 0; /* Remove right margin from the last box */
+}
+
+.inner-box p {
+    margin: 0; /* Remove default margin */
+    font-size: 1rem; /* Font size for the inner box text */
+    color: #333; /* Dark text color */
+}
+
+/* Rounded Rectangles Container */
+.rounded-rectangles {
+    display: flex;
+    justify-content: space-between; /* Space between the rectangles */
+    margin-top: 40px; /* Space above the rectangles */
+    width: 100%; /* Full width of the container */
+    padding: 0 30px; /* Padding for the container */
+    box-sizing: border-box; /* Include padding and border in the element's width and height */
+}
+
+/* Individual Rounded Rectangle Styles */
+.rectangle {
+    border-radius: 20px; /* Rounded corners */
+    width: 140px; /* Width of the rectangles */
+    height: 100px; /* Height of the rectangles */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: transform 0.3s, box-shadow 0.3s, background-color 0.5s, color 0.5s; /* Smooth hover effects and color transition */
+    margin: 0 10px; /* Space between rectangles */
+    animation: pulse 2s infinite; /* Adding a pulsing animation */
+}
+
+/* Rectangle 1 - Emergency */
+.rectangle1 {
+    background-color: #FF6F91; /* Vibrant Coral Red */
+    color: #FFFFFF; /* White text */
+}
+
+/* Rectangle 2 - Contact */
+.rectangle2 {
+    background-color: #4A90E2; /* Golden Yellow */
+    color: #FFFFFF; /* White text */
+}
+
+/* Rectangle 3 - SOS Button */
+.rectangle3 {
+    background-color: #F2EAF7; /* Dodger Blue */
+    color: #333333; /* White text */
+}
+
+/* Rectangle 4 - Help Section */
+.rectangle4 {
+    background-color: #3AF7F2; /* Lime Green */
+    color: #333333 /* White text */
+}
+
+/* Text inside rectangles */
+.rectangle p {
+    margin: 0; /* Remove default margin */
+    font-size: 1rem; /* Text size inside the rectangle */
+    text-align: center; /* Center the text */
+    font-weight: bold; /* Bold text for visibility */
+}
+
+/* Hover effect for rectangles */
+.rectangle:hover {
+    transform: scale(1.05); /* Slightly enlarge on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+    background-color: #FFFFFF; /* Change background color to white on hover */
+    color: #4A90E2; /* Change text color to bright blue on hover */
+}
+
+/* Pulse animation */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05); /* Slightly enlarge at midpoint */
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Enhanced shadow at midpoint */
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Responsive Design for Rectangles */
+@media (max-width: 768px) {
+    .rounded-rectangles {
+        flex-direction: column; /* Stack rectangles vertically on small screens */
+        align-items: center; /* Center rectangles horizontally */
+    }
+
+    .rectangle {
+        margin: 10px 0; /* Space between rectangles on small screens */
+        width: 120px; /* Adjust size for smaller screens */
+        height: 80px; /* Adjust size for smaller screens */
+    }
+}
+
+/* Styles for the gray section */
+.gray-section {
+    background-color: #e0e0e0; /* Light gray background color */
+    padding: 20px; /* Padding inside the section */
+    margin: 40px 20px 20px; /* Top margin to separate from the buttons, auto for center alignment, and bottom margin */
+    border-radius: 12px; /* Rounded corners */
+    width: 100%; /* Full width of the parent container */
+    max-width: 1040px; /* Matches the width of the content above */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    box-sizing: border-box; /* Include padding in the width */
+    display: flex; /* Use flexbox for layout */
+    gap: 20px; /* Space between the two sections */
+    flex-wrap: wrap; /* Wrap content on smaller screens */
+    opacity: 0; /* Start with hidden opacity */
+    transform: translateY(20px); /* Start with shifted position */
+    animation: fadeInUp 1s forwards; /* Apply the fade-in-up animation */
+}
+
+/* Animation for the gray section */
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Styles for each part of the gray section */
+.gray-section-part {
+    background-color: #ffffff; /* White background for each part */
+    padding: 20px; /* Padding inside each part */
+    border-radius: 12px; /* Rounded corners */
+    flex: 1; /* Each part takes equal space */
+    min-width: 0; /* Prevent shrinking on small screens */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition for hover effects */
+    position: relative; /* Needed for the hover effect */
+}
+
+/* Hover effect for each part */
+.gray-section-part:hover {
+    transform: scale(1.05); /* Slightly scale up */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .gray-section {
+        width: calc(100% - 20px); /* Adjust width for smaller screens */
+        margin: 20px 10px; /* Small side margins on smaller screens */
+        flex-direction: column; /* Stack sections vertically on small screens */
+        gap: 10px; /* Reduce space between sections */
+    }
+
+    .gray-section-part {
+        /* Ensure each part takes full width on smaller screens */
+        min-width: 100%;
+    }
+}
+
+/* General Styling for the Black Section */
+.black-section {
+    background-color: #000000;
+    color: #fff;
+    padding: 50px 10%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100vw; /* Full width of the viewport */
+    margin: 0; /* Remove any default margins */
+    box-sizing: border-box; /* Ensure padding doesn't affect width */
+}
+
+/* ABOUT US, PRIVACY, and CONNECT Sections Styling */
+.about-us, .privacy, .connect {
+    flex: 1;
+    margin: 20px;
+}
+
+/* Title Styling */
+.black-section h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-bottom: 2px solid #fff;
+    padding-bottom: 10px;
+}
+
+/* List Styling */
+.black-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.black-section li {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.black-section li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.black-section li a:hover {
+    color: #1abc9c; /* Changes to a greenish color on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .black-section {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-us, .privacy, .connect {
+        margin: 20px 0;
+    }
+}
+
+/* Footer (if you want to keep it separate) */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+
+/* Login Button Styles */
+.login-button {
+    background-color: #FF6F91; /* Attractive pink color */
+    color: #fff; /* White text */
+    padding: 10px 20px; /* Padding for the button */
+    border-radius: 25px; /* Rounded corners */
+    border: none; /* Remove border */
+    font-weight: bold; /* Bold text */
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s; /* Smooth transitions */
+    cursor: pointer; /* Change cursor to pointer */
+    text-decoration: none; /* Remove underline */
+}
+
+.login-button:hover {
+    background-color: #4A90E2; /* Change color on hover to bright blue */
+    transform: scale(1.1); /* Slightly enlarge the button */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+}
+/* Cylindrical Button Styles */
+.rectangle {
+    border-radius: 30px; /* Rounded corners to create a cylindrical shape */
+    width: 140px; /* Adjusted width for a balanced cylindrical form */
+    height: 50px; /* Adjusted height for a proportional look */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: transform 0.3s, box-shadow 0.3s, background-color 0.5s, color 0.5s; /* Smooth hover effects and color transition */
+    margin: 0 10px; /* Space between buttons */
+    animation: pulse 2s infinite; /* Adding a pulsing animation */
+    font-size: 1rem; /* Slightly larger text size for better readability */
+    padding: 10px 15px; /* Adjusted padding to center the text nicely */
+    text-align: center; /* Centering the text */
+}
+/* Add this CSS to your existing code */
+
+/* Navbar hover effect with slow transition */
+nav {
+    background-color: #fff; /* Default background color */
+    transition: background-color 2s; /* Slow transition for background color */
+}
+
+nav:hover {
+    background-color: #D2B48C; /* Light brown color on hover */
+}
+
+/* Tablets (Portrait) and larger smartphones */
+@media (max-width: 768px) {
+    .rounded-rectangles {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .rectangle {
+        margin: 10px 0;
+        width: 120px;
+        height: 80px;
+    }
+
+    .gray-section {
+        width: calc(100% - 20px);
+        margin: 20px 10px;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .gray-section-part {
+        min-width: 100%;
+    }
+
+    .black-section {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-us, .privacy, .connect {
+        margin: 20px 0;
+    }
+}
+
+/* Large smartphones and small tablets */
+@media (max-width: 1024px) {
+    /* Adjustments for tablets in landscape mode and smaller laptops */
+    .info-boxes {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .box {
+        margin: 10px 0;
+        min-height: auto; /* Adjust based on content */
+    }
+
+    .black-section {
+        padding: 40px 5%;
+    }
+}
+
+/* Extra Large screens (desktops and large laptops) */
+@media (min-width: 1200px) {
+    /* Styles for very large screens */
+    .rounded-rectangles {
+        padding: 0 50px;
+    }
+
+    .black-section {
+        padding: 50px 10%;
+    }
+
+    .info-boxes {
+        margin-top: 30px;
+    }
+}
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .menu {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .logo {
+        margin-bottom: 20px;
+    }
+}
+@media (max-width: 768px) {
+    .box {
+        margin: 10px 0;
+        padding: 15px;
+    }
+
+    .login-button {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+
+    .rectangle {
+        width: 120px;
+        height: 40px;
+        font-size: 0.9rem;
+        padding: 8px 12px;
+    }
+}
+@media (max-width: 768px) {
+    .gray-section {
+        padding: 10px;
+    }
+
+    .footer {
+        padding: 20px;
+        font-size: 0.9rem;
+    }
+}
