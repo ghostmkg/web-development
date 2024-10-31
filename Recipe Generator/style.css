@@ -1,0 +1,195 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Gupter:wght@400;500;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Gupter', 'Times New Roman', Times, serif ;
+}
+body {
+    background-color: #ffe5ec;
+    color: #6b4d7d;
+}
+header nav {
+    background-color: #e9869e;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
+}
+header nav h1 {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+header nav form {
+    display: flex;
+    justify-content: center;
+}
+form input[type="text"] {
+    flex-grow: 1;
+    margin-right: 10px;
+}
+form input[type="text"], button[type="submit"] {
+    border: none;
+    font-size: 18px;
+    padding: 10px;
+    border-radius: 5px;
+}
+form button[type="submit"] {
+    cursor: pointer;
+    color: #4b4646;
+    background-color: #ff8fab;
+    transition: background-color 0.2s ease-in-out;
+}
+form button[type="submit"]:hover, .recipe button:hover, .recipe-close-btn:hover {
+    background-color: #fb6f92;
+    color: #4b4646;
+}
+.recipe-container {
+    text-align: center;
+    margin: 20px auto; /* Adjusted to avoid redundancy */
+    display: grid;
+    grid-gap: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    width: 80%;
+    padding: 20px;
+    place-items: center;
+}
+.recipe {
+    background-color: #ffc2d1;
+    display: flex;
+    flex-direction: column;
+    color:#6b4d7d;
+    border-radius: 6px;
+    box-shadow: 0 5px rgba(78, 73, 73, 0.1), -5px -5px 10px rgba(34, 34, 34, 0.5);
+    cursor: pointer;
+    max-width: 350px;
+    transition: transform 0.3s ease-in-out;
+}
+.recipe:hover{
+    transform: scale(1.02);
+}
+.recipe span {
+    font-weight: 600;
+}
+.recipe img {
+    border-radius: 5px;
+    height: 300px;
+}
+.recipe h3 {
+    font-size: 24px;
+}
+.recipe p {
+    font-size: 20px;
+    color: #6b4d7d;
+    margin: 5px 0;
+}
+.recipe button {
+    font-size: 20px;
+    font-weight: 600;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 18px auto;
+    background-color: #ff8fab;
+}
+
+.recipe-details{
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffc2d1;
+    -webkit-transform: translate(-50%, -50%);
+    border-radius: 12px;
+    width: 40%;
+    height: 60%;
+    font-size: 20px;
+    transition: all 0.5s ease-in-out;
+    overflow-y: scroll;
+}
+.recipe-details::-webkit-scrollbar{
+    width: 10px;
+
+}
+.recipe-details::-webkit-scrollbar-thumb{
+    background-color: rgb(180, 183, 186);
+    border-radius: 16px;
+    --webkit-border-radius: 16px;
+}
+.recipe-details-content{
+    padding: 30px;
+
+}
+
+.recipeName{
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: underline;
+    margin-bottom: 10px;
+}
+.ingredientList li{
+    margin-top: 10px;
+    margin-left: 20px;
+
+}
+.recipeInstructions p{
+    line-height: 30px;
+    white-space: pre-line;
+}
+.recipe-close-btn{
+    border: none;
+    font-size: 18px;
+    padding: 8px;
+    border-radius: 5px;
+    background-color: #ff8fab;
+    color: #6b4d7d;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    height: 30px;
+    width: 30px;
+    justify-content: center;
+    align-items: center;
+}
+.recipe-close-btn i{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.recipeInstructions, .recipeName, .recipeInstructions{
+    margin-bottom: 20px;
+}
+
+.body::-webkit-scrollbar{
+    width: 16px;
+
+}
+.body::-webkit-scrollbar-thumb{
+    background-color: rgb(180, 183, 186);
+
+}
+body::-webkit-scrollbar-track{
+    background-color: #ffc2d1;
+}
+@media screen and (max-width: 600px) {
+    header nav {
+        flex-direction: column;
+    }
+    header nav form {
+        width: 80%;
+        margin: 20px;
+    }
+}
