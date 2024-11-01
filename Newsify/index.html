@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="images/4.jpeg" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <title>Newsify</title>
+</head>
+<body>
+
+    <div id="scrollProgressBar" class="progress-bar"></div>
+    <!-- Your existing content goes here -->
+        <button id="scrollToTopBtn" class="scroll-to-top" title="Go to top">
+          &#8593; <!-- This is the up arrow -->
+        </button>
+
+    <nav>
+        <div  class="navbar obj-width">
+        <a class="logo" href="index.html">Newsify</a>
+        <div class="search-container">
+            <input id="search-input" type="text"
+            placeholder="Search news here..">
+            <button id="search-button">Search</button>
+        </div>
+        </div>
+    </nav>
+
+    <div class="social-sidebar">
+        <div class="close-btn" onclick="toggleSidebar()" title="Close Sidebar">&times;</div>
+        <ul>
+            <li><a href="https://www.facebook.com" target="_blank"><i class="fa-brands fa-meta"></i></a></li>
+            <li><a href="https://www.twitter.com" target="_blank"><i class="fa-brands fa-twitter"></i></a></li>
+            <li><a href="https://www.instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
+            <li><a href="https://www.linkedin.com" target="_blank"><i class="fa-brands fa-linkedin"></i></a></li>
+        </ul>
+
+        </div>
+        <div class="toggle-arrow" onclick="toggleSidebar()" title="Open Sidebar" style="display: none;">
+            <i class="fas fa-arrow-right"></i>
+    </div>
+    
+
+
+    <main id="blog-container" class="obj-width">
+        <!-- <div class="blog-card">
+            <img src="https://picsum.photos/id/237/200/300" alt="img">
+            <h2> This is a title</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde 
+                maiores sit architecto accusamus ex nemo 
+                fugiat dicta nostrum, vel eaque facilis aperiam harum
+                excepturi tempore nobis tempora quam sed beatae?</p>
+        </div>
+
+        <div class="blog-card">
+            <img src="https://picsum.photos/id/237/200/300" alt="img">
+            <h2> This is a title</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde 
+                maiores sit architecto accusamus ex nemo 
+                fugiat dicta nostrum, vel eaque facilis aperiam harum
+                excepturi tempore nobis tempora quam sed beatae?</p>
+        </div>
+
+        <div class="blog-card">
+            <img src="https://picsum.photos/id/237/200/300" alt="img">
+            <h2> This is a title</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde 
+                maiores sit architecto accusamus ex nemo 
+                fugiat dicta nostrum, vel eaque facilis aperiam harum
+                excepturi tempore nobis tempora quam sed beatae?</p>
+        </div>
+
+        <div class="blog-card">
+            <img src="https://picsum.photos/id/237/200/300" alt="img">
+            <h2> This is a title</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde 
+                maiores sit architecto accusamus ex nemo 
+                fugiat dicta nostrum, vel eaque facilis aperiam harum
+                excepturi tempore nobis tempora quam sed beatae?</p>
+        </div>
+
+        <div class="blog-card">
+            <img src="https://picsum.photos/id/237/200/300" alt="img">
+            <h2> This is a title</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde 
+                maiores sit architecto accusamus ex nemo 
+                fugiat dicta nostrum, vel eaque facilis aperiam harum
+                excepturi tempore nobis tempora quam sed beatae?</p>
+        </div>
+
+        <div class="blog-card">
+            <img src="https://picsum.photos/id/237/200/300" alt="img">
+            <h2> This is a title</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde 
+                maiores sit architecto accusamus ex nemo 
+                fugiat dicta nostrum, vel eaque facilis aperiam harum
+                excepturi tempore nobis tempora quam sed beatae?</p>
+        </div>
+
+        <div class="blog-card">
+            <img src="https://picsum.photos/id/237/200/300" alt="img">
+            <h2> This is a title</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde 
+                maiores sit architecto accusamus ex nemo 
+                fugiat dicta nostrum, vel eaque facilis aperiam harum
+                excepturi tempore nobis tempora quam sed beatae?</p>
+        </div>
+
+        <div class="blog-card">
+            <img src="https://picsum.photos/id/237/200/300" alt="img">
+            <h2> This is a title</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde 
+                maiores sit architecto accusamus ex nemo 
+                fugiat dicta nostrum, vel eaque facilis aperiam harum
+                excepturi tempore nobis tempora quam sed beatae?</p>
+        </div> -->
+
+    </main>
+
+<script src="app.js"></script>
+</body>
+</html>
