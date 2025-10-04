@@ -5,32 +5,38 @@ body {
     justify-content: center;
   }
   
+  .click{
+    color: white;
+    text-decoration: underline;
+  }
+  
   .coll {
-    width: 700px;
-    height: 300px;
-    object-fit: cover;
+    /* width: 800px;
+    height: 400px; */
     cursor: pointer;
     transition: width 250ms ease, height 250ms ease;
     border-radius: 5px;
     background-color: rgb(255, 3, 226);
     /* border-radius: rgb(155, 28, 148); */
-    margin-top: 200px;
-    display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: relative;
     left: -600px;
   }
   
   h2 {
     display: flex;
+    align-items: center;
     justify-content: center;
     /* align-items: center; */
-    font-size: 60px;
+    font-size: 40px;
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   }
   
   .coll-2 {
-    width: 700px;
-    height: 250px;
+    /* width: 700px;
+    height: 350px; */
     object-fit: cover;
     cursor: pointer;
     transition: width 250ms ease, height 250ms ease;
@@ -56,8 +62,8 @@ body {
   }
   
   .coll-3 {
-    width: 750px;
-    height: 300px;
+    /* width: 1250px;
+    height: 200px; */
     object-fit: cover;
     cursor: pointer;
     transition: width 250ms ease, height 250ms ease;
@@ -81,8 +87,8 @@ body {
   }
   
   .coll-4 {
-    width: 600px;
-    height: 250px;
+    /* width: 700px;
+    height: 350px; */
     object-fit: cover;
     cursor: pointer;
     transition: width 250ms ease, height 250ms ease;
@@ -105,8 +111,8 @@ body {
   }
   
   .coll-5 {
-    width: 700px;
-    height: 200px;
+    /* width: 700px;
+    height: 200px; */
     object-fit: cover;
     cursor: pointer;
     transition: width 250ms ease, height 250ms ease;
@@ -124,15 +130,15 @@ body {
   }
   
   .coll-6 {
-    width: 900px;
-    height: 200px;
-    object-fit: cover;
+    /* width: 1200px;
+    height: 300px; */
     cursor: pointer;
     transition: width 250ms ease, height 250ms ease;
     border-radius: 5px;
     background-color: rgb(255, 12, 255);
     /* border-radius: rgb(155, 28, 148); */
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
     position: relative;
     top: 100px;
     right: -500px;
