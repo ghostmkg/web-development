@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gym Website</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header >
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#programs">Programs</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section id="home" class="hero" >
+        <h1>Welcome to FitLife Gym</h1>
+        <p>Your journey to a healthier life starts here!</p>
+        <button onclick="scrollToSection('contact')">Join Us</button>
+    </section>
+    <section id="about" class="about">
+        <h2>About Us</h2>
+        <p>FitLife Gym is dedicated to helping you achieve your fitness goals. We offer a variety of programs tailored to your needs.</p>
+    </section>
+    <section id="programs" class="programs">
+        <h2>Our Programs</h2>
+        <div class="program">
+            <h3>Personal Training</h3>
+            <p>Get one-on-one coaching to achieve your goals.</p>
+        </div>
+        <div class="program">
+            <h3>Group Classes</h3>
+            <p>Join our dynamic group classes to stay motivated.</p>
+        </div>
+        <div class="program">
+            <h3>Nutrition Advice</h3>
+            <p>Learn how to fuel your body the right way.</p>
+        </div>
+    </section>
+    <section id="contact" class="contact">
+        <h2>Contact Us</h2>
+        <form>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+    <footer>
+        <p>Follow us on social media!</p>
+        <div class="social-links">
+            <a href="#">Facebook</a>
+            <a href="https://www.instagram.com/rohanjha.rj/">Instagram</a>
+            <a href="#">Twitter</a>
+        </div>
+        <p>&copy; 2024 FitLife Gym. All rights reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
