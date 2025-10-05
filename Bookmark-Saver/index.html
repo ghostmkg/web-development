@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookmark Saver</title>
+    <link
+        href="https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic"
+        rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- background grid -->
+    <div class="grid-bg"></div>
+
+    <div class="container">
+        <h1>Bookmark Saver</h1>
+        <form id="bookmark-form" class="bookmark-form">
+            <label for="site-name-input">Site Name:</label>
+            <input type="text" id="site-name-input" placeholder="e.g., Google" required>
+
+            <label for="site-url-input">Site URL:</label>
+            <input type="url" id="site-url-input" placeholder="e.g., https://www.google.com" required>
+
+            <button id = "submit-btn" type="submit">+ Save Bookmark</button>
+        </form>
+
+        <ul id="bookmarks-list">
+            <!--Dummy Items-->
+            <li>
+                <a>Item1</a>
+                <button>Remove</button>
+            </li>
+            <li>
+                <a>Item2</a>
+                <button>Remove</button>
+            </li>
+        </ul>
+    </div>
+
+    <script src="script.js" defer></script>
+</body>
+
+</html>
