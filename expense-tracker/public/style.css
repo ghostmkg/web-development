@@ -1,0 +1,94 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+.container {
+  max-width: 400px;
+  margin: 40px auto;
+  background: #fff;
+  padding: 24px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+h1 {
+  text-align: center;
+  color: #333;
+}
+.top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+form {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+input[type="text"], input[type="number"] {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+button {
+  padding: 8px 16px;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+button:hover {
+  background: #0056b3;
+}
+#expense-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 16px 0;
+}
+#expense-list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+}
+#expense-list li .meta {
+  color: #666;
+  font-size: 0.85em;
+}
+#expense-list li button.delete {
+  margin-left: 12px;
+  background: transparent;
+  border: none;
+  color: #c00;
+  cursor: pointer;
+}
+#total {
+  text-align: right;
+  font-weight: bold;
+  color: #222;
+}
+
+/* Dark theme */
+body.dark {
+  background: #111;
+  color: #eee;
+}
+body.dark .container {
+  background: #1b1b1b;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.6);
+}
+body.dark input[type="text"], body.dark input[type="number"] {
+  background: #222;
+  border-color: #333;
+  color: #eee;
+}
+body.dark button {
+  background: #0a84ff;
+}
+body.dark #expense-list li {
+  border-bottom: 1px solid #2a2a2a;
+}

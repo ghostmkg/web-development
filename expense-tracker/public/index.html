@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Expense Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="top-row">
+      <h1>Expense Tracker</h1>
+      <button id="theme-toggle" aria-label="Toggle theme">🌙</button>
+    </div>
+    <form id="expense-form">
+      <input type="text" id="desc" placeholder="Description" required>
+      <input type="number" id="amount" placeholder="Amount" step="0.01" required>
+      <button type="submit">Add</button>
+    </form>
+    <ul id="expense-list"></ul>
+    <div id="total"></div>
+  </div>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
