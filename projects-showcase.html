@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Development Projects Collection</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding: 40px 0;
+        }
+
+        .header-content {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #fff, #f0f0f0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 30px;
+        }
+
+        .badges {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            padding: 8px 16px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .badge:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .project-card:hover::before {
+            left: 100%;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .project-description {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .tech-tag {
+            padding: 4px 12px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            font-size: 0.8rem;
+            color: white;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 10px;
+        }
+
+        .project-link {
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .project-link:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .primary-link {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+        }
+
+        .primary-link:hover {
+            background: linear-gradient(45deg, #764ba2, #667eea);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding: 40px 0;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .footer-content {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 15px;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: white;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .stats {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .badges {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <h1>🌐 Web Development Projects</h1>
+                <p class="subtitle">A comprehensive collection of modern web development projects built with HTML5, CSS3, JavaScript, and popular frameworks</p>
+                
+                <div class="badges">
+                    <a href="#" class="badge">🎯 Hacktoberfest 2025</a>
+                    <a href="#" class="badge">📱 Responsive Design</a>
+                    <a href="#" class="badge">✨ Modern UI/UX</a>
+                    <a href="#" class="badge">🚀 Performance Optimized</a>
+                </div>
+
+                <div class="stats">
+                    <div class="stat">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Projects</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">15+</div>
+                        <div class="stat-label">Categories</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Open Source</div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <div class="projects-grid">
+                <!-- BMI Calculator -->
+                <div class="project-card">
+                    <div class="project-icon">🏃‍♀️</div>
+                    <h3 class="project-title">BMI Calculator</h3>
+                    <p class="project-description">Interactive Body Mass Index calculator with real-time validation, responsive design, and health category feedback.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">HTML5</span>
+                        <span class="tech-tag">CSS3</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">Responsive</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="single-page-projects/BMI-Calculator/" class="project-link primary-link">Live Demo</a>
+                        <a href="single-page-projects/BMI-Calculator/README.md" class="project-link">Documentation</a>
+                    </div>
+                </div>
+
+                <!-- Calculator App -->
+                <div class="project-card">
+                    <div class="project-icon">🧮</div>
+                    <h3 class="project-title">Calculator App</h3>
+                    <p class="project-description">Beautiful responsive calculator with modern UI design, gradient backgrounds, and smooth animations.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">HTML5</span>
+                        <span class="tech-tag">CSS3</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">Grid Layout</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="Calculator-App/" class="project-link primary-link">Live Demo</a>
+                        <a href="Calculator-App/Readme.md" class="project-link">Documentation</a>
+                    </div>
+                </div>
+
+                <!-- Weather App -->
+                <div class="project-card">
+                    <div class="project-icon">🌤️</div>
+                    <h3 class="project-title">Weather Apps</h3>
+                    <p class="project-description">Collection of weather applications with real-time data, beautiful UI, and location-based forecasting.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">HTML5</span>
+                        <span class="tech-tag">CSS3</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">API Integration</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="weather-app/" class="project-link primary-link">Live Demo</a>
+                        <a href="#" class="project-link">Documentation</a>
+                    </div>
+                </div>
+
+                <!-- Games Collection -->
+                <div class="project-card">
+                    <div class="project-icon">🎮</div>
+                    <h3 class="project-title">Interactive Games</h3>
+                    <p class="project-description">Fun collection of web games including Snake, Tic Tac Toe, Rock Paper Scissors, and more interactive experiences.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">HTML5 Canvas</span>
+                        <span class="tech-tag">CSS3</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">Game Logic</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="snake-game/" class="project-link primary-link">Snake Game</a>
+                        <a href="Tic Toc Toe Web Game/" class="project-link">Tic Tac Toe</a>
+                    </div>
+                </div>
+
+                <!-- E-commerce Clones -->
+                <div class="project-card">
+                    <div class="project-icon">🛒</div>
+                    <h3 class="project-title">E-commerce Clones</h3>
+                    <p class="project-description">Professional e-commerce website clones including Amazon and Flipkart with responsive layouts and modern design.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">HTML5</span>
+                        <span class="tech-tag">CSS3</span>
+                        <span class="tech-tag">Flexbox</span>
+                        <span class="tech-tag">Responsive</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="Amazon/" class="project-link primary-link">Amazon Clone</a>
+                        <a href="Flipkart-clone-main/" class="project-link">Flipkart Clone</a>
+                    </div>
+                </div>
+
+                <!-- To-Do Applications -->
+                <div class="project-card">
+                    <div class="project-icon">📝</div>
+                    <h3 class="project-title">Task Management</h3>
+                    <p class="project-description">Various to-do list implementations with different frameworks, local storage, and modern UI components.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">HTML5</span>
+                        <span class="tech-tag">CSS3</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">React</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="To-do-list/" class="project-link primary-link">Vanilla JS</a>
+                        <a href="TodoListReact/" class="project-link">React Version</a>
+                    </div>
+                </div>
+
+                <!-- Utility Tools -->
+                <div class="project-card">
+                    <div class="project-icon">🔧</div>
+                    <h3 class="project-title">Utility Tools</h3>
+                    <p class="project-description">Helpful web utilities including color generators, text converters, QR decoders, and file compression tools.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">HTML5</span>
+                        <span class="tech-tag">CSS3</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">File APIs</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="Random_Gradient_Color/" class="project-link primary-link">Color Generator</a>
+                        <a href="Text to Speech Converter/" class="project-link">Text to Speech</a>
+                    </div>
+                </div>
+
+                <!-- Interactive UI -->
+                <div class="project-card">
+                    <div class="project-icon">🎨</div>
+                    <h3 class="project-title">UI Components</h3>
+                    <p class="project-description">Modern UI components and animations including 3D cards, glowing buttons, and interactive elements.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">CSS3</span>
+                        <span class="tech-tag">Animations</span>
+                        <span class="tech-tag">3D Transforms</span>
+                        <span class="tech-tag">Interactive</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="Rotating-Card-3D/" class="project-link primary-link">3D Cards</a>
+                        <a href="Glowing Button/" class="project-link">Glowing Button</a>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <div class="footer-content">
+                <h3>🤝 Contributing</h3>
+                <p>This is an open source project welcoming contributions from developers of all skill levels. Whether you're fixing bugs, adding features, or improving documentation, your help makes this collection better for everyone!</p>
+                
+                <div style="margin: 20px 0;">
+                    <a href="CONTRIBUTING.md" class="badge">📖 Contribution Guide</a>
+                    <a href="CODE_OF_CONDUCT.md" class="badge">📜 Code of Conduct</a>
+                    <a href="https://github.com/hamzawritescode/web-development" class="badge">🌟 GitHub Repository</a>
+                </div>
+                
+                <p>Made with ❤️ for <strong>Hacktoberfest 2025</strong> and the open source community</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Add some interactive features
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Add loading animation for project cards
+            const cards = document.querySelectorAll('.project-card');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            });
+
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(50px)';
+                card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+                observer.observe(card);
+            });
+
+            // Dynamic stats counter
+            const statNumbers = document.querySelectorAll('.stat-number');
+            statNumbers.forEach(stat => {
+                const target = parseInt(stat.textContent);
+                const increment = target / 50;
+                let current = 0;
+                
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        stat.textContent = target + (stat.textContent.includes('+') ? '+' : '') + (stat.textContent.includes('%') ? '%' : '');
+                        clearInterval(timer);
+                    } else {
+                        stat.textContent = Math.floor(current) + (stat.textContent.includes('+') ? '+' : '') + (stat.textContent.includes('%') ? '%' : '');
+                    }
+                }, 50);
+            });
+        });
+    </script>
+</body>
+</html>

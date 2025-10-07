@@ -14,22 +14,20 @@ form.addEventListener('submit',function(e){
     results.innerHTML="Please give a valid height"
    }
    else if (weight===""|| weight<0 || isNaN(weight)) {
-    results.innerHTML="Please give a valid weigth"
+    results.innerHTML="Please give a valid weight"
    }
    else{
     const bmi=(weight/((height*height)/10000)).toFixed(2)
     //show the result
     results.innerHTML=`<span>${bmi}</span>`
     if (bmi<18.6) {
-    results.innerHTML=`<span>${bmi} <br>OMG Your Under weight</span>`
+    results.innerHTML=`<span>${bmi} <br>You are underweight</span>`
     }
-    else if(bmi>18.6 && bmi<24.9){
-    results.innerHTML=`<span> ${bmi} <br>Congrats Your fit & fine</span>`
-
+    else if(bmi>=18.6 && bmi<=24.9){
+    results.innerHTML=`<span> ${bmi} <br>Congratulations! You're in the normal range</span>`
     }
     else{
-    results.innerHTML=`<span> ${bmi} <br>OMG Your Over weight</span>`
-
+    results.innerHTML=`<span> ${bmi} <br>You are overweight</span>`
     }
 
    }
