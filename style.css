@@ -1,213 +1,133 @@
+@import url('https://fonts.cdnfonts.com/css/ica-rubrik-black');
+@import url('https://fonts.cdnfonts.com/css/poppins');
 
-body{
-    background-color: black;
-
+.banner{
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+}
+.banner .slider{
+    position: absolute;
+    width: 200px;
+    height: 250px;
+    top: 10%;
+    left: calc(50% - 100px);
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+    animation: autoRun 20s linear infinite;
+    z-index: 2;
+}
+@keyframes autoRun{
+    from{
+        transform: perspective(1000px) rotateX(-16deg) rotateY(0deg);
+    }to{
+        transform: perspective(1000px) rotateX(-16deg) rotateY(360deg);
+    }
 }
 
-.message{
-    width: 300px;
-    margin: 22% auto;
+.banner .slider .item{
+    position: absolute;
+    inset: 0 0 0 0;
+    transform: 
+        rotateY(calc( (var(--position) - 1) * (360 / var(--quantity)) * 1deg))
+        translateZ(550px);
+}
+.banner .slider .item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.banner .content{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(1400px, 100vw);
+    height: max-content;
+    padding-bottom: 100px;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
     align-items: center;
-    gap: 20px;
+    z-index: 1;
 }
-
-.hide{
-    display: none;
+.banner .content h1{
+    font-family: 'ICA Rubrik';
+    font-size: 16em;
+    line-height: 1em;
+    color: #25283B;
+    position: relative;
 }
-
-.alert{
-    width: 200px;
-    height: 50px;
-    background-color:darkcyan;
-    color:  white;
-    border-radius: 5px;
-    border: 3px solid darkcyan;
-    font-family: monospace;
-    font-size: 30px;
-    font-weight: bold;
-    text-align: center;
-    border: 3px solid white;
+.banner .content h1::after{
+    position: absolute;
+    inset: 0 0 0 0;
+    content: attr(data-content);
+    z-index: 2;
+    -webkit-text-stroke: 2px #d2d2d2;
+    color: transparent;
 }
-
-.bbt{
-    width: 200px;
-    height: 50px;
-    background-color: white;
-    color: darkcyan;
-    border-radius: 5px;
-    border: 3px solid darkcyan;
-    font-family: monospace;
-    font-size: 30px;
-    font-weight: bold;
-
+.banner .content .author{
+    font-family: Poppins;
+    text-align: right;
+    max-width: 200px;
 }
-
-.game{
-    width: 300px;
-    height: 350px;
-    background-color: darkcyan;
-    margin:  19vh auto;
-    border-radius: 10px;
-    border: 3px solid white;
-    padding: 30px;
-    text-align: center;
-    font-weight: 900;
-    color: aliceblue;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+.banner .content h2{
+    font-size: 3em;
 }
-
-.btn{
-
-    margin:40px auto;
-    width: 300px;
-    height: 300px;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    gap: 10px;
+.banner .content .model{
+    background-image: url(images/model.png);
+    width: 100%;
+    height: 75vh;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-size: auto 130%;
+    background-repeat: no-repeat;
+    background-position: top center;
+    z-index: 1;
 }
-
-.btn button{
-    border-radius: 10px;
-    font-size: 50px;
-    font-weight: 700;
-
-    &:hover{
-        background-color:darkcyan;
-        color: aliceblue;
+@media screen and (max-width: 1023px) {
+    .banner .slider{
+        width: 160px;
+        height: 200px;
+        left: calc(50% - 80px);
+    }
+    .banner .slider .item{
+        transform: 
+            rotateY(calc( (var(--position) - 1) * (360 / var(--quantity)) * 1deg))
+            translateZ(300px);
+    }
+    .banner .content h1{
+        text-align: center;
+        width: 100%;
+        text-shadow: 0 10px 20px #000;
+        font-size: 7em;
+    }
+    .banner .content .author{
+        color: #fff;
+        padding: 20px;
+        text-shadow: 0 10px 20px #000;
+        z-index: 2;
+        max-width: unset;
+        width: 100%;
+        text-align: center;
+        padding: 0 30px;
     }
 }
-
-.name{
-    font-size: 40px;
-    margin-bottom: -30px;
-    border: 2px solid;
-
-}
-
-.reset{
-    width: 200px;
-    height: 50px;
-    background-color: white;
-    color: darkcyan;
-    border-radius: 5px;
-    border: 3px solid darkcyan;
-    font-family: monospace;
-    font-size: 30px;
-    font-weight: bold;
-}
-
-
-
-
-body
-{
-
-    background-image: url(wallhaven-mdv78k.jpg);
-    background-position: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
-}
-
-.application
-{
-    background: rgb(0 0 0  43%);
-    border-radius: 25px;
-    padding: 32px;
-    box-shadow: 9px -16px 20px 20px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(11px);
-    text-align: center;
-}
-
-
-.search input
-{
-    border: 3px solid #ffffff;
-    width: 400px;
-    font-size: xx-large;
-    height: 50px;
-    background: rgb(0 0 0 / 70%);
-    border-radius: 50px;
-    text-align: center;
-    color: white;
-    outline: none;
-
-    ::placeholder
-    {
-        color: rgba(255, 255, 255, 0.452);
+@media screen and (max-width: 767px) {
+    .banner .slider{
+        width: 100px;
+        height: 150px;
+        left: calc(50% - 50px);
     }
-
-}
-
-
-.search button
-{
-    border: 3px solid #ffffff;
-    height: 60px;
-    background: rgb(0 0 0 / 70%);
-    border-radius: 50px;
-    font-size: xx-large;
-    padding-bottom: 3px;
-    cursor: pointer;
-
-    &:hover
-    {
-        background-color: rgba(255, 255, 255, 0.7);
+    .banner .slider .item{
+        transform: 
+            rotateY(calc( (var(--position) - 1) * (360 / var(--quantity)) * 1deg))
+            translateZ(180px);
     }
-
-    &:active
-    {
-        background: rgb(0 0 0 / 70%);
+    .banner .content h1{
+        font-size: 5em;
     }
 }
-
-
-.temperature
-{
-    margin: 40px;
-}
-
-.temperature .degree
-{
-    color: white;
-    font-size: 98px;
-    font-weight: bold;
-}
-
-.temperature .description
-{
-    color: white;
-    font-size: 25px;
-    font-weight: bold;
-}
-
-
-
-.others
-{
-    background: rgb(0 0 0 / 58%);
-    color: white;
-    border-radius: 30px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    gap: 30px;
-    font-weight: bolder;
-    font-size: 20px;
-    width: 500px;
-    padding: 30px;
-    backdrop-filter: blur(11px);
-
-
-    visibility: hidden; /* Keep the space occupied but hide it */
-    height: auto; /* Set height to auto to adjust dynamically */
-    opacity: 0; /* Make it fully transparent */
-    transition: opacity 0.3s ease; /* Add a smooth transition */
-}
-
