@@ -1,50 +1,52 @@
 let timer = 60;
 let score = 0;
 let random = 0;
+let timerInterval;
 
-function increase_score(){
+function increase_score() {
   score += 10;
   document.querySelector(".b3").textContent = score;
 }
 
-function makehit(){
-  random = Math.floor(Math.random()*10);
+function makehit() {
+  random = Math.floor(Math.random() * 10);
   document.querySelector(".b1").innerHTML = random;
 }
 
-function makebubble(){
+function makebubble() {
   let clutter = " ";
 
-for(let i = 1; i<=100; i++){
-  let random_num = Math.floor(Math.random()*10);
-  clutter += `<div class="bubble">${random_num}</div>`;
+  for (let i = 1; i <= 100; i++) {
+    let random_num = Math.floor(Math.random() * 10);
+    clutter += `<div class="bubble">${random_num}</div>`;
+  }
+
+  document.querySelector("#pbtm").innerHTML = clutter;
 }
 
-document.querySelector("#pbtm").innerHTML = clutter;
-}
-
-function countdown(){
-  setInterval(()=>{
-    if(timer > 0){
-      timer --;
+function countdown() {
+  timerInterval = setInterval(() => {
+    if (timer > 0) {
+      timer--;
       document.querySelector(".b2").innerHTML = timer;
+    } else {
+      clearInterval(timerInterval);
+      document.querySelector(
+        "#pbtm"
+      ).innerHTML = `<h1>Your score is ${score}</h1>`;
     }
-    else{
-      document.querySelector("#pbtm").innerHTML = `<h1>Your score is ${score}</h1>`;
-    }
-  }, 1000)
+  }, 1000);
 }
 
-document.querySelector("#pbtm")
-.addEventListener("click", function(details){
+document.querySelector("#pbtm").addEventListener("click", function (details) {
   let clicked_num = Number(details.target.textContent);
-  if(clicked_num === random){
+  if (clicked_num === random) {
     increase_score();
     makebubble();
   }
 });
 
-document.querySelector("#but").addEventListener("click", function(){
+document.querySelector("#but").addEventListener("click", function () {
   location.reload();
 });
 
