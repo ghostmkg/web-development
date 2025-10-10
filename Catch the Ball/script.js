@@ -13,6 +13,9 @@ let ballSpeedY = 3;
 let paddleX = 250; // Starting paddle position
 const paddleWidth = 100;
 
+// Initialize paddle position
+paddle.style.left = paddleX + "px";
+
 // Update the game state every 16 milliseconds (~60fps)
 function gameLoop() {
     // Move the ball
