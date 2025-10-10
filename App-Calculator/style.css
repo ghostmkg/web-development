@@ -1,109 +1,113 @@
 /* Global reset and font styling */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
 body {
-    background: linear-gradient(135deg, #74ebd5, #acb6e5); /* Gradient background */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    color: #333;
+  background: linear-gradient(
+    135deg,
+    #74ebd5,
+    #acb6e5
+  ); /* Gradient background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: #333;
 }
 
 /* Container styling for the calculator */
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
 }
 
 /* Card-like structure to hold the content */
 .card {
-    background: white;
-    padding: 40px;
-    border-radius: 20px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); /* Adds depth */
-    text-align: center;
-    width: 350px;
-    animation: fadeIn 0.8s ease-in-out; /* Smooth fade-in */
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); /* Adds depth */
+  text-align: center;
+  width: 350px;
+  animation: fadeIn 0.8s ease-in-out; /* Smooth fade-in */
 }
 
 /* Heading design */
 h1 {
-    font-size: 28px;
-    margin-bottom: 30px;
-    color: #3A506B;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+  font-size: 28px;
+  margin-bottom: 30px;
+  color: #3a506b;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 /* Input Section */
 .input-section {
-    margin-bottom: 30px;
+  margin-bottom: 30px;
 }
 
 label {
-    font-size: 16px;
-    color: #3A506B;
-    display: block;
-    margin-bottom: 10px;
+  font-size: 16px;
+  color: #3a506b;
+  display: block;
+  margin-bottom: 10px;
 }
 
 input {
-    padding: 12px;
-    border: 2px solid #74ebd5;
-    border-radius: 10px;
-    width: 100%;
-    font-size: 16px;
-    transition: all 0.3s ease;
+  padding: 12px;
+  border: 2px solid #74ebd5;
+  border-radius: 10px;
+  width: 100%;
+  font-size: 16px;
+  transition: all 0.3s ease;
 }
 
 input:focus {
-    border-color: #acb6e5;
-    outline: none;
+  border-color: #acb6e5;
+  outline: none;
 }
 
 /* Button design */
 button {
-    margin-top: 20px;
-    background-color: #74ebd5;
-    color: green;
-    border: none;
-    padding: 12px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 10px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 20px;
+  background-color: #74ebd5;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 button:hover {
-    background-color: #acb6e5;
-    transform: scale(1.05);
+  background-color: #acb6e5;
+  transform: scale(1.05);
 }
 
 /* Result Section */
 #result {
-    margin-top: 20px;
-    font-size: 18px;
-    font-weight: 500;
-    color: #3A506B;
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #3a506b;
 }
 
 /* Fade-in animation */
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
