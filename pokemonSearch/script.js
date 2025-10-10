@@ -27,7 +27,7 @@ const searchPokedex = async () => {
 
   try {
     // Fetch Pokémon data from the API using the user input (converted to lowercase)
-    const res = await fetch(`https://pokeapi-proxy.freecodecamp.rocks/api/pokemon/${userInput.value.toLowerCase()}`);
+    const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${userInput.value.toLowerCase()}`);
     const data = await res.json(); // Parse the JSON response
 
     // Destructure necessary properties from the fetched data
@@ -41,6 +41,14 @@ const searchPokedex = async () => {
       </div>
       <div id = "shiny">
         <img src="${sprites.front_shiny}" id="sprite">
+        <p>Shiny ${name}</p>
+      </div>
+      <div id = "shiny">
+        <img src="${sprites.back_default}" id="sprite">
+        <p>Shiny ${name}</p>
+      </div>
+      <div id = "shiny">
+        <img src="${sprites.back_shiny}" id="sprite">
         <p>Shiny ${name}</p>
       </div>
     `;
