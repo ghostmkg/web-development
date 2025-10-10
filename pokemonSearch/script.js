@@ -35,7 +35,14 @@ const searchPokedex = async () => {
 
     // Update the Pokémon image element with the fetched sprite
     pokemonImage.innerHTML = `
-      <img src="${sprites.front_default}" id="sprite">
+      <div id = "normal">
+        <img src="${sprites.front_default}" id="sprite">
+        <p>Normal ${name}</p>
+      </div>
+      <div id = "shiny">
+        <img src="${sprites.front_shiny}" id="sprite">
+        <p>Shiny ${name}</p>
+      </div>
     `;
 
     // Update the HTML elements with the fetched Pokémon details

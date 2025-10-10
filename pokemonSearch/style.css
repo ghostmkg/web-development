@@ -83,8 +83,21 @@ label {
     font-size: 1.5rem;
 }
 
+#pokemon-image {
+    display: flex;
+    justify-content: center;   
+    align-items: center;      
+    gap: 20px;
+    flex-wrap: wrap;   
+    margin-bottom: 50px;            
+}
+
 #pokemon-image img {
     width: 200px;
+}
+
+#pokemon-image div {
+    text-align: center;
 }
 
 #weight, #height {
