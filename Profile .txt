@@ -1,0 +1,277 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Profile Header -->
+    <RelativeLayout
+        android:id="@+id/profileHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Profile Cover Image -->
+        <ImageView
+            android:id="@+id/coverImageView"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/placeholder_cover" />
+
+        <!-- Profile Picture -->
+        <ImageView
+            android:id="@+id/profileImageView"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="100dp"
+            android:background="@drawable/circle_background"
+            android:src="@drawable/placeholder_profile" />
+
+        <!-- Edit Profile Button -->
+        <Button
+            android:id="@+id/editProfileButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/profileImageView"
+            android:layout_centerHorizontal="true"
+            android:text="Edit Profile" />
+
+        <!-- User Info -->
+        <TextView
+            android:id="@+id/usernameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/editProfileButton"
+            android:layout_centerHorizontal="true"
+            android:text="John Doe"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/bioTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/usernameTextView"
+            android:layout_centerHorizontal="true"
+            android:text="Photographer | Travel Enthusiast"
+            android:textSize="16sp" />
+
+        <!-- Follow Button -->
+        <Button
+            android:id="@+id/followButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/bioTextView"
+            android:layout_centerHorizontal="true"
+            android:text="Follow" />
+
+        <!-- Profile Stats -->
+        <LinearLayout
+            android:id="@+id/statsLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/followButton"
+            android:orientation="horizontal"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/postsCountTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="500"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/postsLabelTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Posts"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginLeft="16dp" />
+
+            <TextView
+                android:id="@+id/followersCountTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text
+
+
+
+
+
+
+
+
+
+
+
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Profile Header -->
+    <!-- Add the necessary code for the profile header, including cover image, profile picture, edit profile button, user info, follow button, and profile stats -->
+
+    <!-- Tab Layout -->
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/profileTabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/statsLayout"
+        android:background="@color/colorPrimary"
+        android:elevation="6dp"
+        android:theme="@style/ThemeOverlay.MaterialComponents.Dark.ActionBar">
+
+        <!-- Tab items -->
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/postsTab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Posts" />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/igtvTab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="IGTV" />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/savedTab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Saved" />
+
+    </com.google.android.material.tabs.TabLayout>
+
+    <!-- ViewPager -->
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/profileViewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/profileTabLayout"
+        android:background="@color/colorPrimaryLight" />
+
+</RelativeLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import android.os.Bundle;
+import android.view.MenuItem;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.ViewPager;
+import com.google.android.material.tabs.TabLayout;
+
+public class ProfileActivity extends AppCompatActivity {
+
+    private TabLayout tabLayout;
+    private ViewPager viewPager;
+    private ProfilePagerAdapter pagerAdapter;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_profile);
+
+        // Initialize UI components
+        tabLayout = findViewById(R.id.profileTabLayout);
+        viewPager = findViewById(R.id.profileViewPager);
+
+        // Set up ViewPager with adapter
+        pagerAdapter = new ProfilePagerAdapter(getSupportFragmentManager());
+        viewPager.setAdapter(pagerAdapter);
+
+        // Connect TabLayout with ViewPager
+        tabLayout.setupWithViewPager(viewPager);
+
+        // Set up tab icons and labels
+        tabLayout.getTabAt(0).setIcon(R.drawable.ic_posts);
+        tabLayout.getTabAt(1).setIcon(R.drawable.ic_igtv);
+        tabLayout.getTabAt(2).setIcon(R.drawable.ic_saved);
+
+        // Set up tab selection listener
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                viewPager.setCurrentItem(tab.getPosition());
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+            }
+        });
+    }
+
+    // Inner class for the ProfilePagerAdapter
+    private class ProfilePagerAdapter extends FragmentPagerAdapter {
+
+        public ProfilePagerAdapter(FragmentManager fragmentManager) {
+            super(fragmentManager, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            // Return the appropriate fragment based on the selected tab
+            switch (position) {
+                case 0:
+                    return new PostsFragment();
+                case 1:
+                    return new IGTVFragment();
+                case 2:
+                    return new SavedFragment();
+                default:
+                    return null;
+            }
+        }
+
+        @Override
+        public int getCount() {
+            // Return the total number of tabs
+            return 3;
+        }
+
+        @NonNull
+        @Override
+        public CharSequence getPageTitle(int position) {
+            // Return the tab title for each position
+            switch (position) {
+                case 0:
+                    return getString(R.string.tab_posts);
+                case 1:
+                    return getString(R.string.tab_igtv);
+                case 2:
+                    return getString(R.string.tab_saved);
+                default:
+                    return super.getPageTitle(position);
+            }
+        }
+    }
+}
