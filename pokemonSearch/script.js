@@ -27,7 +27,7 @@ const searchPokedex = async () => {
 
   try {
     // Fetch Pokémon data from the API using the user input (converted to lowercase)
-    const res = await fetch(`https://pokeapi-proxy.freecodecamp.rocks/api/pokemon/${userInput.value.toLowerCase()}`);
+    const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${userInput.value.toLowerCase()}`);
     const data = await res.json(); // Parse the JSON response
 
     // Destructure necessary properties from the fetched data
@@ -35,15 +35,30 @@ const searchPokedex = async () => {
 
     // Update the Pokémon image element with the fetched sprite
     pokemonImage.innerHTML = `
-      <img src="${sprites.front_default}" id="sprite">
+      <div id = "normal">
+        <img src="${sprites.front_default}" id="sprite">
+        <p>Normal sprite</p>
+      </div>
+      <div id = "shiny">
+        <img src="${sprites.front_shiny}" id="sprite">
+        <p>Shiny sprite</p>
+      </div>
+      <div id = "shiny">
+        <img src="${sprites.back_default}" id="sprite">
+        <p>Back sprite</p>
+      </div>
+      <div id = "shiny">
+        <img src="${sprites.back_shiny}" id="sprite">
+        <p>Back sprite shiny</p>
+      </div>
     `;
 
     // Update the HTML elements with the fetched Pokémon details
     pokemonName.innerHTML = name.toUpperCase(); // Display name 
-    pokemonId.innerHTML = `#${id}`; // Display Pokémon ID
+    pokemonId.innerHTML = `National dex number: ${id}`; // Display Pokémon ID
 
-    pokemonWeight.innerHTML = `Weight: ${weight}`; 
-    pokemonHeight.innerHTML = `Height: ${height}`;
+    pokemonWeight.innerHTML = `Weight: ${weight*0.1.toFixed(1)} kg`; 
+    pokemonHeight.innerHTML = `Height: ${height*0.1.toFixed(1)} m`;
     
     // Display types with appropriate styling based on type names
     pokemonTypes.innerHTML = types.map(type => `<span class="${type.type.name.toLowerCase()}">${type.type.name.toUpperCase()}</span>`).join(" ");
