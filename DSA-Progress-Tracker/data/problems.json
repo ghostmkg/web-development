@@ -1,0 +1,32 @@
+{
+  "Arrays": [
+    {"id": 1, "title": "Two Sum", "difficulty": "Easy", "hint": "Use a hash map for O(n)", "trivia": "Popular LeetCode problem"},
+    {"id": 2, "title": "Maximum Subarray", "difficulty": "Medium", "hint": "Use Kadane's algorithm", "trivia": "Classic DP problem"},
+    {"id": 3, "title": "Rotate Array", "difficulty": "Medium", "hint": "Reverse parts of array", "trivia": "In-place rotation challenge"},
+    {"id": 4, "title": "Find Minimum in Rotated Sorted Array", "difficulty": "Medium", "hint": "Binary search variation", "trivia": "Requires careful index handling"}
+  ],
+  "Strings": [
+    {"id": 1, "title": "Reverse String", "difficulty": "Easy", "hint": "Swap characters in place", "trivia": "Simple yet common interview question"},
+    {"id": 2, "title": "Longest Palindromic Substring", "difficulty": "Medium", "hint": "Expand around center", "trivia": "Palindromes appear in many algorithms"},
+    {"id": 3, "title": "Valid Anagram", "difficulty": "Easy", "hint": "Use character frequency count", "trivia": "Hash maps make this easy"},
+    {"id": 4, "title": "Implement strStr()", "difficulty": "Easy", "hint": "Use sliding window or KMP", "trivia": "Classic substring search"}
+  ],
+  "Linked Lists": [
+    {"id": 1, "title": "Reverse Linked List", "difficulty": "Easy", "hint": "Iteratively or recursively reverse pointers", "trivia": "Foundational linked list problem"},
+    {"id": 2, "title": "Detect Cycle in Linked List", "difficulty": "Medium", "hint": "Use Floyd's Tortoise and Hare", "trivia": "Classic cycle detection technique"},
+    {"id": 3, "title": "Merge Two Sorted Lists", "difficulty": "Easy", "hint": "Merge like merge sort", "trivia": "Common in coding interviews"},
+    {"id": 4, "title": "Remove N-th Node From End", "difficulty": "Medium", "hint": "Use two-pointer technique", "trivia": "Edge cases are tricky here"}
+  ],
+  "Trees": [
+    {"id": 1, "title": "Maximum Depth of Binary Tree", "difficulty": "Easy", "hint": "Recursive DFS traversal", "trivia": "Fundamental tree problem"},
+    {"id": 2, "title": "Validate Binary Search Tree", "difficulty": "Medium", "hint": "Use min/max constraints", "trivia": "Classic BST validation"},
+    {"id": 3, "title": "Lowest Common Ancestor", "difficulty": "Medium", "hint": "Recursively check left/right subtree", "trivia": "Important for hierarchical data"},
+    {"id": 4, "title": "Serialize and Deserialize Binary Tree", "difficulty": "Hard", "hint": "Use BFS or DFS with markers", "trivia": "Real-world application in storage"}
+  ],
+  "Graphs": [
+    {"id": 1, "title": "Number of Islands", "difficulty": "Medium", "hint": "DFS or BFS traversal", "trivia": "Classic grid-based graph problem"},
+    {"id": 2, "title": "Clone Graph", "difficulty": "Medium", "hint": "Use DFS/BFS with hash map", "trivia": "Graph copy with references"},
+    {"id": 3, "title": "Course Schedule (Topological Sort)", "difficulty": "Medium", "hint": "Detect cycles in DAG", "trivia": "Scheduling problem in real life"},
+    {"id": 4, "title": "Dijkstra's Shortest Path", "difficulty": "Hard", "hint": "Use priority queue", "trivia": "Essential graph algorithm for shortest paths"}
+  ]
+}

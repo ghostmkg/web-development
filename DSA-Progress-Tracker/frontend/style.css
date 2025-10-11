@@ -1,0 +1,112 @@
+/* Rainbow background */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+    color: #fff;
+    padding: 20px;
+}
+
+/* Center login box */
+#login-section {
+    background-color: rgba(0,0,0,0.6);
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    max-width: 400px;
+    margin: 50px auto;
+}
+
+h1 {
+    margin-bottom: 5px;
+}
+
+.tagline {
+    font-style: italic;
+    margin-bottom: 15px;
+}
+
+.instructions {
+    font-size: 0.9em;
+    margin-bottom: 15px;
+}
+
+/* Buttons */
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-right: 5px;
+    font-weight: bold;
+    transition: transform 0.2s;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+/* Colored buttons */
+.primary-btn {
+    background-color: #ff4081;
+    color: white;
+}
+
+.concept-btn {
+    background-color: #2196f3;
+    color: white;
+    margin: 5px;
+}
+
+.solved-btn {
+    background-color: #ff9800;
+    color: white;
+}
+
+.back-btn {
+    background-color: #9c27b0;
+    color: white;
+    margin-top: 10px;
+}
+
+/* Code box */
+.code-box {
+    width: 100%;
+    margin-top: 5px;
+    padding: 6px;
+    font-family: monospace;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    resize: vertical;
+}
+
+/* Hint & Trivia */
+.hint, .trivia {
+    font-size: 0.9em;
+    color: #fff;
+    margin-bottom: 4px;
+}
+.concept-card {
+    background-color: rgba(255,255,255,0.1);
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 10px;
+}
+
+.progress-bar {
+    width: 100%;
+    background-color: rgba(0,0,0,0.3);
+    border-radius: 8px;
+    margin-top: 5px;
+    height: 20px;
+    color: white;
+    font-weight: bold;
+}
+
+.progress {
+    height: 100%;
+    background-color: #4caf50;
+    text-align: center;
+    line-height: 20px;
+    border-radius: 8px;
+}
