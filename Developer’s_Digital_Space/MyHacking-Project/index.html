@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenu Tech Savvy - Web Developer Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+   
+</head>
+<body>
+    <!-- Header with Navigation -->
+    <header>
+        <nav class="container">
+            <div class="logo">Bienvenu Tech Savvy</div>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#" onclick="showPage('home')" class="nav-link active">Home</a></li>
+                <li><a href="#" onclick="showPage('about')" class="nav-link">About</a></li>
+                <li><a href="#" onclick="showPage('portfolio')" class="nav-link">Portfolio</a></li>
+                <li><a href="#" onclick="showPage('services')" class="nav-link">Services</a></li>
+                <li><a href="#" onclick="showPage('contact')" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Home Page -->
+        <section id="home" class="page active">
+            <div class="hero">
+                <h1>Welcome to My Digital World</h1>
+                <p>I'm a passionate web developer creating amazing digital experiences</p>
+                <a href="#" onclick="showPage('portfolio')" class="cta-button">View My Work</a>
+            </div>
+            
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3>Fast & Modern</h3>
+                    <p>Building lightning-fast websites with the latest technologies and best practices.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Mobile-First</h3>
+                    <p>Responsive designs that look perfect on every device, from mobile to desktop.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💡</div>
+                    <h3>Creative Solutions</h3>
+                    <p>Innovative approaches to solve complex problems with elegant, user-friendly designs.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Page -->
+        <section id="about" class="page">
+            <h2 class="section-title">About Me</h2>
+            <p class="section-subtitle">Passionate developer with a love for creating digital experiences</p>
+            
+            <div class="about-content">
+                <h3>Hi, I'm Bienvenu Tech Savvy!</h3>
+                <p>I'm a full-stack web developer with over 1.5 years of experience in creating modern, responsive websites and web applications. My journey in web development started with curiosity and has evolved into a passion for crafting digital solutions that make a real impact.</p>
+                
+                <p>When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, or hiking in the mountains. I believe in continuous learning and staying up-to-date with the latest trends in web development.</p>
+                
+                <h3>My Skills</h3>
+                <div class="skills-grid">
+                    <div class="skill-item">HTML5 & CSS3</div>
+                    <div class="skill-item">JavaScript (ES6+)</div>
+                    <div class="skill-item">React & Vue.js</div>
+                    <div class="skill-item">Node.js & Express</div>
+                    <div class="skill-item">MongoDB & SQL</div>
+                    <div class="skill-item">Git & GitHub</div>
+                    <div class="skill-item">Responsive Design</div>
+                    <div class="skill-item">UI/UX Design</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Page -->
+        <section id="portfolio" class="page">
+            <h2 class="section-title">My Final Project</h2>
+            <p class="section-subtitle">A showcase of my recent projects and achievements</p>
+            
+            <div class="portfolio-grid">
+                <div class="project-card">
+                    <div class="project-image">🛒</div>
+                    <div class="project-content">
+                        <h3>E-Commerce Platform</h3>
+                        <p>A full-featured online store with shopping cart, payment integration, and admin dashboard.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">MongoDB</span>
+                            <span class="tech-tag">Stripe API</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">📱</div>
+                    <div class="project-content">
+                        <h3>Task Management App</h3>
+                        <p>A collaborative task management tool with real-time updates and team features.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Vue.js</span>
+                            <span class="tech-tag">Firebase</span>
+                            <span class="tech-tag">Socket.io</span>
+                            <!-- <span class="tech-tag">PWA</span> -->
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">📊</div>
+                    <div class="project-content">
+                        <h3>Analytics Dashboard</h3>
+                        <p>A comprehensive analytics dashboard with interactive charts and data visualization.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">D3.js</span>
+                            <span class="tech-tag">Chart.js</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">API Integration</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">🎵</div>
+                    <div class="project-content">
+                        <h3>Music Streaming App</h3>
+                        <p>A Spotify-like music streaming application with playlist management and social features.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">React Native</span>
+                            <span class="tech-tag">Express.js</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                            <span class="tech-tag">AWS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Page -->
+        <section id="services" class="page">
+            <h2 class="section-title">My Services</h2>
+            <p class="section-subtitle">Professional web development services tailored to your needs</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Web Development</h3>
+                    <div class="service-price">$50/hr</div>
+                    <p>Custom website development using modern technologies like React, Vue.js, and Node.js. From simple landing pages to complex web applications.</p>
+                    <ul>
+                        <li>✓ Responsive Design</li>
+                        <li>✓ Performance Optimization</li>
+                        <li>✓ SEO-Friendly Code</li>
+                        <li>✓ Cross-browser Compatibility</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <h3>UI/UX Design</h3>
+                    <div class="service-price">$40/hr</div>
+                    <p>User-centered design services that focus on creating intuitive and engaging user experiences that convert visitors into customers.</p>
+                    <ul>
+                        <li>✓ Wireframing & Prototyping</li>
+                        <li>✓ User Research</li>
+                        <li>✓ Design Systems</li>
+                        <li>✓ Accessibility Standards</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <h3>E-Commerce Solutions</h3>
+                    <div class="service-price">$75/hr</div>
+                    <p>Complete e-commerce solutions including shopping carts, payment gateways, inventory management, and admin dashboards.</p>
+                    <ul>
+                        <li>✓ Payment Integration</li>
+                        <li>✓ Inventory Management</li>
+                        <li>✓ Order Processing</li>
+                        <li>✓ Analytics & Reports</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <h3>Maintenance & Support</h3>
+                    <div class="service-price">$30/hr</div>
+                    <p>Ongoing website maintenance, updates, security monitoring, and technical support to keep your site running smoothly.</p>
+                    <ul>
+                        <li>✓ Regular Updates</li>
+                        <li>✓ Security Monitoring</li>
+                        <li>✓ Performance Optimization</li>
+                        <li>✓ 24/7 Support</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Page -->
+        <section id="contact" class="page">
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="section-subtitle">Let's discuss your project and bring your ideas to life</p>
+            
+            <div class="contact-content">
+                <div class="contact-form">
+                    <h3>Send me a message</h3>
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label for="name">Your Name *</label>
+                            <input type="text" id="name" name="name" required>
+                            <div class="error-message" id="name-error"></div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                            <div class="error-message" id="email-error"></div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Subject *</label>
+                            <input type="text" id="subject" name="subject" required>
+                            <div class="error-message" id="subject-error"></div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Your Message *</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                            <div class="error-message" id="message-error"></div>
+                        </div>
+                        
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+                
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <div>
+                            <strong>Email</strong><br>
+                            olawalesossapeter@gmail.com
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📱</div>
+                        <div>
+                            <strong>Phone</strong><br>
+                            +234 9136710349
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div>
+                            <strong>Location</strong><br>
+                            Lagos , Nieria
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">⏰</div>
+                        <div>
+                            <strong>Response Time</strong><br>
+                            Within 24 hours
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="#" aria-label="LinkedIn">💼</a>
+                <a href="#" aria-label="GitHub">💻</a>
+                <a href="#" aria-label="Twitter">🐦</a>
+                <a href="#" aria-label="Instagram">📸</a>
+            </div>
+            <p>&copy; 2025 BIENVENU TECH SAVVY. All rights reserved.</p>
+        </div>
+    </footer>
+<script src="index.js"></script>
+</body>
+</html>
