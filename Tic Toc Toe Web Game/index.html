@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-Tac-Toe AI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Tic-Tac-Toe AI</h1>
+
+        <div class="game-options">
+            <div class="mode-selection">
+                <input type="radio" id="mode-human" name="game-mode" value="human" checked>
+                <label for="mode-human">Play with Friend</label>
+                <input type="radio" id="mode-ai" name="game-mode" value="ai">
+                <label for="mode-ai">Play with AI</label>
+            </div>
+
+            <div class="difficulty-selection" style="display: none;">
+                <label for="difficulty">AI Difficulty:</label>
+                <select id="difficulty">
+                    <option value="easy">Easy</option>
+                    <option value="medium">Medium</option>
+                    <option value="hard">Hard</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="game-board" id="board">
+            <div class="cell" data-index="0"></div>
+            <div class="cell" data-index="1"></div>
+            <div class="cell" data-index="2"></div>
+            <div class="cell" data-index="3"></div>
+            <div class="cell" data-index="4"></div>
+            <div class="cell" data-index="5"></div>
+            <div class="cell" data-index="6"></div>
+            <div class="cell" data-index="7"></div>
+            <div class="cell" data-index="8"></div>
+        </div>
+        <div class="status" id="status">Player X's turn</div>
+        <button class="restart-btn" id="restart">Restart Game</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
