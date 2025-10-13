@@ -5,6 +5,7 @@ let random = 0;
 function increase_score(){
   score += 10;
   document.querySelector(".b3").textContent = score;
+  makehit();
 }
 
 function makehit(){
