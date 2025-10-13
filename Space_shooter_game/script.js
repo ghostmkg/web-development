@@ -8,144 +8,168 @@ canvas.width = 800;
 canvas.height = 600;
 
 // Game variables
-let spaceship = { x: canvas.width / 2 - 25, y: canvas.height - 60, width: 50, height: 50, speed: 10 };
+let spaceship = {
+    x: canvas.width / 2 - 25, y: canvas.height - 70, // Position
+    displayWidth: 50, displayHeight: 50, // How large the image is drawn
+    collisionWidth: 20, collisionHeight: 30, // Tighter hitbox
+    collisionOffsetX: 15, collisionOffsetY: 10, // Offset to center tighter hitbox
+    speed: 20 // This will now be the 'step distance' per key press
+};
 let lasers = [];
 let enemies = [];
-let explosions = []; // Store explosion coordinates
+let explosions = [];
 let score = 0;
 let isGameOver = false;
-let laserInterval;  // This will hold the interval ID for automatic shooting
-let leftKeyPressed = false;
-let rightKeyPressed = false;
+let laserInterval;
 
-// Handle spaceship movement
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowLeft') {
-        leftKeyPressed = true;
-    } else if (e.key === 'ArrowRight') {
-        rightKeyPressed = true;
-    } else if (e.key === ' ' && isGameOver) {
-        restartGame();
-    }
-});
+// --- REMOVE leftKeyPressed and rightKeyPressed from here ---
+// let leftKeyPressed = false;
+// let rightKeyPressed = false;
+// --- END REMOVAL ---
 
-document.addEventListener('keyup', (e) => {
-    if (e.key === 'ArrowLeft') {
-        leftKeyPressed = false;
-    } else if (e.key === 'ArrowRight') {
-        rightKeyPressed = false;
-    }
-});
+// Image assets
+const spaceshipImg = new Image();
+spaceshipImg.src = 'images/spaceship.png';
+const enemyImg = new Image();
+enemyImg.src = 'images/enemy.png';
+const laserImg = new Image();
+laserImg.src = 'images/laser.png';
+const explosionImg = new Image();
+explosionImg.src = 'images/explosion.png';
 
-// Move spaceship smoothly
+
+// --- ALL HELPER FUNCTIONS DEFINED HERE (BEFORE gameLoop) ---
+
+// --- The moveSpaceship function is no longer needed in its current form for discrete movement ---
+/*
 function moveSpaceship() {
-    if (leftKeyPressed && spaceship.x > 0) {
-        spaceship.x -= spaceship.speed;
-    }
-    if (rightKeyPressed && spaceship.x + spaceship.width < canvas.width) {
-        spaceship.x += spaceship.speed;
-    }
+    // This function will be empty or removed if movement is handled in keydown
 }
+*/
 
-// Draw spaceship
+// Draw spaceship using an image and rotate it
 function drawSpaceship() {
-    ctx.fillStyle = 'lightblue';
-    ctx.fillRect(spaceship.x, spaceship.y, spaceship.width, spaceship.height);
+    ctx.save();
+    ctx.translate(spaceship.x + spaceship.displayWidth / 2, spaceship.y + spaceship.displayHeight / 2);
+    ctx.rotate(-Math.PI / 2);
+    ctx.drawImage(spaceshipImg, -spaceship.displayWidth / 2, -spaceship.displayHeight / 2, spaceship.displayWidth, spaceship.displayHeight);
+    ctx.restore();
+
+    // OPTIONAL: Draw hitbox for debugging
+    // ctx.strokeStyle = 'cyan';
+    // ctx.strokeRect(spaceship.x + spaceship.collisionOffsetX, spaceship.y + spaceship.collisionOffsetY, spaceship.collisionWidth, spaceship.collisionHeight);
 }
 
 // Handle laser shooting automatically
 function autoShootLaser() {
-    lasers.push({ x: spaceship.x + spaceship.width / 2 - 2, y: spaceship.y, width: 4, height: 10, speed: 5 });
+    lasers.push({
+        x: spaceship.x + spaceship.displayWidth / 2 - 5, y: spaceship.y - 10,
+        displayWidth: 10, displayHeight: 20,
+        collisionWidth: 4, collisionHeight: 10,
+        collisionOffsetX: 3, collisionOffsetY: 5,
+        speed: 3
+    });
 }
 
-// Draw lasers with glow effect
+// Draw lasers with image
 function drawLasers() {
     lasers.forEach((laser, index) => {
         laser.y -= laser.speed;
-        if (laser.y < 0) {
+        if (laser.y < -laser.displayHeight) {
             lasers.splice(index, 1);
         }
-        ctx.fillStyle = 'red';
-        ctx.fillRect(laser.x, laser.y, laser.width, laser.height);
-        ctx.shadowBlur = 10; // Glow effect
-        ctx.shadowColor = "red";
+        ctx.drawImage(laserImg, laser.x, laser.y, laser.displayWidth, laser.displayHeight);
+
+        // OPTIONAL: Draw hitbox for debugging
+        // ctx.strokeStyle = 'yellow';
+        // ctx.strokeRect(laser.x + laser.collisionOffsetX, laser.y + laser.collisionOffsetY, laser.collisionWidth, laser.collisionHeight);
     });
-    ctx.shadowBlur = 0; // Reset shadow after laser drawing
 }
 
 // Generate enemies
 function generateEnemies() {
-    if (Math.random() < 0.02) {
-        const enemyWidth = 40;
-        const enemyHeight = 40;
+    if (Math.random() < 0.025) {
+        const enemyDisplayWidth = 60;
+        const enemyDisplayHeight = 60;
+
         enemies.push({
-            x: Math.random() * (canvas.width - enemyWidth),
-            y: 0,
-            width: enemyWidth,
-            height: enemyHeight,
-            speed: 3,
+            x: Math.random() * (canvas.width - enemyDisplayWidth),
+            y: -enemyDisplayHeight,
+            displayWidth: enemyDisplayWidth, displayHeight: enemyDisplayHeight,
+            collisionWidth: 30, collisionHeight: 30,
+            collisionOffsetX: 15, collisionOffsetY: 15,
+            speed: 1 + Math.random() * 1,
         });
     }
 }
 
-// Draw enemies with animation
+// Draw enemies with image
 function drawEnemies() {
     enemies.forEach((enemy, index) => {
         enemy.y += enemy.speed;
         if (enemy.y > canvas.height) {
-            enemies.splice(index, 1); // Remove enemy if it goes off screen
+            enemies.splice(index, 1);
         }
-        ctx.fillStyle = 'green';
-        ctx.fillRect(enemy.x, enemy.y, enemy.width, enemy.height);
+        ctx.drawImage(enemyImg, enemy.x, enemy.y, enemy.displayWidth, enemy.displayHeight);
+
+        // OPTIONAL: Draw hitbox for debugging
+        // ctx.strokeStyle = 'red';
+        // ctx.strokeRect(enemy.x + enemy.collisionOffsetX, enemy.y + enemy.collisionOffsetY, enemy.collisionWidth, enemy.collisionHeight);
     });
 }
 
 // Create explosion effect
 function createExplosion(x, y) {
-    explosions.push({ x, y, radius: 20 });
+    explosions.push({ x, y, size: 50, frame: 0, maxFrame: 5 });
 }
 
 // Draw explosion effect
 function drawExplosions() {
     explosions.forEach((explosion, index) => {
-        ctx.beginPath();
-        ctx.arc(explosion.x, explosion.y, explosion.radius, 0, Math.PI * 2);
-        ctx.fillStyle = 'orange';
-        ctx.fill();
-        explosion.radius -= 1; // Shrink the explosion
-        if (explosion.radius <= 0) {
-            explosions.splice(index, 1); // Remove explosion when finished
+        ctx.drawImage(explosionImg, explosion.x - explosion.size / 2, explosion.y - explosion.size / 2, explosion.size, explosion.size);
+        explosion.frame++;
+        if (explosion.frame > explosion.maxFrame) {
+            explosions.splice(index, 1);
         }
     });
 }
 
-// Check for collisions and create explosion on hit
+// Check for collisions
 function checkCollisions() {
     lasers.forEach((laser, laserIndex) => {
         enemies.forEach((enemy, enemyIndex) => {
+            const laserHitboxX = laser.x + laser.collisionOffsetX;
+            const laserHitboxY = laser.y + laser.collisionOffsetY;
+            const enemyHitboxX = enemy.x + enemy.collisionOffsetX;
+            const enemyHitboxY = enemy.y + enemy.collisionOffsetY;
+
             if (
-                laser.x < enemy.x + enemy.width &&
-                laser.x + laser.width > enemy.x &&
-                laser.y < enemy.y + enemy.height &&
-                laser.y + laser.height > enemy.y
+                laserHitboxX < enemyHitboxX + enemy.collisionWidth &&
+                laserHitboxX + laser.collisionWidth > enemyHitboxX &&
+                laserHitboxY < enemyHitboxY + enemy.collisionHeight &&
+                laserHitboxY + laser.collisionHeight > enemyHitboxY
             ) {
-                // Laser hits enemy
+                createExplosion(enemy.x + enemy.displayWidth / 2, enemy.y + enemy.displayHeight / 2);
                 enemies.splice(enemyIndex, 1);
                 lasers.splice(laserIndex, 1);
-                createExplosion(enemy.x + enemy.width / 2, enemy.y + enemy.height / 2); // Create explosion
                 score++;
             }
         });
     });
 
-    enemies.forEach((enemy) => {
+    enemies.forEach((enemy, enemyIndex) => {
+        const spaceshipHitboxX = spaceship.x + spaceship.collisionOffsetX;
+        const spaceshipHitboxY = spaceship.y + spaceship.collisionOffsetY;
+        const enemyHitboxX = enemy.x + enemy.collisionOffsetX;
+        const enemyHitboxY = enemy.y + enemy.collisionOffsetY;
+
         if (
-            spaceship.x < enemy.x + enemy.width &&
-            spaceship.x + spaceship.width > enemy.x &&
-            spaceship.y < enemy.y + enemy.height &&
-            spaceship.y + spaceship.height > enemy.y
+            spaceshipHitboxX < enemyHitboxX + enemy.collisionWidth &&
+            spaceshipHitboxX + spaceship.collisionWidth > enemyHitboxX &&
+            spaceshipHitboxY < enemyHitboxY + enemy.collisionHeight &&
+            spaceshipHitboxY + spaceship.collisionHeight > enemyHitboxY
         ) {
-            // Enemy hits spaceship
+            createExplosion(spaceship.x + spaceship.displayWidth / 2, spaceship.y + spaceship.displayHeight / 2);
             isGameOver = true;
             gameOver();
         }
@@ -155,7 +179,7 @@ function checkCollisions() {
 // Game over
 function gameOver() {
     gameOverText.style.display = 'block';
-    clearInterval(laserInterval); // Stop shooting when game is over
+    clearInterval(laserInterval);
 }
 
 // Restart game
@@ -166,7 +190,7 @@ function restartGame() {
     lasers = [];
     explosions = [];
     gameOverText.style.display = 'none';
-    laserInterval = setInterval(autoShootLaser, 300); // Restart automatic shooting
+    laserInterval = setInterval(autoShootLaser, 600);
     gameLoop();
 }
 
@@ -174,24 +198,63 @@ function restartGame() {
 function updateScore() {
     scoreDisplay.textContent = `Score: ${score}`;
 }
+// --- END OF HELPER FUNCTIONS ---
 
-// Main game loop
+
+// --- gameLoop function definition ---
 function gameLoop() {
     if (isGameOver) return;
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    moveSpaceship();
+    // --- moveSpaceship() is no longer called here ---
     drawSpaceship();
     drawLasers();
     drawEnemies();
-    drawExplosions(); // Draw explosion effects
+    drawExplosions();
     checkCollisions();
     generateEnemies();
     updateScore();
 
     requestAnimationFrame(gameLoop);
 }
+// --- End of gameLoop function definition ---
 
-// Start the automatic laser shooting and the game loop
-laserInterval = setInterval(autoShootLaser, 300); // Shoots every 300 milliseconds
-gameLoop();
+
+// Ensure all images are loaded before starting the game
+let imagesLoaded = 0;
+const totalImages = 4;
+
+function imageLoadHandler() {
+    imagesLoaded++;
+    if (imagesLoaded === totalImages) {
+        laserInterval = setInterval(autoShootLaser, 600);
+        gameLoop();
+    }
+}
+
+// Assign onload handlers AFTER imageLoadHandler is defined
+spaceshipImg.onload = imageLoadHandler;
+enemyImg.onload = imageLoadHandler;
+laserImg.onload = imageLoadHandler;
+explosionImg.onload = imageLoadHandler;
+
+
+// --- IMPORTANT: Event Listeners for discrete movement ---
+document.addEventListener('keydown', (e) => {
+    if (isGameOver) { // Only allow restart if game is over
+        if (e.key === ' ') {
+            restartGame();
+        }
+        return; // Don't process other keys if game is over
+    }
+
+    // Discrete movement based on key press
+    if (e.key === 'ArrowLeft') {
+        // Move left by 'speed' amount, ensuring it stays within bounds
+        spaceship.x = Math.max(0, spaceship.x - spaceship.speed);
+    } else if (e.key === 'ArrowRight') {
+        // Move right by 'speed' amount, ensuring it stays within bounds
+        spaceship.x = Math.min(canvas.width - spaceship.displayWidth, spaceship.x + spaceship.speed);
+    }
+    // No 'keyup' listener needed for discrete movement
+});
