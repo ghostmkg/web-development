@@ -1,0 +1,285 @@
+:root {
+    /* Colors */
+    --color-bg: #ffffff;
+    --color-bg-offset: #f7f7f7;
+    --color-text: #333333;
+    --color-text-muted: #767676;
+    --color-primary: #007bff;
+    --color-accent: #6f42c1;
+    --color-border: #e0e0e0;
+
+    --status-connected: #28a745;
+    --status-disconnected: #dc3545;
+    --status-connecting: #ffc107;
+
+    /* Typography */
+    --font-family-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --font-size-base: 16px;
+    --font-size-sm: 0.875rem; /* 14px */
+    --font-size-lg: 1.25rem;  /* 20px */
+    --font-size-xl: 1.5rem;   /* 24px */
+
+    /* Spacing */
+    --space-xs: 0.25rem; /* 4px */
+    --space-sm: 0.5rem;  /* 8px */
+    --space-md: 1rem;    /* 16px */
+    --space-lg: 1.5rem;  /* 24px */
+    --space-xl: 2rem;    /* 32px */
+
+    /* Borders */
+    --border-radius: 0.5rem; /* 8px */
+    --border-width: 1px;
+}
+
+body {
+    font-family: var(--font-family-sans);
+    background-color: var(--color-bg-offset);
+    color: var(--color-text);
+    margin: 0;
+    padding: var(--space-md);
+    font-size: var(--font-size-base);
+    line-height: 1.5;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: calc(100vh - var(--space-md) * 2);
+    gap: var(--space-lg);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-sm) var(--space-md);
+    background-color: var(--color-bg);
+    border: var(--border-width) solid var(--color-border);
+    border-radius: var(--border-radius);
+}
+
+.header .logo {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.header .logo img {
+    height: 32px;
+    width: 32px;
+}
+
+.header h1 {
+    font-size: var(--font-size-lg);
+    margin: 0;
+}
+
+.connection-status {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-size: var(--font-size-sm);
+}
+
+#status-indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+#status-indicator.disconnected {
+    background-color: var(--status-disconnected);
+}
+
+#status-indicator.connecting {
+    background-color: var(--status-connecting);
+}
+
+#status-indicator.connected {
+    background-color: var(--status-connected);
+}
+
+.main-content {
+    background-color: var(--color-bg);
+    padding: var(--space-lg);
+    border: var(--border-width) solid var(--color-border);
+    border-radius: var(--border-radius);
+}
+
+.footer {
+    text-align: center;
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    body {
+        padding: var(--space-sm);
+    }
+    .container {
+        min-height: calc(100vh - var(--space-sm) * 2);
+        gap: var(--space-md);
+    }
+    .header {
+        flex-direction: column;
+        gap: var(--space-md);
+    }
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    gap: var(--space-lg);
+    height: 100%;
+}
+
+.panel {
+    background-color: var(--color-bg);
+    border: var(--border-width) solid var(--color-border);
+    border-radius: var(--border-radius);
+    padding: var(--space-md);
+    display: flex;
+    flex-direction: column;
+}
+
+.connection-panel form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+}
+
+fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+legend {
+    font-weight: 600;
+    padding: 0;
+    margin-bottom: var(--space-sm);
+}
+
+label {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+}
+
+input[type="url"], input[type="text"] {
+    width: 100%;
+    padding: var(--space-sm);
+    border: var(--border-width) solid var(--color-border);
+    border-radius: calc(var(--border-radius) / 2);
+    font-size: var(--font-size-base);
+    box-sizing: border-box;
+}
+
+input[type="url"]:focus, input[type="text"]:focus {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+.button-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-sm);
+}
+
+button {
+    padding: var(--space-sm) var(--space-md);
+    border: none;
+    border-radius: calc(var(--border-radius) / 2);
+    font-size: var(--font-size-base);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    background-color: var(--color-primary);
+    color: white;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+button:disabled {
+    background-color: var(--color-border);
+    cursor: not-allowed;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.reconnect-info {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+}
+
+.logs-panel {
+    overflow: hidden; /* Contain the scrolling logs-container */
+}
+
+.logs-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-md);
+}
+
+.logs-header h3 {
+    margin: 0;
+    font-size: var(--font-size-lg);
+}
+
+#clear-logs-btn {
+    background-color: transparent;
+    color: var(--color-primary);
+    padding: var(--space-xs) var(--space-sm);
+}
+
+.logs-container {
+    flex-grow: 1;
+    overflow-y: auto;
+    font-family: monospace;
+    font-size: var(--font-size-sm);
+    background-color: var(--color-bg-offset);
+    padding: var(--space-sm);
+    border-radius: calc(var(--border-radius) / 2);
+}
+
+.log-entry {
+    padding: var(--space-xs);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.log-entry .timestamp {
+    color: var(--color-text-muted);
+    margin-right: var(--space-sm);
+}
+
+.log-entry.incoming .message {
+    color: var(--status-connected);
+}
+
+.log-entry.outgoing .message {
+    color: var(--color-accent);
+}
+
+.log-entry.error .message {
+    color: var(--status-disconnected);
+}
+
+/* Responsive adjustments for Step 2 */
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
+}
