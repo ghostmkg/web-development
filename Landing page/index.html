@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Landing</title>
+  <meta name="description" content="A clean, responsive landing page template with Hero, About, and Features sections to quickly showcase your project.">
+  <meta property="og:title" content="Project Landing">
+  <meta property="og:description" content="A clean, responsive landing page template to showcase your project.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#6c8cff">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="#hero">ProjectName</a>
+      <button class="theme-toggle" aria-label="Toggle theme" aria-pressed="false">🌙</button>
+      <nav class="nav" aria-label="Primary">
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-menu">☰</button>
+        <ul id="primary-menu" class="nav-list">
+          <li><a href="#about">About</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a class="btn btn-sm" href="#about">Get Started</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section id="hero" class="section hero reveal">
+      <div class="container hero-inner">
+        <h1 class="hero-title">Build. Ship. Inspire.</h1>
+        <p class="hero-tagline">A simple, modern starter to showcase your project and grow your audience.</p>
+        <div class="hero-cta">
+          <a class="btn" href="#about">Learn More</a>
+          <a class="btn btn-ghost" href="#features">See Features</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section about reveal">
+      <div class="container">
+        <h2>About</h2>
+        <p>ProjectName is a lightweight, open-source template designed to help you launch fast. It provides a clear structure, responsive design, and accessible components so you can focus on what matters: your product.</p>
+      </div>
+    </section>
+
+    <section id="features" class="section features reveal">
+      <div class="container">
+        <h2>Features</h2>
+        <div class="feature-grid">
+          <article class="feature-card reveal">
+            <div class="feature-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2l3 6 6 .9-4.5 4.4 1.1 6.3L12 17.8 6.4 19.6l1.1-6.3L3 8.9 9 8l3-6z" fill="currentColor"/>
+              </svg>
+            </div>
+            <h3>Fast Setup</h3>
+            <p>Start quickly with a minimal, production-ready foundation.</p>
+          </article>
+          <article class="feature-card reveal">
+            <div class="feature-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="3" y="4" width="18" height="14" rx="2" stroke="currentColor" stroke-width="2"/>
+                <path d="M8 20h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3>Responsive</h3>
+            <p>Looks great on phones, tablets, and desktops without extra work.</p>
+          </article>
+          <article class="feature-card reveal">
+            <div class="feature-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="12" cy="5" r="2" fill="currentColor"/>
+                <path d="M4 8h16M12 8v10m-7 0l4-6m10 6l-4-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3>Accessible</h3>
+            <p>Built with semantic HTML and keyboard-friendly navigation.</p>
+          </article>
+          <article class="feature-card reveal">
+            <div class="feature-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 17l6-6 4 4 8-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M14 5h7v7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3>Customizable</h3>
+            <p>Style with CSS variables and extend sections as you grow.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="cta" class="section cta-band reveal" aria-labelledby="cta-title">
+      <div class="container cta-inner">
+        <h2 id="cta-title">Ready to get started?</h2>
+        <p>Use this template as your launchpad. Customize and build your next big idea.</p>
+        <div class="cta-actions">
+          <a class="btn btn-gradient" href="#about">Get Started</a>
+          <a class="btn btn-ghost" href="#features">Explore Features</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> ProjectName</p>
+      <a href="#hero" class="back-to-top" aria-label="Back to top">↑</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
