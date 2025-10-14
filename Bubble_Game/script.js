@@ -6,6 +6,7 @@ let timerInterval;
 function increase_score() {
   score += 10;
   document.querySelector(".b3").textContent = score;
+  makehit();
 }
 
 function makehit() {
