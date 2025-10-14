@@ -5,7 +5,7 @@ export default function Search({ updateWeatherInfo }) {
   let [input, setInput] = useState("");
   let [error, setError] = useState(false);
   const API_URL = "https://api.openweathermap.org/data/2.5/weather";
-  const API_KEY = "f7f9a634fa7072c50ac54cf7ccfe885f";
+  const API_KEY = import.meta.env.VITE_WEATHER_API_KEY;//replace the hard coded api key....with env file.....
 
   let getWeatherInfo = async () => {
     try {
