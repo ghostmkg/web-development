@@ -7,13 +7,17 @@ body {
     background-color: black;
     color: white;
     font-family: Arial, sans-serif;
+    overflow: hidden;
 }
 
 #gameCanvas {
-    background-color: #001f3f;
+    background-color: #001f3f; /* Fallback color */
+    background-image: url('images/background.jpg'); /* Your space background image */
+    background-repeat: repeat-y; /* Repeat vertically for scrolling */
+    background-size: 100% auto; /* <<< ADD THIS LINE: Makes background image cover 100% width, height auto */
     display: block;
     border: 3px solid white;
-    animation: scrollBackground 10s linear infinite; /* Background scrolling effect */
+    animation: scrollBackground 20s linear infinite; /* Adjust duration for speed */
 }
 
 #gameOver {
@@ -25,6 +29,7 @@ body {
     font-size: 30px;
     text-align: center;
     display: none;
+    z-index: 10; /* Ensure it's above the canvas */
 }
 
 #score {
@@ -33,15 +38,11 @@ body {
     left: 10px;
     color: white;
     font-size: 20px;
-}
-
-/* Glowing laser effect */
-.glow {
-    box-shadow: 0 0 15px red;
+    z-index: 10; /* Ensure it's above the canvas */
 }
 
 /* Animation for the background scrolling */
 @keyframes scrollBackground {
     0% { background-position: 0 0; }
-    100% { background-position: 0 100%; }
+    100% { background-position: 0 600px; } /* Scrolls the height of the canvas */
 }

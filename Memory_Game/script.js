@@ -21,6 +21,7 @@ function createCard(letter) {
 
 function flipCard() {
     if (lockBoard) return;
+    if (this === firstCard) return;
 
     this.classList.add('flipped');
     this.textContent = this.dataset.letter;
@@ -45,6 +46,10 @@ function checkForMatch() {
 function disableCards() {
     firstCard.removeEventListener('click', flipCard);
     secondCard.removeEventListener('click', flipCard);
+
+    firstCard.classList.add('matched');
+    secondCard.classList.add('matched');
+
     resetBoard();
 }
 

@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Simple Webpage — Hacktoberfest Demo</title>
+  <style>
+    :root{ --bg:#0f1724; --card:#0b1220; --muted:#9aa4b2; --accent:#3b82f6; --glass: rgba(255,255,255,0.03); }
+    *{box-sizing:border-box}
+    body{font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; margin:0; background:linear-gradient(180deg,#071025 0%, #071b2b 100%); color:#e6eef6; -webkit-font-smoothing:antialiased}
+    .container{max-width:980px; margin:48px auto; padding:24px}
+    header{display:flex;align-items:center;gap:16px}
+    .logo{width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#6ee7b7);display:grid;place-items:center;color:#04263b;font-weight:700}
+    h1{margin:0;font-size:20px}
+    p.lead{color:var(--muted); margin:6px 0 24px}
+
+    .grid{display:grid;grid-template-columns:1fr 380px;gap:20px}
+    .card{background:var(--card); border-radius:12px; padding:18px; box-shadow:0 6px 20px rgba(2,6,23,0.6);}
+
+    pre{background:var(--glass); padding:12px; border-radius:8px; overflow:auto; color:#dbeafe}
+    code{font-family:SFMono-Regular, Menlo, Monaco, "Roboto Mono", monospace; font-size:13px}
+
+    .controls{display:flex;gap:8px; margin-bottom:12px}
+    button{background:transparent;border:1px solid rgba(255,255,255,0.08); padding:8px 10px;border-radius:8px;color:inherit;cursor:pointer}
+    button.primary{background:linear-gradient(90deg,var(--accent),#60a5fa); border:0;color:#04263b;font-weight:600}
+
+    .preview{min-height:120px; display:flex; align-items:center; justify-content:center; color:var(--muted)}
+
+    footer{margin-top:20px;color:var(--muted); font-size:13px}
+
+    @media(max-width:900px){.grid{grid-template-columns:1fr;}.logo{width:48px;height:48px}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">HF</div>
+      <div>
+        <h1>Simple Webpage — Hacktoberfest Demo</h1>
+        <p class="lead">A tiny, single-file demo site with a code snippet area, copy button, and live preview. Paste your code snippet (C++, HTML, JS) and share it for PRs or learning.</p>
+      </div>
+    </header>
+
+    <div class="grid">
+      <main class="card">
+        <div class="controls">
+          <button id="runBtn" class="primary">Run Preview</button>
+          <button id="copyBtn">Copy Code</button>
+          <button id="clearBtn">Clear</button>
+        </div>
+
+        <label style="display:block; font-size:13px; color:var(--muted); margin-bottom:6px">Code (C++ / HTML / JS):</label>
+        <textarea id="codeArea" spellcheck="false" style="width:100%; min-height:300px; resize:vertical; padding:12px; border-radius:8px; border:0; background:transparent; color:inherit; font-family:SFMono-Regular, Menlo, Monaco, monospace; font-size:13px">// Paste your code here
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+    cout << "Hello from demo page!" << endl;
+    return 0;
+}
+</textarea>
+      </main>
+
+      <aside class="card">
+        <h3 style="margin-top:0">Live Preview</h3>
+        <div class="preview" id="preview">Nothing to preview yet — click Run Preview</div>
+
+        <h4 style="margin:12px 0 6px">Code Sample</h4>
+        <pre><code id="sampleCode">// Example: removeKdigits (brief snippet)
+string removeKdigits(string num, int k) {
+  string st;
+  for(char c: num){
+    while(!st.empty() && k>0 && st.back()>c){ st.pop_back(); k--; }
+    st.push_back(c);
+  }
+  while(k--) st.pop_back();
+  // trim leading zeros
+  int i=0; while(i<st.size() && st[i]=='0') i++;
+  string res = st.substr(i);
+  return res.empty()?"0":res;
+}
+</code></pre>
+
+        <footer>
+          <div>Made for Hacktoberfest 2025 • Small demo • Copy & paste friendly</div>
+        </footer>
+      </aside>
+    </div>
+  </div>
+
+  <script>
+    const codeArea = document.getElementById('codeArea');
+    const copyBtn = document.getElementById('copyBtn');
+    const runBtn = document.getElementById('runBtn');
+    const clearBtn = document.getElementById('clearBtn');
+    const preview = document.getElementById('preview');
+
+    copyBtn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(codeArea.value);
+        copyBtn.innerText = 'Copied!';
+        setTimeout(()=> copyBtn.innerText = 'Copy Code', 1200);
+      } catch (e) {
+        alert('Copy failed: ' + e);
+      }
+    });
+
+    clearBtn.addEventListener('click', ()=> { codeArea.value = ''; });
+
+    runBtn.addEventListener('click', ()=>{
+      const text = codeArea.value.trim();
+      if(!text) { preview.innerText = 'Code area is empty.'; return; }
+      // naive preview: show first 200 chars
+      preview.innerText = text.slice(0, 200) + (text.length>200 ? '\n\n... truncated ...' : '');
+    });
+  </script>
+</body>
+</html>

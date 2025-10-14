@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz App in JavaScript</title>
+    <!-- Linking Google fonts for icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Quiz Configuration Popup -->
+    <div class="config-popup popup-container active">
+      <div class="config-container quiz-box">
+        <h2 class="config-title">Quiz Configuration</h2>
+        <div class="config-option">
+          <h4 class="option-title">Select Category</h4>
+          <div class="category-options">
+            <button class="category-option active">Programming</button>
+            <button class="category-option">Geography</button>
+            <button class="category-option">Mathematics</button>
+            <button class="category-option">Entertainment</button>
+          </div>
+        </div>
+        <div class="config-option">
+          <h4 class="option-title">No. of Questions</h4>
+          <div class="question-options">
+            <button class="question-option">5</button>
+            <button class="question-option active">10</button>
+            <button class="question-option">15</button>
+            <button class="question-option">20</button>
+            <button class="question-option">25</button>
+          </div>
+        </div>
+        <button class="start-quiz-btn">Start Quiz</button>
+      </div>
+    </div>
+    <!-- Quiz Popup -->
+    <div class="quiz-popup popup-container">
+      <div class="quiz-container quiz-box">
+        <header class="quiz-header">
+          <h2 class="quiz-title">Quiz Application</h2>
+          <div class="quiz-timer">
+            <span class="material-symbols-rounded">timer</span>
+            <p class="timer-duration"></p>
+          </div>
+        </header>
+        <div class="quiz-content">
+          <h1 class="question-text"></h1>
+          <ul class="answer-options"></ul>
+        </div>
+        <div class="quiz-footer">
+          <p class="question-status"></p>
+          <button class="next-question-btn">
+            Next
+            <span class="material-symbols-rounded">arrow_right_alt</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Quiz Result Popup -->
+    <div class="result-popup popup-container">
+      <div class="result-container quiz-box">
+        <img src="quiz-over.png" class="result-img" />
+        <h2 class="result-title">Quiz Completed!</h2>
+        <p class="result-message"></p>
+        <button class="try-again-btn">Try Again</button>
+      </div>
+    </div>
+    <!-- Scripts -->
+    <script src="javascript/questions.js"></script>
+    <script src="javascript/script.js"></script>
+  </body>
+</html>

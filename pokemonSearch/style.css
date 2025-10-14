@@ -35,11 +35,12 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: rgb(0, 153, 255);
+    background-color: rgb(255, 0, 0);
     padding: 20px;
     border-radius: 8px;
     box-shadow: black 5px 5px;
-    width: 30%;
+    width: 60%;
+    max-width: 1000px;
     margin-bottom: 20px;
 }
 
@@ -83,11 +84,24 @@ label {
     font-size: 1.5rem;
 }
 
+#pokemon-image {
+    display: flex;
+    justify-content: center;   
+    align-items: center;      
+    gap: 20px;
+    flex-wrap: wrap;   
+    margin-bottom: 50px;            
+}
+
 #pokemon-image img {
     width: 200px;
 }
 
-#weight, #height {
+#pokemon-image div {
+    text-align: center;
+}
+
+#weight, #height, #pokemon-id {
     align-self: flex-start;
 }
 
@@ -110,6 +124,7 @@ table {
 td, th {
     background-color: #ffffff;
     padding: 10px;
+    border-radius: 5px;
 }
 
 /*Styling for pokemon types*/
@@ -191,13 +206,11 @@ td, th {
 @media screen and (max-width: 700px) {
     #pokedex {
         width: 90%;
-        margin-bottom: 5vh;
     }
 }
 
 @media screen and (min-width: 501px) and (max-width: 1100px) {
     #pokedex {
-        width: 50%;
-        margin-bottom: 5vh;
+        width: 70%;
     }
 }

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DSA Progress Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Welcome / Login Section -->
+    <div id="login-section">
+        <h1>DSA PROGRESS TRACKER</h1>
+        <p class="tagline">Track your DSA journey, solve problems, and level up!</p>
+        <p class="instructions">Enter your name and click "Start Tracking" to begin.</p>
+        <input type="text" id="username" placeholder="Enter your name">
+        <button id="start-btn" class="primary-btn">Start Tracking</button>
+    </div>
+
+    <!-- Concepts Section -->
+    <div id="concepts-section" style="display:none;">
+        <h2>Welcome, <span id="display-username"></span>!</h2>
+        <p>Select a DSA topic to see problems and practice:</p>
+        <div id="concepts"></div>
+    </div>
+
+    <!-- Problems Section -->
+    <div id="problems-section" style="display:none;">
+        <div id="problems-container"></div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>

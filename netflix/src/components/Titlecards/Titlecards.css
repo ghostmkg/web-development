@@ -1,0 +1,91 @@
+.title-cards{
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+.title-cards h2{
+    margin-bottom: 8px;
+    font-size: 24px;
+}
+.card-list{
+    display: flex;
+    gap: 10px;
+    overflow-x: scroll;
+    padding-bottom: 10px;
+}
+.card-list::-webkit-scrollbar{
+    display: none;
+}
+.card-list img{
+    width: 240px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+.card-list img:hover{
+    transform: scale(1.05);
+}
+.card-list .card{
+    position: relative;
+    flex-shrink: 0;
+}
+.card-list .card p{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .card-list img{
+        width: 200px;
+    }
+    .title-cards h2{
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 768px) {
+    .title-cards{
+        margin-top: 30px;
+        margin-bottom: 20px;
+    }
+    .title-cards h2{
+        font-size: 20px;
+        margin-bottom: 12px;
+    }
+    .card-list img{
+        width: 160px;
+    }
+    .card-list .card p{
+        font-size: 12px;
+        bottom: 8px;
+        right: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .title-cards{
+        margin-top: 20px;
+        margin-bottom: 15px;
+    }
+    .title-cards h2{
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+    .card-list{
+        gap: 8px;
+    }
+    .card-list img{
+        width: 140px;
+    }
+    .card-list .card p{
+        font-size: 11px;
+        bottom: 6px;
+        right: 6px;
+    }
+}
