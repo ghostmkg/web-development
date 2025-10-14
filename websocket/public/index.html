@@ -19,36 +19,7 @@
             </div>
         </header>
         <main class="main-content">
-            <div class="grid-container">
-                <div class="panel connection-panel">
-                    <form id="connection-form">
-                        <fieldset>
-                            <legend>Connection</legend>
-                            <label for="ws-url">WebSocket URL</label>
-                            <input type="url" id="ws-url" value="ws://localhost:8080" required aria-label="WebSocket Server URL">
-                            <div class="button-group">
-                                <button type="submit" id="connect-btn" aria-label="Connect to WebSocket server">Connect</button>
-                                <button type="button" id="disconnect-btn" disabled aria-label="Disconnect from WebSocket server">Disconnect</button>
-                            </div>
-                        </fieldset>
-                        <fieldset>
-                            <legend>Options</legend>
-                            <div class="checkbox-group">
-                                <input type="checkbox" id="auto-reconnect" checked>
-                                <label for="auto-reconnect">Auto-reconnect</label>
-                                <span id="reconnect-attempts" class="reconnect-info"></span>
-                            </div>
-                        </fieldset>
-                    </form>
-                </div>
-                <div class="panel logs-panel">
-                    <div class="logs-header">
-                        <h3>Logs</h3>
-                        <button type="button" id="clear-logs-btn" aria-label="Clear all logs">Clear</button>
-                    </div>
-                    <div id="logs" class="logs-container" role="log" aria-live="polite"></div>
-                </div>
-            </div>
+            <!-- UI for connection, messages, and composer will go here in later steps -->
         </main>
         <footer class="footer">
             <p>Built for Hacktoberfest. Not affiliated with any company.</p>
