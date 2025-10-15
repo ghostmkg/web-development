@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess the Number Game</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        body.light {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+        }
+
+        body.dark {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #eee;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+            transition: background-color 0.3s;
+        }
+
+        body.dark .container {
+            background: rgba(30, 30, 30, 0.95);
+        }
+
+        .theme-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: 2px solid;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            font-size: 24px;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        body.light .theme-toggle {
+            border-color: #fff;
+            color: #fff;
+        }
+
+        body.dark .theme-toggle {
+            border-color: #ffd700;
+            color: #ffd700;
+        }
+
+        .theme-toggle:hover {
+            transform: rotate(20deg) scale(1.1);
+        }
+
+        h1 {
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+
+        body.light h1 {
+            color: #667eea;
+        }
+
+        body.dark h1 {
+            color: #64ffda;
+        }
+
+        .subtitle {
+            margin-bottom: 30px;
+            opacity: 0.8;
+        }
+
+        #gameArea {
+            margin: 20px 0;
+        }
+
+        input {
+            width: 100%;
+            padding: 15px;
+            font-size: 1.2em;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            transition: border-color 0.3s;
+        }
+
+        body.dark input {
+            background: #2a2a2a;
+            border-color: #444;
+            color: #eee;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        body.dark input:focus {
+            border-color: #64ffda;
+        }
+
+        button {
+            padding: 15px 40px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            font-weight: bold;
+        }
+
+        #guessBtn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 100%;
+        }
+
+        body.dark #guessBtn {
+            background: linear-gradient(135deg, #64ffda 0%, #00bcd4 100%);
+            color: #1a1a2e;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        #message {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 1.1em;
+            font-weight: 500;
+            min-height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .message-high {
+            background: #ffe5e5;
+            color: #d32f2f;
+        }
+
+        body.dark .message-high {
+            background: #4a1a1a;
+            color: #ff6b6b;
+        }
+
+        .message-low {
+            background: #e3f2fd;
+            color: #1976d2;
+        }
+
+        body.dark .message-low {
+            background: #1a2a4a;
+            color: #64b5f6;
+        }
+
+        .message-success {
+            background: #e8f5e9;
+            color: #388e3c;
+        }
+
+        body.dark .message-success {
+            background: #1a4a1a;
+            color: #66bb6a;
+        }
+
+        #attempts {
+            margin-top: 15px;
+            font-size: 1em;
+            opacity: 0.7;
+        }
+
+        #restartBtn {
+            margin-top: 20px;
+            background: #ff6b6b;
+            color: white;
+            display: none;
+        }
+
+        body.dark #restartBtn {
+            background: #ff8787;
+            color: #1a1a2e;
+        }
+    </style>
+</head>
+<body class="light">
+    <button class="theme-toggle" id="themeToggle">🌙</button>
+    
+    <div class="container">
+        <h1>🎯 Guess the Number</h1>
+        <p class="subtitle">I'm thinking of a number between 1 and 100</p>
+        
+        <div id="gameArea">
+            <input type="number" id="userInput" placeholder="Enter your guess" min="1" max="100">
+            <button id="guessBtn">Make a Guess</button>
+            <div id="message"></div>
+            <p id="attempts">Attempts: 0</p>
+            <button id="restartBtn">Play Again</button>
+        </div>
+    </div>
+
+    <script>
+        const gameNum = 90;
+        let attempts = 0;
+        let gameOver = false;
+
+        const userInput = document.getElementById('userInput');
+        const guessBtn = document.getElementById('guessBtn');
+        const message = document.getElementById('message');
+        const attemptsDisplay = document.getElementById('attempts');
+        const restartBtn = document.getElementById('restartBtn');
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+
+        // Theme toggle
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('light');
+            body.classList.toggle('dark');
+            themeToggle.textContent = body.classList.contains('light') ? '🌙' : '☀️';
+        });
+
+        // Game logic
+        function makeGuess() {
+            if (gameOver) return;
+
+            const userNum = Number(userInput.value);
+            
+            if (!userNum || userNum < 1 || userNum > 100) {
+                message.textContent = 'Please enter a valid number between 1 and 100';
+                message.className = 'message-high';
+                return;
+            }
+
+            attempts++;
+            attemptsDisplay.textContent = `Attempts: ${attempts}`;
+
+            if (userNum === gameNum) {
+                message.textContent = `🎉 Correct! You guessed it in ${attempts} attempts!`;
+                message.className = 'message-success';
+                gameOver = true;
+                guessBtn.disabled = true;
+                userInput.disabled = true;
+                restartBtn.style.display = 'inline-block';
+            } else if (userNum > gameNum) {
+                message.textContent = '📉 Too high! Try a lower number.';
+                message.className = 'message-high';
+                userInput.value = '';
+                userInput.focus();
+            } else {
+                message.textContent = '📈 Too low! Try a higher number.';
+                message.className = 'message-low';
+                userInput.value = '';
+                userInput.focus();
+            }
+        }
+
+        guessBtn.addEventListener('click', makeGuess);
+        
+        userInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                makeGuess();
+            }
+        });
+
+        restartBtn.addEventListener('click', () => {
+            location.reload();
+        });
+
+        // Focus input on load
+        userInput.focus();
+    </script>
+</body>
+</html>
