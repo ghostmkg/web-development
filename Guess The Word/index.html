@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guess The Word Game</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="game-setup">
+    <h1>Guess The Word</h1>
+    <label for="difficulty">Select Difficulty:</label>
+    <select id="difficulty">
+      <option value="easy">Easy</option>
+      <option value="medium">Medium</option>
+      <option value="hard">Hard</option>
+    </select>
+
+    <label for="category">Select Category:</label>
+    <select id="category">
+      <option value="animals">Animals</option>
+      <option value="tech">Tech</option>
+      <option value="food">Food</option>
+    </select>
+
+    <button id="startGameBtn">Start Game</button>
+  </div>
+
+  <div class="game-container" style="display:none">
+    <h2 id="roundDisplay">Round: 1</h2>
+    <p><strong>Category:</strong> <span id="currentCategory"></span></p>
+    <p><strong>Hint:</strong> <span id="hintText">???</span></p>
+    <button id="hintBtn">Use Hint</button>
+    <div id="wordDisplay" class="word-display"></div>
+
+    <div class="input-section">
+      <input type="text" id="letterInput" maxlength="1" aria-label="Enter letter"/>
+      <button id="guessBtn">Guess</button>
+    </div>
+
+    <div class="status">
+      <p>Wrong Guesses: <span id="wrongGuesses"></span></p>
+      <p>Remaining Attempts: <span id="remaining">6</span></p>
+      <p>Score: <span id="score">0</span></p>
+      <p>Timer: <span id="timer">60</span> sec</p>
+      <p id="message"></p>
+    </div>
+    <button id="restartBtn">Restart Game</button>
+  </div>
+
+  <div class="leaderboard">
+    <h3>Leaderboard</h3>
+    <ol id="highScores"></ol>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
