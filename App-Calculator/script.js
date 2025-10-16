@@ -1,20 +1,24 @@
-let para = document.getElementById("p");
 function calculateAge() {
     const dobInput = document.getElementById('dob').value;
     const resultElement = document.getElementById('result');
+    const today = new Date();
+    const dob = new Date(dobInput);
 
     if (!dobInput) {
         resultElement.innerHTML = "<p style='color:red;'>Please enter your date of birth.</p>";
         return;
     }
-    if (year < 1000 || year > 2099 || year.length !== 4) {
-        resultElement.innerHTML = "<p style='color:red;'>Please enter a valid year between 1000 and 2099.</p>";
+
+    if (dob > today) {
+        resultElement.innerHTML = "<p style='color:red;'>Date of birth cannot be in the future.</p>";
         return;
     }
 
-    const dob = new Date(dobInput);
-    const today = new Date();
-    
+    const year = dob.getFullYear();
+    if (year < 1000 || year > today.getFullYear()) {
+        resultElement.innerHTML = `<p style='color:red;'>Please enter a valid year between 1000 and ${today.getFullYear()}.</p>`;
+        return;
+    }
 
     let ageYears = today.getFullYear() - dob.getFullYear();
     let ageMonths = today.getMonth() - dob.getMonth();
@@ -34,7 +38,7 @@ function calculateAge() {
         <p>You are <strong>${ageYears}</strong> years, <strong>${ageMonths}</strong> months, 
         and <strong>${ageDays}</strong> days old.</p>`;
 
-          const funFacts = [
+    const funFacts = [
         "Fun fact: January is named after Janus, the Roman god of doors and gates.",
         "Fun fact: February is the only month that can have a leap day.",
         "Fun fact: March is named after Mars, the Roman god of war.",
@@ -54,15 +58,14 @@ function calculateAge() {
         "brown", "cyan", "magenta", "lime", "navy", "teal"
     ];
 
-    
     const agePara = resultElement.querySelector("p");
     if (agePara) {
         agePara.style.color = "blue";
     }
 
-    
     const month = dob.getMonth();
-    para.innerText = funFacts[month];
-    para.style.color = colors[month];
-    resultElement.appendChild(para);
+    const funFactPara = document.createElement('p');
+    funFactPara.innerText = funFacts[month];
+    funFactPara.style.color = colors[month];
+    resultElement.appendChild(funFactPara);
 }
