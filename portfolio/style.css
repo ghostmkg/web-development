@@ -1,0 +1,105 @@
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #eabff1;
+        }
+      
+        header{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #261c4a;
+            color: #fdfdfd;
+            padding: 20px 0;
+        }
+        header h1{
+          padding: 5px;
+        }
+        nav {
+            margin: 20px 0;
+        }
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #261c4a;
+        }
+        article {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            background-color: #f7f6f9;
+            margin: 30px;
+            
+        }
+        article h2{
+          margin:20px 0;
+        }
+      
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9em;
+            color:  #261c4a;
+        }
+        
+        table {
+            width: 70%;
+            border-collapse: collapse;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 1rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+    /* Header cell styling */
+        th {
+            padding: 12px;
+            text-align: center;
+            background-color: #13033f;
+            color: white;
+            font-weight: bold;
+        }
+
+    /* Table cell styling */
+        td {
+            padding: 12px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+      #social a {
+          margin: 10px;
+          color: pink;
+          font-size: 20px;
+          transition: 0.3s;
+      }
+      
+      #social a:hover {
+          color: red;
+      }
+      
+      @media (max-width: 500px){
+        header{
+          flex-direction: column;
+        }
+        p, td, th, a{
+          font-size: 12px;
+        }
+        h2{
+          font-size: 18px;
+        }
+        h1{
+          font-size: 22px;
+        }
+        article{
+          margin: 10px;
+        }
+      }
