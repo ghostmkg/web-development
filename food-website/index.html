@@ -72,25 +72,69 @@
 
     <section class="contact" id="contact">
         <h1>Contact Us</h1>
-        <div class="contact-box">
-        </div>
-        <div class="box-wrap">
+        <div class="contact-container">
+            <div class="contact-left">
+                <h2>Get in touch</h2>
+                <img src="https://images.unsplash.com/photo-1428515613728-6b4607e44363?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mnx8cmVzdGF1cmFudHxlbnwwfDB8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Our restaurant" class="contact-photo">
+                <p class="contact-intro">Have a question or want to place an order? We’d love to hear from you. Reach us by phone, email or visit our location.</p>
 
-            <div class="box">
-                <h3>Get in touch</h3>
+                <ul class="contact-details">
+                    <li><i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                        <div>
+                            <h4>Address</h4>
+                            <p>123 Foodie Street, Flavor Town, FT 45678</p>
+                        </div>
+                    </li>
+                    <li><i class="fas fa-phone-alt" aria-hidden="true"></i>
+                        <div>
+                            <h4>Phone</h4>
+                            <p><a href="tel:1800002546">180-000-2546</a></p>
+                        </div>
+                    </li>
+                    <li><i class="fas fa-envelope" aria-hidden="true"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p><a href="mailto:foodie@gmail.com">foodie@gmail.com</a></p>
+                        </div>
+                    </li>
+                    <li><i class="fas fa-clock" aria-hidden="true"></i>
+                        <div>
+                            <h4>Hours</h4>
+                            <p>Mon - Sun: 9:00 AM — 10:00 PM</p>
+                        </div>
+                    </li>
+                </ul>
+
             </div>
-            <div class="box box1">
-                <i class="fas fa-phone-alt"></i>
-                <h3>phone number</h3>
-                <p>180-000-2546</p>
-            </div>
-            <div class="box box1">
-                <i class="fas fa-envelope"></i>
-                <h3>e-mail address</h3>
-                <p>foodie@gmail.com</p>
+
+            <div class="contact-right">
+                <form class="contact-form" action="#" method="post" novalidate>
+                    <div class="form-row">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" placeholder="Your name" required>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="you@example.com" required>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="phone">Phone (optional)</label>
+                        <input type="tel" id="phone" name="phone" placeholder="(555) 555-5555">
+                    </div>
+
+                    <div class="form-row">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="12" placeholder="How can we help?" required></textarea>
+                    </div>
+
+                    <div class="form-row form-actions">
+                        <button type="submit" class="btn-submit">Send Message</button>
+                    </div>
+                </form>
             </div>
         </div>
-
     </section>
     <footer>
         <p> &copy; Copyright 2024
