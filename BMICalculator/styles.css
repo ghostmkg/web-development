@@ -1,4 +1,27 @@
 body{
   text-align: center;
   padding: 40vh;
+  background: linear-gradient(135deg, #a8edea, #fed6e3);
+
+
+}
+
+.oswald {
+  font-family: "Oswald", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
+button {
+  background-color: #2ecc71;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+button:hover {
+  background-color: #27ae60;
 }
