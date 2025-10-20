@@ -7,16 +7,36 @@ const cat = document.querySelector("#ans-cat");
 btn.addEventListener("click", calculate);
 
 function calculate() {
-  if (h.value > 250 || h.value < 50 || w.value > 250 || w.value < 4) {
+  // Parse inputs as numbers and validate presence
+  const height = parseFloat(h.value);
+  const weight = parseFloat(w.value);
+
+  // Reject empty or non-numeric inputs
+  if (isNaN(height) || isNaN(weight)) {
     num.textContent = "Invalid";
     cat.textContent = "Invalid";
     return;
   }
 
-  var den = Math.floor(h.value) * Math.floor(h.value) * 0.0001;
-  var bmi = Math.floor(w.value) / den;
+  // Range validation
+  if (height > 250 || height < 50 || weight > 250 || weight < 4) {
+    num.textContent = "Invalid";
+    cat.textContent = "Invalid";
+    return;
+  }
 
-  num.textContent = bmi.toString();
+  // Compute BMI using meters and floats
+  const heightMeters = height / 100;
+  if (heightMeters === 0) {
+    num.textContent = "Invalid";
+    cat.textContent = "Invalid";
+    return;
+  }
+
+  const bmi = weight / (heightMeters * heightMeters);
+
+  // Display BMI with two decimal places
+  num.textContent = bmi.toFixed(2);
 
   if (bmi < 18.5) {
     cat.textContent = "Under Weight";
