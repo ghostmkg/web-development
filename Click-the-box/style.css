@@ -2,7 +2,25 @@ body {
   font-family: Arial, sans-serif;
   text-align: center;
   margin-top: 50px;
+  background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #fbc2eb, #a1c4fd);
+  background-size: 400% 400%;
+  animation: gradientPulse 10s ease infinite;
+
 }
+
+@keyframes gradientPulse {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
 
 #game-area {
   width: 300px;
@@ -31,4 +49,16 @@ h1 {
 p {
   font-size: 20px;
   margin: 10px 0;
+}
+
+.oswald {
+  font-family: "Oswald", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+.monoton-regular {
+  font-family: "Monoton", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
