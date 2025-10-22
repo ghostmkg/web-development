@@ -1,0 +1,136 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #d7f8d7, #a7e9af);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  width: 90%;
+  max-width: 450px;
+  text-align: center;
+  animation: fadeIn 1s ease;
+}
+
+h1 {
+  color: #2e7d32;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  color: #388e3c;
+  margin-bottom: 1.2rem;
+}
+
+.habit-input {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.habit-input input {
+  flex: 1;
+  padding: 0.7rem;
+  border-radius: 8px;
+  border: 2px solid #a5d6a7;
+  outline: none;
+}
+
+.habit-input button {
+  background: #43a047;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.7rem 1.2rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.habit-input button:hover {
+  background: #2e7d32;
+}
+
+ul {
+  list-style: none;
+  margin-top: 1rem;
+  text-align: left;
+}
+
+li {
+  background: #e8f5e9;
+  margin-bottom: 0.6rem;
+  padding: 0.6rem 1rem;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.3s ease;
+}
+
+li.completed {
+  text-decoration: line-through;
+  color: #777;
+  background: #c8e6c9;
+}
+
+li button {
+  background: #66bb6a;
+  border: none;
+  color: white;
+  padding: 0.3rem 0.7rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+li button:hover {
+  background: #388e3c;
+}
+
+.score-section {
+  margin-top: 1.5rem;
+}
+
+#reset {
+  background: #ef5350;
+  border: none;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#reset:hover {
+  background: #c62828;
+}
+
+footer {
+  margin-top: 1rem;
+  color: #1b5e20;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
