@@ -1,25 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BMI Calculator</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
   </head>
   <body>
     <div class="oswald">
-      Enter your Height :
-      <input type="number" id="h" max="250" min="50" placeholder="in cm" />
+      <h2>BMI Calculator</h2>
+
+      <label for="h">Enter your Height (cm):</label>
+      <input type="number" id="h" max="250" min="50" placeholder="e.g. 170" />
       <br /><br />
-      Enter your Weight :
-      <input type="number" id="w" max="250" min="4" placeholder="in kg" />
+
+      <label for="w">Enter your Weight (kg):</label>
+      <input type="number" id="w" max="250" min="4" placeholder="e.g. 65" />
       <br /><br />
-      <button id="calc">Calculate</button>
-      <br />
+
+      <button id="calc">Calculate BMI</button>
+      <br /><br />
+
       <h3 id="ans-num"></h3>
       <h3 id="ans-cat"></h3>
-      </div>
-    
+    </div>
+
     <script src="script.js"></script>
   </body>
 </html>
