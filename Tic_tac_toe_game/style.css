@@ -1,0 +1,57 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  background-color: #f0f4f8;
+}
+
+h1 {
+  color: #333;
+  margin-top: 20px;
+}
+
+#game {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  gap: 10px;
+  justify-content: center;
+  margin: 30px auto;
+}
+
+.cell {
+  width: 100px;
+  height: 100px;
+  background-color: #fff;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+
+.cell:hover {
+  background-color: #e3f2fd;
+}
+
+#status {
+  font-size: 1.2rem;
+  color: #333;
+  margin-top: 20px;
+}
+
+button {
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+button:hover {
+  background-color: #0d47a1;
+}
