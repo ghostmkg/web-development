@@ -7,11 +7,11 @@ A simple yet elegant Weather App built using the frontend tech stack with a mode
 -  Real-time Weather: Displays current weather conditions based on user location or search input.
 -  Weekly Forecast: Shows detailed weather updates for the next five to seven days.
 -  User-Friendly Interface: Smooth, responsive, and visually appealing layout for all devices.
-- Fast and Reliable: Fetches accurate weather data instantly using OpenWeather API.
+- Fast and Reliable: Fetches accurate weather data instantly using a weather API.
 
 # 🧩 Tech Stack
 
 - HTML – Provides the structure of the web app.
 - CSS – Adds styling and creates an attractive dark-themed design.
 - JavaScript – Enables interactivity and dynamic updates on the page.
-- OpenWeather API – Integrated to fetch live weather forecasts and conditions.
+- API – Integrated to fetch live weather forecasts and conditions.
