@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <title>WeatherCast</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/css/bootstrap.min.css" integrity="sha512-fw7f+TcMjTb7bpbLJZlP8g2Y4XcCyFZW8uy8HsRZsH/SwbMw0plKHFHr99DN3l04VsYNwvzicUX/6qurvIxbxw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+ 
+   <!--search bar and display card-->
+    <main>
+        
+        <div class="ParentDiv pt-4 d-flex flex-column align-items-center">
+
+            <div id="header" class="d-flex  align-items-center justify-content-between">
+              <div class="d-flex gap-2 align-items-center">
+              <h4 class="m-0">WeatherCast</h4>
+              <div class="gap-1 d-flex" style="cursor: pointer;"> 
+              <span><i class="fa-solid fa-location-dot" style="color: #151f28;"></i></span> <p id="location" class="m-0">Bhimavaram</p>
+              </div>
+              </div>
+              <div id="search_bar">
+                <input type="text" placeholder="Search city.." id="search" autocomplete="off" style="caret-color: white; color: white;">
+                <button class="search-btn" > Search </button>
+              </div>
+            </div>
+
+
+            <!--Weather display card-->
+            <div class="weather_container mt-4 pt-1 d-flex justify-content-center"></div>
+
+            <!--3hrs display-->
+            <div class="Next_3hrs mb-3 mt-4 pt-1 d-flex justify-content-center"></div>
+
+            <!--Five day Forecast-->
+            <div class="Next_5days mb-3 mt-4 pt-1 d-flex justify-content-center""></div>
+            
+        </div> <!--parentdiv-->
+
+    </main>
+
+
+</body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.min.js" integrity="sha384-7qAoOXltbVP82dhxHAUje59V5r2YsVfBafyUDxEdApLPmcdhBPg1DKg1ERo0BZlK" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+    </html>
