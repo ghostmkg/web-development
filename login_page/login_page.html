@@ -86,7 +86,7 @@
 
   <div class="login-container">
     <h2>Login</h2>
-    <form>
+    <form id="loginForm">
       <div class="form-group">
         <label for="username">Username</label>
         <input type="text" id="username" name="username" required>
@@ -96,6 +96,7 @@
         <label for="password">Password</label>
         <input type="password" id="password" name="password" required>
       </div>
+      <div id="form-error" role="alert" aria-live="assertive" style="color:#b00020; margin-bottom:12px; display:none;"></div>
 
       <button type="submit" class="login-button">Log In</button>
     </form>
@@ -104,6 +105,52 @@
       Don't have an account? <a href="#">Sign up</a>
     </div>
   </div>
+
+  <script>
+    // Basic client-side handling to improve UX for the demo login page.
+    // Prevents default form submission (page reload), validates inputs,
+    // and shows an accessible error message. This is a demo-only handler.
+    (function() {
+      const form = document.getElementById('loginForm');
+      const username = document.getElementById('username');
+      const password = document.getElementById('password');
+      const errorEl = document.getElementById('form-error');
+
+      function showError(message) {
+        errorEl.textContent = message;
+        errorEl.style.display = 'block';
+      }
+
+      function clearError() {
+        errorEl.textContent = '';
+        errorEl.style.display = 'none';
+      }
+
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        clearError();
+
+        const userVal = username.value.trim();
+        const passVal = password.value;
+
+        if (!userVal || !passVal) {
+          showError('Please enter both username and password.');
+          return;
+        }
+
+        // Demo authentication: accept admin/password for demonstration only.
+        if (userVal === 'admin' && passVal === 'password') {
+          // In a real app you'd redirect or call an API here.
+          alert('Login successful — demo only.');
+          form.reset();
+          clearError();
+        } else {
+          showError('Invalid credentials. Try username "admin" with password "password" for demo.');
+          password.focus();
+        }
+      });
+    })();
+  </script>
 
 </body>
 </html>

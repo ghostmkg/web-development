@@ -1,0 +1,89 @@
+.bu1, .bu2, .bu3, .bu4, .bu5, .bu6, .bu7, .bu8, .bu9 {
+    height: 100px;
+    width: 100px;
+    border: none;
+    cursor: pointer;
+}
+.bu1 {
+    background-color: black;
+}
+
+.bu2 {
+    background-color: green;
+}
+
+.bu3 {
+    background-color: red;
+}
+
+.bu4, .bu5, .bu6 {
+    background-color: orange;
+}
+.bu7,.bu8,.bu9{
+background-color:yellow;}
+.bu1:focus, .bu2:focus, .bu3:focus, .bu4:focus, .bu5:focus, .bu6:focus, .bu7:focus, .bu8:focus, .bu9:focus {
+    background-color: white;
+}
+.backg1, .backg2, .backg3 {
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    display: none;
+    z-index: -1;
+}
+
+.backg3 {
+    background-color: red;
+}
+
+.backg1 {
+    background-color: black;
+}
+
+.backg2 {
+    background-color: green;
+}
+.bu1:focus + .backg1 {
+    display: block;
+}
+
+.bu2:focus + .backg2 {
+    display: block;
+}
+
+.bu3:focus + .backg3 {
+    display: block;
+}
+
+
+.bu4:focus ~ h1 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    
+}
+.bu3:focus ~ h1{
+color:orange;}
+.bu2:focus ~ h1{color:#ec91ed}
+.bu1:focus ~ h1{color:#6b2acf;}
+
+
+.bu5:focus ~ h1 {
+    font-family: 'Dancing Script', cursive;
+    font-weight: 700;
+}
+
+.bu6:focus ~ h1 {
+    font-family: 'Lobster', cursive;
+    font-weight: 400;
+}
+.bu8:focus ~ h1 {
+    font-size: 55px;
+}
+
+.bu7:focus ~ h1 {
+    font-size: 60px;
+}
+
+.bu9:focus ~ h1 {
+    font-size: 70px;
+}

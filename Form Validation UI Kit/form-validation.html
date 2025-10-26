@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation UI Kit</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .subtitle {
+            font-size: 1rem;
+            opacity: 0.95;
+        }
+
+        /* Form Card */
+        .form-card {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            margin-bottom: 30px;
+        }
+
+        .form-section {
+            margin-bottom: 30px;
+        }
+
+        .form-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            color: #333;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f0f0f0;
+            font-weight: 600;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        .required {
+            color: #ff6b6b;
+            margin-left: 4px;
+        }
+
+        .form-input-wrapper {
+            position: relative;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        /* Validation States */
+        input.valid, textarea.valid, select.valid {
+            border-color: #51cf66;
+            background: #f0fdf4;
+        }
+
+        input.invalid, textarea.invalid, select.invalid {
+            border-color: #ff6b6b;
+            background: #fff5f5;
+        }
+
+        input.valid:focus, textarea.valid:focus, select.valid:focus {
+            box-shadow: 0 0 0 3px rgba(81, 207, 102, 0.1);
+        }
+
+        input.invalid:focus, textarea.invalid:focus, select.invalid:focus {
+            box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.1);
+        }
+
+        /* Validation Icons */
+        .validation-icon {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.2rem;
+            display: none;
+        }
+
+        input.valid ~ .validation-icon,
+        textarea.valid ~ .validation-icon,
+        select.valid ~ .validation-icon {
+            display: block;
+        }
+
+        .validation-icon.error {
+            display: none;
+        }
+
+        input.invalid ~ .validation-icon.error,
+        textarea.invalid ~ .validation-icon.error,
+        select.invalid ~ .validation-icon.error {
+            display: block;
+        }
+
+        /* Error/Success Messages */
+        .validation-message {
+            font-size: 0.85rem;
+            margin-top: 6px;
+            display: none;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .validation-message.show {
+            display: flex;
+        }
+
+        .error-message {
+            color: #ff6b6b;
+        }
+
+        .success-message {
+            color: #51cf66;
+        }
+
+        .validation-message::before {
+            font-size: 1rem;
+        }
+
+        .error-message::before {
+            content: '✗';
+        }
+
+        .success-message::before {
+            content: '✓';
+        }
+
+        /* Helper Text */
+        .helper-text {
+            font-size: 0.85rem;
+            color: #999;
+            margin-top: 6px;
+        }
+
+        /* Password Strength */
+        .password-strength {
+            margin-top: 8px;
+        }
+
+        .strength-bar {
+            width: 100%;
+            height: 4px;
+            background: #e0e0e0;
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .strength-fill {
+            height: 100%;
+            width: 0%;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .strength-fill.weak {
+            width: 33%;
+            background: #ff6b6b;
+        }
+
+        .strength-fill.medium {
+            width: 66%;
+            background: #ffd93d;
+        }
+
+        .strength-fill.strong {
+            width: 100%;
+            background: #51cf66;
+        }
+
+        .strength-text {
+            font-size: 0.75rem;
+            margin-top: 4px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .strength-text.weak {
+            color: #ff6b6b;
+        }
+
+        .strength-text.medium {
+            color: #ffd93d;
+        }
+
+        .strength-text.strong {
+            color: #51cf66;
+        }
+
+        /* Checkbox & Radio */
+        .checkbox-group, .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .checkbox-item, .radio-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+        }
+
+        input[type="checkbox"], input[type="radio"] {
+            width: auto;
+            cursor: pointer;
+        }
+
+        .checkbox-item label, .radio-item label {
+            margin: 0;
+            cursor: pointer;
+            font-weight: normal;
+        }
+
+        /* Form Actions */
+        .form-actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 2px solid #f0f0f0;
+        }
+
+        button {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: inherit;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-submit {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            grid-column: 1 / 2;
+        }
+
+        .btn-submit:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-submit:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .btn-reset {
+            background: #f0f0f0;
+            color: #333;
+            border: 2px solid #ddd;
+            grid-column: 2 / 3;
+        }
+
+        .btn-reset:hover {
+            background: #e0e0e0;
+            border-color: #999;
+        }
+
+        /* Form Status */
+        .form-status {
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: none;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+        }
+
+        .form-status.show {
+            display: flex;
+        }
+
+        .success-status {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .error-status {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .success-status::before {
+            content: '✓';
+            font-size: 1.2rem;
+        }
+
+        .error-status::before {
+            content: '✗';
+            font-size: 1.2rem;
+        }
+
+        /* Validation Summary */
+        .validation-summary {
+            background: #fff9e6;
+            border: 2px solid #ffd93d;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        .validation-summary.show {
+            display: block;
+        }
+
+        .summary-title {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .summary-list {
+            list-style: none;
+        }
+
+        .summary-list li {
+            padding: 5px 0;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .summary-list li::before {
+            content: '⚠ ';
+            color: #ffd93d;
+            font-weight: bold;
+            margin-right: 5px;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .form-card {
+                padding: 25px;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .form-actions {
+                grid-template-columns: 1fr;
+            }
+
+            .btn-submit, .btn-reset {
+                grid-column: 1 / -1;
+            }
+        }
+
+        /* Input Hints */
+        .input-hint {
+            font-size: 0.8rem;
+            color: #999;
+            margin-top: 4px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .hint-icon {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            background: #e0e0e0;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 16px;
+            font-size: 0.7rem;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📋 Form Validation UI Kit</h1>
+            <p class="subtitle">Common input validation patterns with real-time feedback</p>
+        </header>
+
+        <div class="form-card">
+            <form id="validationForm" onsubmit="handleSubmit(event)">
+                <!-- Form Status -->
+                <div class="form-status" id="formStatus"></div>
+                <div class="validation-summary" id="validationSummary"></div>
+
+                <!-- Personal Information Section -->
+                <div class="form-section">
+                    <h2 class="section-title">👤 Personal Information</h2>
+
+                    <!-- Full Name -->
+                    <div class="form-group">
+                        <label for="fullName">Full Name <span class="required">*</span></label>
+                        <div class="form-input-wrapper">
+                            <input 
+                                type="text" 
+                                id="fullName" 
+                                placeholder="John Doe"
+                                oninput="validateFullName()"
+                            >
+                            <span class="validation-icon">✓</span>
+                            <span class="validation-icon error">✗</span>
+                        </div>
+                        <div class="validation-message error-message" id="fullNameError"></div>
+                        <div class="validation-message success-message" id="fullNameSuccess"></div>
+                        <div class="helper-text">At least 3 characters, letters and spaces only</div>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="form-group">
+                        <label for="email">Email Address <span class="required">*</span></label>
+                        <div class="form-input-wrapper">
+                            <input 
+                                type="email" 
+                                id="email" 
+                                placeholder="john@example.com"
+                                oninput="validateEmail()"
+                            >
+                            <span class="validation-icon">✓</span>
+                            <span class="validation-icon error">✗</span>
+                        </div>
+                        <div class="validation-message error-message" id="emailError"></div>
+                        <div class="validation-message success-message" id="emailSuccess"></div>
+                    </div>
+
+                    <!-- Phone -->
+                    <div class="form-group">
+                        <label for="phone">Phone Number <span class="required">*</span></label>
+                        <div class="form-input-wrapper">
+                            <input 
+                                type="tel" 
+                                id="phone" 
+                                placeholder="+1 (555) 123-4567"
+                                oninput="validatePhone()"
+                            >
+                            <span class="validation-icon">✓</span>
+                            <span class="validation-icon error">✗</span>
+                        </div>
+                        <div class="validation-message error-message" id="phoneError"></div>
+                        <div class="validation-message success-message" id="phoneSuccess"></div>
+                        <div class="helper-text">Format: +1 (555) 123-4567 or 555-123-4567</div>
+                    </div>
+                </div>
+
+                <!-- Account Information Section -->
+                <div class="form-section">
+                    <h2 class="section-title">🔐 Account Information</h2>
+
+                    <!-- Username -->
+                    <div class="form-group">
+                        <label for="username">Username <span class="required">*</span></label>
+                        <div class="form-input-wrapper">
+                            <input 
+                                type="text" 
+                                id="username" 
+                                placeholder="johndoe123"
+                                oninput="validateUsername()"
+                            >
+                            <span class="validation-icon">✓</span>
+                            <span class="validation-icon error">✗</span>
+                        </div>
+                        <div class="validation-message error-message" id="usernameError"></div>
+                        <div class="validation-message success-message" id="usernameSuccess"></div>
+                        <div class="helper-text">4-16 characters, alphanumeric and underscore only</div>
+                    </div>
+
+                    <!-- Password -->
+                    <div class="form-group">
+                        <label for="password">Password <span class="required">*</span></label>
+                        <div class="form-input-wrapper">
+                            <input 
+                                type="password" 
+                                id="password" 
+                                placeholder="Enter a strong password"
+                                oninput="validatePassword()"
+                            >
+                            <span class="validation-icon">✓</span>
+                            <span class="validation-icon error">✗</span>
+                        </div>
+                        <div class="validation-message error-message" id="passwordError"></div>
+                        <div class="password-strength" id="passwordStrength"></div>
+                        <div class="helper-text">Min 8 chars: uppercase, lowercase, number, special character</div>
+                    </div>
+
+                    <!-- Confirm Password -->
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirm Password <span class="required">*</span></label>
+                        <div class="form-input-wrapper">
+                            <input 
+                                type="password" 
+                                id="confirmPassword" 
+                                placeholder="Re-enter your password"
+                                oninput="validateConfirmPassword()"
+                            >
+                            <span class="validation-icon">✓</span>
+                            <span class="validation-icon error">✗</span>
+                        </div>
+                        <div class="validation-message error-message" id="confirmPasswordError"></div>
+                        <div class="validation-message success-message" id="confirmPasswordSuccess"></div>
+                    </div>
+                </div>
+
+                <!-- Additional Information -->
+                <div class="form-section">
+                    <h2 class="section-title">ℹ️ Additional Information</h2>
+
+                    <!-- Age -->
+                    <div class="form-group">
+                        <label for="age">Age</label>
+                        <div class="form-input-wrapper">
+                            <input 
+                                type="number" 
+                                id="age" 
+                                placeholder="25"
+                                oninput="validateAge()"
+                            >
+                            <span class="validation-icon">✓</span>
+                            <span class="validation-icon error">✗</span>
+                        </div>
+                        <div class="validation-message error-message" id="ageError"></div>
+                        <div class="validation-message success-message" id="ageSuccess"></div>
+                        <div class="helper-text">Must be between 18 and 120</div>
+                    </div>
+
+                    <!-- Website -->
+                    <div class="form-group">
+                        <label for="website">Website URL</label>
+                        <div class="form-input-wrapper">
+                            <input 
+                                type="url" 
+                                id="website" 
+                                placeholder="https://example.com"
+                                oninput="validateWebsite()"
+                            >
+                            <span class="validation-icon">✓</span>
+                            <span class="validation-icon error">✗</span>
+                        </div>
+                        <div class="validation-message error-message" id="websiteError"></div>
+                        <div class="validation-message success-message" id="websiteSuccess"></div>
+                    </div>
+
+                    <!-- Message -->
+                    <div class="form-group">
+                        <label for="message">Message <span class="required">*</span></label>
+                        <div class="form-input-wrapper">
+                            <textarea 
+                                id="message" 
+                                placeholder="Enter your message (10-500 characters)"
+                                oninput="validateMessage()"
+                            ></textarea>
+                            <span class="validation-icon">✓</span>
+                            <span class="validation-icon error">✗</span>
+                        </div>
+                        <div class="validation-message error-message" id="messageError"></div>
+                        <div class="validation-message success-message" id="messageSuccess"></div>
+                        <div class="helper-text">Character count: <span id="charCount">0</span>/500</div>
+                    </div>
+
+                    <!-- Agreement Checkbox -->
+                    <div class="form-group">
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input 
+                                    type="checkbox" 
+                                    id="terms" 
+                                    onchange="validateTerms()"
+                                >
+                                <label for="terms">I agree to the Terms and Conditions <span class="required">*</span></label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input 
+                                    type="checkbox" 
+                                    id="privacy" 
+                                    onchange="validatePrivacy()"
+                                >
+                                <label for="privacy">I agree to the Privacy Policy</label>
+                            </div>
+                        </div>
+                        <div class="validation-message error-message" id="termsError"></div>
+                    </div>
+                </div>
+
+                <!-- Form Actions -->
+                <div class="form-actions">
+                    <button type="submit" class="btn-submit">✓ Submit</button>
+                    <button type="reset" class="btn-reset" onclick="resetForm()">✗ Reset</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // ============ Validation Functions ============
+        const validators = {};
+        const errors = [];
+
+        function validateFullName() {
+            const input = document.getElementById('fullName');
+            const value = input.value.trim();
+            const regex = /^[a-zA-Z\s]{3,}$/;
+            const isValid = regex.test(value) && value.length > 0;
+
+            setValidation(input, isValid, 'fullNameError', 'fullNameSuccess', 
+                'Full name must be at least 3 characters with letters only',
+                'Full name is valid');
+            
+            validators.fullName = isValid;
+            updateFormState();
+        }
+
+        function validateEmail() {
+            const input = document.getElementById('email');
+            const value = input.value.trim();
+            const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            const isValid = regex.test(value);
+
+            setValidation(input, isValid, 'emailError', 'emailSuccess',
+                'Please enter a valid email address',
+                'Email is valid');
+            
+            validators.email = isValid;
+            updateFormState();
+        }
+
+        function validatePhone() {
+            const input = document.getElementById('phone');
+            const value = input.value.trim();
+            const regex = /^[\d\s\-\+\(\)]{10,}$/;
+            const isValid = regex.test(value) && value.length >= 10;
+
+            setValidation(input, isValid, 'phoneError', 'phoneSuccess',
+                'Please enter a valid phone number',
+                'Phone number is valid');
+            
+            validators.phone = isValid;
+            updateFormState();
+        }
+
+        function validateUsername() {
+            const input = document.getElementById('username');
+            const value = input.value.trim();
+            const regex = /^[a-zA-Z0-9_]{4,16}$/;
+            const isValid = regex.test(value);
+
+            setValidation(input, isValid, 'usernameError', 'usernameSuccess',
+                'Username must be 4-16 characters, alphanumeric and underscore only',
+                'Username is valid');
+            
+            validators.username = isValid;
+            updateFormState();
+        }
+
+        function validatePassword() {
+            const input = document.getElementById('password');
+            const value = input.value;
+            const hasUpper = /[A-Z]/.test(value);
+            const hasLower = /[a-z]/.test(value);
+            const hasNumber = /\d/.test(value);
+            const hasSpecial = /[!@#$%^&*]/.test(value);
+            const isValid = value.length >= 8 && hasUpper && hasLower && hasNumber && hasSpecial;
+
+            let strength = 'weak';
+            if (value.length >= 8) {
+                let count = 0;
+                if (hasUpper) count++;
+                if (hasLower) count++;
+                if (hasNumber) count++;
+                if (hasSpecial) count++;
+                if (count >= 3) strength = 'medium';
+                if (count === 4) strength = 'strong';
+            }
+
+            const strengthHTML = `
+                <div class="strength-bar">
+                    <div class="strength-fill ${strength}"></div>
+                </div>
+                <div class="strength-text ${strength}">${strength.toUpperCase()} ${strength === 'medium' ? '✓' : strength === 'strong' ? '✓✓' : ''}</div>
+            `;
+            document.getElementById('passwordStrength').innerHTML = strengthHTML;
+
+            const errors = [];
+            if (value.length < 8) errors.push('At least 8 characters');
+            if (!hasUpper) errors.push('Uppercase letter');
+            if (!hasLower) errors.push('Lowercase letter');
+            if (!hasNumber) errors.push('Number');
+            if (!hasSpecial) errors.push('Special character (!@#$%^&*)');
+
+            setValidation(input, isValid, 'passwordError', null,
+                errors.length > 0 ? 'Missing: ' + errors.join(', ') : '',
+                '');
+            
+            validators.password = isValid;
+            validateConfirmPassword();
+            updateFormState();
+        }
+
+        function validateConfirmPassword() {
+            const input = document.getElementById('confirmPassword');
+            const password = document.getElementById('password').value;
+            const value = input.value;
+            const isValid = value === password && value.length > 0;
+
+            setValidation(input, isValid, 'confirmPasswordError', 'confirmPasswordSuccess',
+                'Passwords do not match',
+                'Passwords match');
+            
+            validators.confirmPassword = isValid;
+            updateFormState();
+        }
+
+        function validateAge() {
+            const input = document.getElementById('age');
+            const value = parseInt(input.value);
+            const isValid = !isNaN(value) && value >= 18 && value <= 120 || input.value === '';
+
+            if (input.value !== '') {
+                setValidation(input, isValid, 'ageError', 'ageSuccess',
+                    'Age must be between 18 and 120',
+                    'Age is valid');
+            } else {
+                clearValidation(input, 'ageError', 'ageSuccess');
+            }
+            
+            validators.age = input.value === '' || isValid;
+            updateFormState();
+        }
+
+        function validateWebsite() {
+            const input = document.getElementById('website');
+            const value = input.value.trim();
+            const regex = /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/;
+            const isValid = regex.test(value) || value === '';
+
+            if (value !== '') {
+                setValidation(input, isValid, 'websiteError', 'websiteSuccess',
+                    'Please enter a valid URL',
+                    'URL is valid');
+            } else {
+                clearValidation(input, 'websiteError', 'websiteSuccess');
+            }
+            
+            validators.website = isValid;
+            updateFormState();
+        }
+
+        function validateMessage() {
+            const input = document.getElementById('message');
+            const value = input.value.trim();
+            const isValid = value.length >= 10 && value.length <= 500;
+
+            document.getElementById('charCount').textContent = value.length;
+
+            if (value.length > 0) {
+                setValidation(input, isValid, 'messageError', 'messageSuccess',
+                    value.length < 10 ? 'Message must be at least 10 characters' : 'Message exceeds 500 characters',
+                    'Message is valid');
+            } else {
+                clearValidation(input, 'messageError', 'messageSuccess');
+            }
+            
+            validators.message = isValid || value === '';
+            updateFormState();
+        }
+
+        function validateTerms() {
+            const input = document.getElementById('terms');
+            const isValid = input.checked;
+
+            if (!isValid) {
+                document.getElementById('termsError').classList.add('show');
+                document.getElementById('termsError').textContent = 'You must agree to the terms';
+            } else {
+                document.getElementById('termsError').classList.remove('show');
+            }
+
+            validators.terms = isValid;
+            updateFormState();
+        }
+
+        function validatePrivacy() {
+            validators.privacy = true;
+        }
+
+        // ============ Helper Functions ============
+        function setValidation(input, isValid, errorId, successId, errorMsg, successMsg) {
+            if (isValid) {
+                input.classList.remove('invalid');
+                input.classList.add('valid');
+                if (errorId) {
+                    document.getElementById(errorId).classList.remove('show');
+                }
+                if (successId) {
+                    const el = document.getElementById(successId);
+                    el.textContent = successMsg;
+                    el.classList.add('show');
+                }
+            } else {
+                input.classList.remove('valid');
+                input.classList.add('invalid');
+                if (errorId) {
+                    const el = document.getElementById(errorId);
+                    el.textContent = errorMsg;
+                    el.classList.add('show');
+                }
+                if (successId) {
+                    document.getElementById(successId).classList.remove('show');
+                }
+            }
+        }
+
+        function clearValidation(input, errorId, successId) {
+            input.classList.remove('valid', 'invalid');
+            if (errorId) document.getElementById(errorId).classList.remove('show');
+            if (successId) document.getElementById(successId).classList.remove('show');
+        }
+
+        function updateFormState() {
+            const allValid = validators.fullName && validators.email && validators.phone &&
+                           validators.username && validators.password && validators.confirmPassword &&
+                           validators.terms;
+            document.querySelector('.btn-submit').disabled = !allValid;
+        }
+
+        function handleSubmit(e) {
+            e.preventDefault();
+
+            validateFullName();
+            validateEmail();
+            validatePhone();
+            validateUsername();
+            validatePassword();
+            validateConfirmPassword();
+            validateMessage();
+            validateTerms();
+
+            const allValid = validators.fullName && validators.email && validators.phone &&
+                           validators.username && validators.password && validators.confirmPassword &&
+                           validators.terms && validators.message;
+
+            const status = document.getElementById('formStatus');
+            if (allValid) {
+                status.className = 'form-status show success-status';
+                status.textContent = '✓ Form submitted successfully!';
+                console.log('Form Data:', {
+                    fullName: document.getElementById('fullName').value,
+                    email: document.getElementById('email').value,
+                    phone: document.getElementById('phone').value,
+                    username: document.getElementById('username').value,
+                    age: document.getElementById('age').value,
+                    website: document.getElementById('website').value,
+                    message: document.getElementById('message').value
+                });
+            } else {
+                status.className = 'form-status show error-status';
+                status.textContent = '✗ Please fix the errors below';
+            }
+        }
+
+        function resetForm() {
+            document.getElementById('validationForm').reset();
+            document.querySelectorAll('input, textarea').forEach(el => {
+                el.classList.remove('valid', 'invalid');
+            });
+            document.querySelectorAll('.validation-message').forEach(el => {
+                el.classList.remove('show');
+            });
+            document.getElementById('passwordStrength').innerHTML = '';
+            document.getElementById('charCount').textContent = '0';
+            document.getElementById('formStatus').classList.remove('show');
+            validators = {};
+            updateFormState();
+        }
+
+        // Initialize
+        updateFormState();
+    </script>
+</body>
+</html>

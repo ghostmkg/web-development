@@ -1,0 +1,87 @@
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+header {
+  background-color: #e63946;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 20px;
+}
+
+.Card {
+  background-color: #f1faee;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  padding: 20px;
+  width: 420px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.Card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+button {
+  background-color: #457b9d;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+button:hover {
+  background-color: #1d3557;
+}
+
+#Display,
+#challengeDisplay {
+  min-height: 100px;
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  background-color: #a8dadc;
+  border-radius: 5px;
+}
+
+#Lists > li {
+  list-style-type: none;
+  text-align: center;
+  padding: 10px;
+  margin: 5px 0;
+  background-color: #a8dadc;
+  border-radius: 5px;
+}
+
+
+footer {
+  background-color: #1d3557;
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+  width: 100%;
+  margin-top: 30px;
+}
+footer p {
+  margin: 0;
+  font-size: 1rem;
+} 

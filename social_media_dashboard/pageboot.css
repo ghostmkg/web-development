@@ -1,0 +1,123 @@
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+    }
+    body {  
+    background: pink;
+    backdrop-filter: blur(10px);    
+    min-height: 100vh;
+    }
+    .dashboard-card {
+      border: none;
+      border-radius: 1rem;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .dashboard-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.1);
+    }
+
+    .card-icon {
+      font-size: 2rem;
+      margin-right: 0.75rem;
+    }
+
+    .facebook {
+      color: #3b5998;
+    }
+
+    .twitter {
+      color: #1da1f2;
+    }
+
+    .instagram {
+      color: #e1306c;
+    }
+
+    .youtube {
+      color: #ff0000;
+    }
+    #header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+    }
+    #left-part {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+    #menu{
+        border:none;
+        cursor: pointer;
+        width: 50px;
+        height: 50px;
+        mix-blend-mode:exclusion;
+    }
+    #brand {
+        font-size: 24px;
+        font-weight: bold;
+        color: black;
+    }
+    #right-part {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+    
+    footer {
+        width:100%;
+        background-color: #3a3737fc;
+        position:relative;
+        bottom:0;
+        margin-top: auto;
+        padding: 10px;
+        color: white;
+        text-align: center;
+        box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+    }
+    footer p,hr{
+        margin:15px;
+        bottom:0;
+    }
+    #links{
+        padding: 10px;
+    }
+    #links a{
+        text-decoration: none;
+        color: whitesmoke;
+        margin:0 20px;
+    }
+    #navigation{  
+        width: 10%;
+        min-width: 110px;  
+    }
+    #navigation nav{
+        display:flex;
+        width:90%;
+        justify-content: space-around;
+    }
+    #navigation a{
+        color:aliceblue;
+        text-decoration: none;
+        gap: 100%;
+    }
+    #links a:hover, #navigation a:hover{
+        text-decoration: underline;
+        color:#f4b0e9;
+    }
+    #social a {
+        margin: 10px;
+        color: whitesmoke;
+        font-size: 20px;
+        transition: 0.3s;
+    }
+    
+    #social a:hover {
+        color: #f4b0e9;
+    }
+    

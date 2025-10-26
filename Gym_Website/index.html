@@ -3,67 +3,211 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gym Website</title>
+    <title>FitLife Gym - Your Path to Fitness</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js" defer></script>
 </head>
 <body>
-    <header >
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#programs">Programs</a></li>
-                <li><a href="#contact">Contact Us</a></li>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <i class="fas fa-dumbbell"></i>
+                <span>FitLife</span>
+            </div>
+            <div class="menu-toggle" id="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home" class="active"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#about"><i class="fas fa-info-circle"></i> About Us</a></li>
+                <li><a href="#programs"><i class="fas fa-dumbbell"></i> Programs</a></li>
+                <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+                <li class="cta-button"><a href="#contact">Join Now</a></li>
             </ul>
         </nav>
     </header>
-    <section id="home" class="hero" >
-        <h1>Welcome to FitLife Gym</h1>
-        <p>Your journey to a healthier life starts here!</p>
-        <button onclick="scrollToSection('contact')">Join Us</button>
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Transform Your Body,<br>Transform Your Life</h1>
+            <p>Start your fitness journey today with personalized training programs and expert guidance.</p>
+            <div class="hero-buttons">
+                <button class="primary-btn" onclick="scrollToSection('contact')">
+                    <i class="fas fa-running"></i> Get Started
+                </button>
+                <button class="secondary-btn" onclick="scrollToSection('programs')">
+                    <i class="fas fa-play"></i> View Programs
+                </button>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="number">500+</span>
+                    <span class="label">Happy Members</span>
+                </div>
+                <div class="stat">
+                    <span class="number">50+</span>
+                    <span class="label">Expert Trainers</span>
+                </div>
+                <div class="stat">
+                    <span class="number">100%</span>
+                    <span class="label">Satisfaction</span>
+                </div>
+            </div>
+        </div>
     </section>
     <section id="about" class="about">
         <h2>About Us</h2>
         <p>FitLife Gym is dedicated to helping you achieve your fitness goals. We offer a variety of programs tailored to your needs.</p>
     </section>
     <section id="programs" class="programs">
-        <h2>Our Programs</h2>
-        <div class="program">
-            <h3>Personal Training</h3>
-            <p>Get one-on-one coaching to achieve your goals.</p>
-        </div>
-        <div class="program">
-            <h3>Group Classes</h3>
-            <p>Join our dynamic group classes to stay motivated.</p>
-        </div>
-        <div class="program">
-            <h3>Nutrition Advice</h3>
-            <p>Learn how to fuel your body the right way.</p>
+        <h2>Our Programs <span class="accent">For You</span></h2>
+        <div class="programs-grid">
+            <div class="program-card">
+                <div class="program-icon">
+                    <i class="fas fa-user-friends"></i>
+                </div>
+                <h3>Personal Training</h3>
+                <p>Get one-on-one coaching with expert trainers to achieve your fitness goals faster.</p>
+                <ul class="program-features">
+                    <li><i class="fas fa-check"></i> Customized workout plans</li>
+                    <li><i class="fas fa-check"></i> Nutrition guidance</li>
+                    <li><i class="fas fa-check"></i> Progress tracking</li>
+                </ul>
+                <button class="program-btn">Learn More</button>
+            </div>
+            <div class="program-card">
+                <div class="program-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3>Group Classes</h3>
+                <p>Join our energetic group sessions led by professional instructors.</p>
+                <ul class="program-features">
+                    <li><i class="fas fa-check"></i> Various class types</li>
+                    <li><i class="fas fa-check"></i> Flexible schedules</li>
+                    <li><i class="fas fa-check"></i> Community support</li>
+                </ul>
+                <button class="program-btn">Learn More</button>
+            </div>
+            <div class="program-card">
+                <div class="program-icon">
+                    <i class="fas fa-apple-alt"></i>
+                </div>
+                <h3>Nutrition Coaching</h3>
+                <p>Get expert guidance on nutrition to complement your fitness journey.</p>
+                <ul class="program-features">
+                    <li><i class="fas fa-check"></i> Meal planning</li>
+                    <li><i class="fas fa-check"></i> Diet consultations</li>
+                    <li><i class="fas fa-check"></i> Supplement advice</li>
+                </ul>
+                <button class="program-btn">Learn More</button>
+            </div>
         </div>
     </section>
     <section id="contact" class="contact">
-        <h2>Contact Us</h2>
-        <form>
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
-
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-
-            <label for="message">Message:</label>
-            <textarea id="message" name="message" required></textarea>
-
-            <button type="submit">Send Message</button>
-        </form>
-    </section>
-    <footer>
-        <p>Follow us on social media!</p>
-        <div class="social-links">
-            <a href="#">Facebook</a>
-            <a href="https://www.instagram.com/rohanjha.rj/">Instagram</a>
-            <a href="#">Twitter</a>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2>Get in Touch</h2>
+                <p>Ready to start your fitness journey? Contact us today!</p>
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h3>Location</h3>
+                            <p>123 Fitness Street, Gym City, GC 12345</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h3>Phone</h3>
+                            <p>+1 234 567 8900</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h3>Email</h3>
+                            <p>info@fitlifegym.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required placeholder="Enter your name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required placeholder="Enter your email">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required placeholder="How can we help you?"></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </button>
+                </form>
+            </div>
         </div>
-        <p>&copy; 2024 FitLife Gym. All rights reserved.</p>
+    </section>
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <i class="fas fa-dumbbell"></i>
+                    <span>FitLife</span>
+                </div>
+                <p>Transform your life through fitness with our expert guidance and support.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#programs">Programs</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Programs</h3>
+                <ul>
+                    <li>Personal Training</li>
+                    <li>Group Classes</li>
+                    <li>Nutrition Coaching</li>
+                    <li>Fitness Assessment</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <div class="social-links">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/rohanjha.rj/" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                </div>
+                <div class="newsletter">
+                    <input type="email" placeholder="Subscribe to newsletter">
+                    <button><i class="fas fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 FitLife Gym. All rights reserved.</p>
+            <div class="footer-bottom-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Cookie Policy</a>
+            </div>
+        </div>
     </footer>
     <script src="script.js"></script>
 </body>

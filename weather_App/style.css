@@ -1,0 +1,121 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+html{
+    overflow-x: hidden;
+}
+:root{
+    --background: hsl(210, 30%, 30%);
+}
+.ParentDiv{
+    width: 100%;
+    min-height: 100vh;
+    background: var(--background);
+    
+}
+#header{
+   background: rgba(0, 30, 60, 0.4);
+   height: 60px;
+   width: 90%;
+   border-radius: 10px;
+   padding-right: 15px;
+   padding-left: 15px;
+}
+#search{
+    background:rgba(0, 20, 40, 0.8);
+    width: 300px;
+    height: 35px;
+    border-radius: 6px;
+    outline: none;
+    border: none;
+    padding-left: 10px;
+    
+}
+.search-btn{
+    width: 100px;
+    height: 35px;
+    background: hsl(200, 100%, 70%);
+    outline: none;
+    border: none;
+    border-radius: 6px;
+    color: var(--background) ;
+    font-weight: 600;
+    cursor: pointer;
+}
+.search-btn:hover{
+    background: hsl(200, 100%, 40%) ;
+}
+#header h4{
+    color:hsl(200, 100%, 70%) ;
+     cursor: pointer;
+}
+.weather_container{
+    width: 100%;
+}
+.mastercard0,.mastercard1,.mastercard2{
+   height: 400px;
+   width: 90%;
+   border-radius: 10px;   
+   background:rgba(0, 30, 60, 0.4) ;
+   color: white;
+   padding: 15px 15px;
+}
+.card-0,.card-1,.card-2{
+    width: 250px;
+    height: 100px;
+    background:rgba(0, 30, 60, 0.4);
+    outline: none;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.card-0:hover,.card-1:hover,.card-2:hover{
+    transform: scale(1.1);
+     transition: 0.2s all ease-in-out;
+    box-shadow: 20px 20px 34px rgba(0,0,0,0.03);
+}
+.weather_grid{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 10px;
+    margin-top: 10px;
+}
+.Next_3hrs,.Next_5days{
+    width: 100%;
+    
+}
+.mastercard1,.mastercard2{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.mastercard1{
+    height: 230px;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+.card-1{
+    width: 140px;
+    height: 150px;
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+.cardholder{
+    display: flex;
+    gap:10px
+}
+.mastercard2{
+    height: 350px;
+    justify-content: space-around;
+}
+.card-2{
+    height: 250px;
+    width: 180px;
+    align-items: center;
+}

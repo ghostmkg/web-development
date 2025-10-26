@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guess The Word Game</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="game-setup">
+    <h1>Guess The Word</h1>
+    <label for="playerName">Player Name:</label>
+    <input type="text" id="playerName" placeholder="Enter your name" required aria-label="Player name">
+    
+    <label for="difficulty">Select Difficulty:</label>
+    <select id="difficulty" aria-label="Select difficulty">
+      <option value="easy">Easy (8 attempts, 90s)</option>
+      <option value="medium">Medium (6 attempts, 60s)</option>
+      <option value="hard">Hard (4 attempts, 30s)</option>
+    </select>
+
+    <label for="category">Select Category:</label>
+    <select id="category" aria-label="Select category">
+      <option value="animals">Animals</option>
+      <option value="tech">Tech</option>
+      <option value="food">Food</option>
+      <option value="sports">Sports</option>
+      <option value="movies">Movies</option>
+      <option value="random">Random</option>
+    </select>
+
+    <button id="startGameBtn">Start Game</button>
+  </div>
+
+  <div class="game-container" style="display:none">
+    <h2 id="roundDisplay">Round: 1</h2>
+    <p><strong>Category:</strong> <span id="currentCategory"></span></p>
+    <p><strong>Hint:</strong> <span id="hintText">???</span></p>
+    <button id="hintBtn">Use Hint (-2 pts)</button>
+    <div class="hangman-container">
+      <div id="hangman"></div>
+    </div>
+    <div id="wordDisplay" class="word-display"></div>
+
+    <div class="input-section">
+      <input type="text" id="letterInput" maxlength="1" aria-label="Enter letter" placeholder="Letter"/>
+      <button id="guessLetterBtn">Guess Letter</button>
+    </div>
+    <div class="input-section whole-word">
+      <input type="text" id="wordInput" aria-label="Enter word" placeholder="Whole Word"/>
+      <button id="guessWordBtn">Guess Word (-2 attempts if wrong)</button>
+    </div>
+
+    <div class="status">
+      <p>Wrong Guesses: <span id="wrongGuesses"></span></p>
+      <p>Remaining Attempts: <span id="remaining">6</span></p>
+      <p>Score: <span id="score">0</span></p>
+      <p>Timer: <span id="timer">60</span> sec</p>
+      <p id="message"></p>
+    </div>
+    <button id="restartBtn">Restart Game</button>
+  </div>
+
+  <div class="leaderboard">
+    <h3>Leaderboard</h3>
+    <ol id="highScores"></ol>
+    <button id="resetLeaderboardBtn">Reset Leaderboard</button>
+  </div>
+
+  <div id="confetti"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
