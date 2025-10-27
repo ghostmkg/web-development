@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Movie Booking</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <link rel="stylesheet" href="admin_style.css"> 
+</head>
+<body>
+    <header class="admin-header">
+        <h1>Admin Panel</h1>
+        <div class="admin-auth-section"></div>
+    </header>
+
+    <nav class="admin-nav">
+        <a href="#" data-section="dashboard-overview-section" class="nav-tab-link active">Dashboard</a> 
+        <a href="#" data-section="manage-movies-section" class="nav-tab-link">Movies</a>
+        <a href="#" data-section="manage-bookings-section" class="nav-tab-link">Bookings (View)</a>
+    </nav>
+
+    <div class="admin-container">
+        <div id="adminMessage" class="message"></div>
+
+        <div id="loginSection" class="admin-section" style="display:block;"> 
+            <h3>Admin Login</h3>
+            <form id="adminLoginForm" class="styled-form">
+                <div class="form-group"><label for="adminUsernameInput">Username:</label><input type="text" id="adminUsernameInput" value="1ds23is127@dsce.edu.in" required></div>
+                <div class="form-group"><label for="adminPasswordInput">Password:</label><input type="password" id="adminPasswordInput" value="Dsce@0210" required></div>
+                <button type="submit" class="action-button">Login</button>
+            </form>
+        </div>
+
+        <div id="dashboardContent" style="display:none;"> 
+            <div class="admin-section" id="dashboard-overview-section" >
+                <h2>Admin Dashboard</h2>
+                <p>Welcome, Admin! Site overview and management options.</p>
+                 <div class="admin-section-inner"> 
+                    <h3>Quick Site Statistics</h3>
+                    <ul class="stats-list">
+                        <li><span>Total Movies: <span id="statsTotalMovies" class="value">Loading...</span></span></li>
+                        <li><span>Total Registered Users: <span id="statsTotalUsers" class="value">Loading...</span></span></li>
+                        <li><span>Total Bookings (Active): <span id="statsTotalBookings" class="value">Loading...</span></span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="admin-section" id="manage-movies-section" style="display:none;">
+                <h3>Movie Management</h3>
+                <div id="movieListContainer"><p>Loading movies...</p></div>
+                <hr>
+                <h4>Add New Movie</h4>
+                <form id="addMovieForm" class="styled-form">
+                    <div class="form-group"><label for="movieTitle">Title:</label><input type="text" id="movieTitle" required></div>
+                    <div class="form-group"><label for="movieDuration">Duration:</label><input type="text" id="movieDuration" required></div>
+                    <div class="form-group"><label for="moviePoster">Poster Filename:</label><input type="text" id="moviePoster" placeholder="poster.jpg" required></div>
+                    <div class="form-group"><label for="movieShowtimes">Showtimes (comma-separated):</label><input type="text" id="movieShowtimes" placeholder="10:00 AM, 02:00 PM"></div>
+                    <button type="submit" class="action-button">Add Movie</button>
+                </form>
+            </div>
+
+            <div class="admin-section" id="manage-bookings-section" style="display:none;">
+                <h3>Booking Insights & Management</h3>
+
+                <div id="bookingInsightsNavContainer" class="booking-insights-nav">
+                    <button class="insight-btn" data-insight="overallStats">Overall Stats</button>
+                    <button class="insight-btn" data-insight="userActivity">User Activity</button>
+                    <button class="insight-btn" data-insight="moviePopularity">Movie Popularity</button>
+                    <button class="insight-btn" data-insight="cancellationPatterns">Cancellations</button>
+                    <button class="insight-btn" data-insight="allBookingsList">All Bookings List</button>
+                </div>
+
+                <div id="bookingInsightDisplayArea">
+                    <p style="text-align: center; color: #aaa; font-style: italic;">Select an insight from above to view details.</p>
+                </div>
+
+                <template id="templateOverallStats">
+                    <div class="booking-insight-content">
+                        <button class="back-to-insights-btn">← Back to Menu</button>
+                        <h4>Ticket Sales by Movie (Top 5)</h4>
+                        <div class="insight-grid">
+                            <div class="chart-container" id="chartOverallStats"></div>
+                            <div class="stats-text-container">
+                                <h5>Overall Site Numbers</h5>
+                                <ul class="stats-list">
+                                    <li>Active Bookings: <span id="tpl_bStatsActiveBookings" class="value">...</span></li>
+                                    <li>Total Seats Booked: <span id="tpl_bStatsTotalSeatsBooked" class="value">...</span></li>
+                                    <li>Unique Movies Booked: <span id="tpl_bStatsUniqueMoviesBooked" class="value">...</span></li>
+                                    <li>Users with Bookings: <span id="tpl_bStatsUniqueUsersBooking" class="value">...</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+
+                <template id="templateUserActivity">
+                    <div class="booking-insight-content">
+                        <button class="back-to-insights-btn">← Back to Menu</button>
+                        <h4>User Engagement</h4>
+                        <div class="insight-grid">
+                            <div class="chart-container" id="chartUserActivity"></div>
+                            <div class="stats-text-container">
+                                <h5>Top User Activity</h5>
+                                <ul class="stats-list">
+                                    <li>Most Active Booker: <span id="tpl_bStatsUserMostBookings" class="value">...</span></li>
+                                    <li>Most Cancellations By: <span id="tpl_bStatsUserMostCancels" class="value">...</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <hr>
+                        <h5>All Registered Users (<span id="tpl_totalRegisteredUsersCount">...</span>)</h5>
+                        <div class="sub-section-controls"><label for="userSearchInput">Search User:</label><input type="text" id="userSearchInput" placeholder="Name or ID"></div>
+                        <div id="tpl_bStatsAllUsersListContainer" class="data-table-container"><p>Loading users...</p></div>
+                    </div>
+                </template>
+
+                <template id="templateMoviePopularity">
+                    <div class="booking-insight-content">
+                        <button class="back-to-insights-btn">← Back to Menu</button>
+                        <h4>Movie Popularity by Tickets Sold (Active Bookings)</h4>
+                        <div class="insight-grid single-col">
+                            <div class="chart-container wide-chart" id="chartMoviePopularity"></div>
+                        </div>
+                    </div>
+                </template>
+
+                <template id="templateCancellationPatterns">
+                     <div class="booking-insight-content">
+                        <button class="back-to-insights-btn">← Back to Menu</button>
+                        <h4>Active vs. Cancelled Bookings</h4>
+                         <div class="insight-grid">
+                            <div class="chart-container" id="chartCancellationPatterns"></div>
+                            <div class="stats-text-container">
+                                <h5>Cancellation Details</h5>
+                                <ul class="stats-list">
+                                    <li>Total Cancelled Bookings: <span id="tpl_bStatsTotalCancels" class="value">...</span></li>
+                                    <li>Seats in Cancelled Bookings: <span id="tpl_bStatsSeatsInCancels" class="value">...</span></li>
+                                    <li>Movie with Most Cancels: <span id="tpl_bStatsMovieMostCancels" class="value">...</span></li>
+                                    <li>User with Most Cancels: <span id="tpl_bStatsUserMostCancels" class="value">...</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+
+                <template id="templateAllBookingsList">
+                    <div class="booking-insight-content">
+                        <button class="back-to-insights-btn">← Back to Menu</button>
+                        <h4>Bookings by Showtime & Raw Data</h4>
+                        <div class="chart-container wide-chart" id="chartBookingsByShowtime">
+                            <!-- This will be populated by JS -->
+                        </div>
+                        <div class="sub-section-controls">
+                            <label for="allBookingsFilterUser">User ID:</label><input type="text" id="allBookingsFilterUser" placeholder="e.g., 1">
+                            <label for="allBookingsFilterMovie">Movie ID:</label><input type="text" id="allBookingsFilterMovie" placeholder="e.g., 2">
+                            <label for="allBookingsFilterCancelled">Status:</label>
+                            <select id="allBookingsFilterCancelled">
+                                <option value="">Any</option><option value="false">Active</option><option value="true">Cancelled</option>
+                            </select>
+                            <button id="allBookingsApplyFilterBtn" class="filter-btn">Filter</button>
+                            <button id="allBookingsClearFilterBtn" class="clear-filter-btn">Clear</button>
+                        </div>
+                        <div id="tpl_allBookingsTableContainer" class="data-table-container"><p>Loading all bookings...</p></div>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </div>
+
+    <div id="editMovieModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeEditModalBtn">×</span>
+            <h4>Edit Movie</h4>
+            <form id="editMovieForm" class="styled-form">
+                <input type="hidden" id="editMovieId">
+                <div class="form-group"><label for="editMovieTitle">Title:</label><input type="text" id="editMovieTitle" required></div>
+                <div class="form-group"><label for="editMovieDuration">Duration:</label><input type="text" id="editMovieDuration" required></div>
+                <div class="form-group"><label for="editMoviePoster">Poster Filename:</label><input type="text" id="editMoviePoster" required></div>
+                <div class="form-group"><label for="editMovieShowtimes">Showtimes (comma-separated):</label><input type="text" id="editMovieShowtimes"></div>
+                <div class="form-group"><label>Default Movie Status:</label><span id="editIsDefaultStatus"></span>(<small id="editDefaultMessage"></small>)</div>
+                <button type="submit" class="action-button">Save Changes</button>
+                <button type="button" class="action-button secondary-action" id="cancelEditBtn">Cancel</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="admin_script.js" defer></script>
+</body>
+</html>

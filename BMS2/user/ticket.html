@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Ticket</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="ticket.css"> 
+</head>
+<body>
+    <header>
+        <h1>Your Booked Ticket</h1>
+        <div id="auth-links-container">
+            <!-- Links will be populated by auth.js -->
+        </div>
+    </header>
+
+    <main>
+        <!-- The 'ticket-container' will have classes added by JS -->
+        <div id="ticket-container"> 
+            <div id="ticket-details">
+                <p class="loading-message">Loading ticket details...</p>
+            </div>
+        </div>
+        <div class="button-container">
+            <a href="my_bookings.html" id="back-to-bookings-btn" class="styled-button back-button">Back to My Bookings</a>
+            <!-- Cancel button will be added here by JS if the ticket is active -->
+        </div>
+    </main>
+
+    <script src="auth.js"></script> 
+    <script>
+        document.addEventListener('DOMContentLoaded', async function() {
+            // A small delay to ensure auth.js has a chance to run
+            await new Promise(resolve => setTimeout(resolve, 100)); 
+
+            const ticketContainer = document.getElementById('ticket-container');
+            const ticketDetailsContainer = document.getElementById('ticket-details');
+            const buttonContainer = document.querySelector('.button-container');
+            const urlParams = new URLSearchParams(window.location.search);
+            const bookingId = urlParams.get('bookingId');
+
+            // Auth check (auth.js should handle redirection, this is a fallback)
+            const loginStatus = await checkLoginStatus(); 
+            if (!loginStatus.isLoggedIn) return;
+
+            if (!bookingId) {
+                ticketDetailsContainer.innerHTML = '<p class="error-message">No booking ID provided.</p>';
+                if (buttonContainer) buttonContainer.style.display = 'none'; 
+                return;
+            }
+
+            async function fetchAndDisplayTicket() {
+                try {
+                    const response = await fetch(`http://127.0.0.1:5000/api/bookings/${bookingId}`, {
+                        method: 'GET',
+                        credentials: 'include' 
+                    });
+                    const bookingDetails = await response.json();
+                    
+                    if (!response.ok) {
+                        throw new Error(bookingDetails.message || `Error ${response.status}`);
+                    }
+                    
+                    console.log("[TICKET.HTML SCRIPT] Fetched booking details:", bookingDetails);
+
+                    // Add class if ticket is cancelled to trigger the new CSS stamp
+                    if (bookingDetails.isCancelled) {
+                        ticketContainer.classList.add('is-cancelled');
+                    }
+
+                    ticketDetailsContainer.innerHTML = `
+                        <h2>${bookingDetails.movieName || 'N/A'}</h2>
+                        <p><strong>Booked by:</strong> ${bookingDetails.userName || 'N/A'}</p>
+                        <p><strong>Showtime:</strong> ${bookingDetails.showTime || 'N/A'}</p>
+                        <p><strong>Seats:</strong> ${bookingDetails.seats && bookingDetails.seats.length > 0 ? bookingDetails.seats.join(', ') : 'None Selected'}</p>
+                        <hr>
+                        <p><strong>Booking Ref:</strong> ${bookingDetails._id || 'N/A'}</p> 
+                        <em>This is your digital ticket.</em>
+                    `;
+
+                    // Only add cancel button if the ticket is NOT already cancelled
+                    if (!bookingDetails.isCancelled && buttonContainer) {
+                        const cancelButton = document.createElement('button');
+                        cancelButton.id = 'cancel-ticket-btn';
+                        cancelButton.textContent = 'Cancel Ticket';
+                        cancelButton.className = 'styled-button cancel-button';
+                        
+                        cancelButton.onclick = async function() { 
+                           if (confirm('Are you sure you want to cancel this ticket? This action cannot be undone.')) {
+                                try {
+                                    // <<< CORRECTION HERE: The IP address is now correct.
+                                    const deleteResponse = await fetch(`http://127.0.0.1:5000/api/bookings/${bookingId}`, {
+                                        method: 'DELETE',
+                                        credentials: 'include'
+                                    });
+                                    const deleteResult = await deleteResponse.json();
+                                    if (!deleteResponse.ok) { throw new Error(deleteResult.message || `Failed to cancel booking.`); }
+                                    
+                                    alert(deleteResult.message || `Booking ID ${bookingId} cancelled.`);
+                                    
+                                    // Reload the page to show the updated "cancelled" state from the server.
+                                    window.location.reload();
+
+                                } catch (error) {
+                                    console.error("[TICKET.HTML SCRIPT] Error cancelling ticket:", error);
+                                    alert(`Failed to cancel ticket: ${error.message}.`);
+                                }
+                            }
+                        };
+                        buttonContainer.appendChild(cancelButton);
+                    }
+                } catch (error) {
+                    console.error('[TICKET.HTML SCRIPT] Failed to load ticket details:', error);
+                    ticketDetailsContainer.innerHTML = `<p class="error-message">Failed to load ticket: ${error.message}.</p>`;
+                }
+            }
+            fetchAndDisplayTicket();
+        });
+    </script>
+</body>
+</html>

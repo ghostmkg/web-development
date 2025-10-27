@@ -1,0 +1,229 @@
+/* General Body Styling - Consistent with other pages, dark theme */
+:root {
+    --primary-color: #ff5733; /* Original Color */
+    --primary-hover: #e04e2e; /* Original Color */
+    --success-color: #27ae60;
+    --success-hover: #2ecc71;
+    --occupied-color: #dc3545; /* Original Color */
+    --available-color: #606060;
+    --available-hover: #797979;
+    --dark-bg-primary: #121212;
+    --dark-bg-secondary: #1f1f1f; /* Original Color */
+    --border-color: #444;
+    --font-family: 'Nunito Sans', 'Arial', sans-serif;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--dark-bg-secondary);
+    color: #e0e0e0;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header Styling */
+header {
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: var(--dark-bg-primary);
+    width: 100%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    color: #fff;
+}
+header h1 {
+    font-size: 2.5em;
+    font-weight: 900;
+    margin: 0 0 10px 0;
+}
+.movie-info-header {
+    font-size: 1.2em;
+    color: #ccc;
+    margin: 5px 0 0 0;
+}
+#movie-name, #show-time-value {
+    color: #ffc107;
+    font-weight: bold;
+}
+#auth-links-container a, 
+#auth-links-container button {
+    font-family: var(--font-family);
+}
+#auth-links-container .nav-welcome-message {
+     color: #e0e0e0;
+}
+#auth-links-container .nav-link {
+    color: #ffdb58;
+    font-weight: 700;
+}
+#auth-links-container .logout-btn {
+    background-color: #c0392b;
+}
+
+/* Main content area */
+.seating-main {
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Screen Area Styling */
+.screen-container {
+    width: 100%;
+    margin: 30px 0;
+    perspective: 600px;
+}
+.screen {
+    width: 60%;
+    max-width: 450px;
+    margin: 0 auto;
+    padding: 10px 20px;
+    background-color: #2c2c2c;
+    color: #fff;
+    font-size: 1.3em;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 3px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    border-bottom: 5px solid #1a1a1a;
+    transform: rotateX(-20deg);
+    transform-origin: bottom center;
+}
+
+/* Seat Legend */
+.seat-legend {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    list-style: none;
+    padding: 0;
+    margin: 0 0 30px 0;
+}
+.seat-legend li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.seat-legend small {
+    font-size: 0.9em;
+    color: #a0a0a0;
+}
+.seat-example {
+    width: 20px;
+    height: 20px;
+    border-radius: 5px 5px 2px 2px;
+}
+.seat-example.available { background-color: var(--available-color); }
+.seat-example.selected { background-color: var(--success-color); }
+.seat-example.occupied { background-color: var(--occupied-color); }
+
+
+/* Seat Selection Grid */
+.seat-selection {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 12px 18px; /* Row gap, Column gap */
+    max-width: 320px;
+    margin: 0 auto;
+}
+
+/* Individual Seat Styling - UPDATED */
+.seat {
+    background-color: var(--available-color);
+    color: #fff;
+    width: 50px;
+    height: 50px;
+    border: none;
+    font-size: 1em;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 8px 8px 3px 3px; /* Rounded top, flatter bottom */
+    transition: all 0.2s ease;
+    user-select: none;
+}
+/* NEW: Hover animation for available seats */
+.seat:not(:disabled):hover {
+    background-color: var(--available-hover);
+    transform: scale(1.08);
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.2);
+}
+/* NEW: Glowing effect for selected seats */
+.seat.selected {
+    background-color: var(--success-color);
+    box-shadow: 0 0 15px rgba(39, 174, 96, 0.7);
+}
+.seat.selected:hover {
+    background-color: var(--success-hover);
+}
+.seat.occupied {
+    background-color: var(--occupied-color);
+    cursor: not-allowed;
+    opacity: 0.8;
+}
+
+/* Form and Booking Actions Styling */
+#booking-form {
+    width: 100%;
+    max-width: 500px;
+    margin-top: 40px;
+}
+.booking-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+input[name="user_name"] {
+    width: 100%;
+    max-width: 350px;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    background-color: #2a2a2a;
+    color: #e0e0e0;
+    border-radius: 5px;
+    font-size: 1em;
+    font-family: var(--font-family);
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+input[name="user_name"]:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 10px rgba(255, 87, 51, 0.5); /* Color matches var(--primary-color) */
+}
+/* NEW: More prominent "hero" button */
+.confirm-btn {
+    padding: 15px 35px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    font-size: 1.3em;
+    font-weight: 700;
+    letter-spacing: 1px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+}
+.confirm-btn:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+}
+
+.cancel-link-p {
+    text-align: center;
+    margin-top: 20px;
+}
+.cancel-link-p a {
+    color: #ffc107;
+    text-decoration: none;
+    font-size: 0.9em;
+    font-weight: 700;
+}
+.cancel-link-p a:hover {
+    text-decoration: underline;
+}
