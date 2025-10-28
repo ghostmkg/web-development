@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seat Selection</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="seats.css">
+</head>
+<body>
+    <header>
+        <h1>Seat Selection</h1>
+        <div id="auth-links-container" style="text-align: right; padding: 0 20px 10px 0; background-color: #121212; border-bottom: 1px solid #444;">
+            <!-- Links will be populated by auth.js -->
+        </div>
+        <p class="movie-info-header">Movie: <span id="movie-name">Loading...</span> <span id="show-time-display"></span></p>
+    </header>
+
+    <main class="seating-main">
+        <div class="screen-container">
+            <div class="screen">SCREEN</div>
+        </div>
+
+        <ul class="seat-legend">
+            <li>
+                <div class="seat-example available"></div>
+                <small>Available</small>
+            </li>
+            <li>
+                <div class="seat-example selected"></div>
+                <small>Selected</small>
+            </li>
+            <li>
+                <div class="seat-example occupied"></div>
+                <small>Occupied</small>
+            </li>
+        </ul>
+
+        <div class="seat-selection">
+            <!-- All seats are now direct children of the grid container -->
+            <button type="button" class="seat">A1</button>
+            <button type="button" class="seat">A2</button>
+            <button type="button" class="seat">A3</button>
+            <button type="button" class="seat">A4</button>
+
+            <button type="button" class="seat">B1</button>
+            <button type="button" class="seat">B2</button>
+            <button type="button" class="seat">B3</button>
+            <button type="button" class="seat">B4</button>
+            
+            <button type="button" class="seat">C1</button>
+            <button type="button" class="seat">C2</button>
+            <button type="button" class="seat">C3</button>
+            <button type="button" class="seat">C4</button>
+            
+            <button type="button" class="seat">D1</button>
+            <button type="button" class="seat">D2</button>
+            <button type="button" class="seat">D3</button>
+            <button type="button" class="seat">D4</button>
+        </div>
+
+        <form id="booking-form">
+            <input type="hidden" name="movie_id" value="" />
+            <div class="booking-actions">
+                <input type="text" name="user_name" placeholder="Enter your name for this booking" required />
+                <button type="submit" class="confirm-btn">Confirm Booking</button>
+            </div>
+             <p class="cancel-link-p"><a href="index.html">Cancel and Go Back</a></p>
+        </form>
+    </main>
+
+    <script src="auth.js"></script> <!-- SHARED AUTH LOGIC -->
+    <script src="seats.js"></script> <!-- Page-specific script -->
+</body>
+</html>

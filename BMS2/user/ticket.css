@@ -1,0 +1,203 @@
+/* General Body Styling */
+:root {
+    --primary-color: #ff5733; /* Original Color */
+    --danger-color: #e74c3c;
+    --danger-hover: #c0392b;
+    --dark-bg-primary: #121212;
+    --dark-bg-secondary: #1f1f1f; /* Original Color */
+    --dark-bg-tertiary: #333;
+    --border-color: #444;
+    --font-family: 'Nunito Sans', 'Arial', sans-serif;
+}
+body {
+    font-family: var(--font-family);
+    background-color: var(--dark-bg-secondary);
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Header Styling */
+header {
+    text-align: center;
+    padding: 20px 0;
+    background-color: var(--dark-bg-primary);
+    width: 100%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+header h1 {
+    font-size: 2.5em;
+    font-weight: 900;
+    color: #fff;
+    margin: 0;
+}
+#auth-links-container {
+    text-align: right;
+    padding: 10px 20px;
+}
+#auth-links-container a.nav-link { color: #ffdb58; font-weight: 700; }
+#auth-links-container span.nav-welcome-message { color: #e0e0e0; }
+#auth-links-container button.logout-btn { background-color: var(--danger-hover); font-weight: 700; }
+
+/* Main Content Area */
+main {
+    width: 90%;
+    max-width: 600px;
+    margin: 30px auto;
+    text-align: left;
+}
+
+/* Ticket Container & Perforated Edge Effect */
+#ticket-container {
+    background: var(--dark-bg-tertiary);
+    border-radius: 12px;
+    padding: 2px; /* Contains the inner details */
+    position: relative;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+}
+#ticket-container::before,
+#ticket-container::after {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 20px;
+    top: 0;
+    background-size: 40px 40px;
+}
+#ticket-container::before {
+    left: -10px;
+    background-image: radial-gradient(circle at 0 20px, transparent 10px, var(--dark-bg-secondary) 10px);
+}
+#ticket-container::after {
+    right: -10px;
+    background-image: radial-gradient(circle at 20px 20px, transparent 10px, var(--dark-bg-secondary) 10px);
+}
+
+/* --- UPDATED: Cancelled State Overlay --- */
+#ticket-container.is-cancelled {
+    position: relative;
+    overflow: hidden; /* Ensures the stamp stays within the ticket bounds */
+}
+
+/* This pseudo-element IS the new stamp */
+#ticket-container.is-cancelled::after {
+    content: 'CANCELLED';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /* This transform correctly centers the element. The previous visual imbalance was due to the style, not the position. */
+    transform: translate(-50%, -50%) rotate(-20deg);
+    
+    /* New Visual Style */
+    font-family: 'Impact', 'Arial Black', sans-serif; /* A strong, blocky font */
+    font-size: 5.5em;
+    font-weight: 900;
+    letter-spacing: 2px;
+    color: rgba(220, 53, 69, 0.7); /* A brighter, more visible semi-transparent red */
+    border: 7px double rgba(220, 53, 69, 0.7); /* A double border for a more official stamp look */
+    padding: 10px 30px;
+    border-radius: 10px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Adds depth */
+    
+    z-index: 10;
+    pointer-events: none;
+    user-select: none;
+}
+
+#ticket-container.is-cancelled #ticket-details {
+    opacity: 0.5; /* Fade out the details behind the stamp more */
+}
+/* --- END OF UPDATED SECTION --- */
+
+
+#ticket-details {
+    background: var(--dark-bg-tertiary);
+    border-radius: 10px;
+    padding: 25px 30px;
+}
+#ticket-details h2 {
+    color: var(--primary-color);
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 2em;
+    font-weight: 900;
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+}
+#ticket-details p {
+    line-height: 1.7;
+    margin: 12px 0;
+    font-size: 1.1em;
+}
+#ticket-details p strong {
+    color: #fff;
+    margin-right: 8px;
+}
+#ticket-details hr {
+    border: 0;
+    height: 1px;
+    background-color: var(--border-color);
+    margin: 25px 0;
+}
+#ticket-details em {
+    display: block;
+    text-align: center;
+    color: #a0a0a0;
+    font-size: 0.9em;
+    margin-top: 15px;
+}
+
+/* Button Container */
+.button-container {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.styled-button {
+    text-decoration: none;
+    padding: 12px 25px;
+    color: white;
+    border: none;
+    font-size: 1.1em;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    min-width: 180px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+.styled-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+.back-button {
+    background-color: #555;
+}
+.back-button:hover {
+    background-color: #666;
+}
+.cancel-button {
+    background-color: var(--danger-hover);
+}
+.cancel-button:hover {
+    background-color: var(--danger-color);
+}
+
+/* Message styling */
+.loading-message,
+.confirmation-message,
+.error-message {
+    font-weight: bold;
+    font-size: 1.2em;
+    text-align: center;
+    padding: 20px 0;
+}
+.confirmation-message { color: #2ecc71; }
+.error-message { color: var(--danger-color); }
