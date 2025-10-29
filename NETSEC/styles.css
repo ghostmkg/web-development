@@ -1,0 +1,340 @@
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #212529;
+    scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navigation */
+.nav-link {
+    transition: all 0.3s ease;
+    border-bottom: 2px solid transparent;
+    position: relative;
+    color: #64748b;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 50%;
+    background: #007bff;
+    transition: width 0.3s ease-out, left 0.3s ease-out;
+}
+
+.nav-link:hover::after, .nav-link.active::after {
+    width: 100%;
+    left: 0;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: #007bff;
+}
+
+/* Cards */
+.card {
+    transform-style: preserve-3d;
+    transition: transform 0.6s ease-in-out;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card:hover {
+    transform: scale(1.05) rotateY(5deg);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.card.is-flipped {
+    transform: rotateY(180deg);
+}
+
+.card-face {
+    backface-visibility: hidden;
+    border-radius: 16px;
+}
+
+.card-back {
+    transform: rotateY(180deg);
+}
+
+/* Defense tabs */
+.defense-tab {
+    padding: 12px 24px;
+    border: none;
+    background: none;
+    color: #64748b;
+    font-weight: 500;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+}
+
+.defense-tab.active {
+    color: #007bff;
+    border-bottom-color: #007bff;
+    background: rgba(0, 123, 255, 0.1);
+}
+
+.defense-tab:hover {
+    color: #007bff;
+    background: rgba(0, 123, 255, 0.05);
+}
+
+/* Games */
+.game-container {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: 40px;
+    margin: 40px 0;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.password-game, .phishing-game, .quiz-game {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    padding: 25px;
+    backdrop-filter: blur(10px);
+}
+
+.password-input {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: all 0.3s;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.password-input:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+    transform: scale(1.02);
+}
+
+.strength-meter {
+    height: 8px;
+    background: #e2e8f0;
+    border-radius: 4px;
+    overflow: hidden;
+    margin: 10px 0;
+}
+
+.strength-fill {
+    height: 100%;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 4px;
+}
+
+.email-card, .quiz-option {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 15px 0;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+.email-card:hover, .quiz-option:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    border-color: #007bff;
+}
+
+.email-card.correct, .quiz-option.correct {
+    border-color: #10b981;
+    background: linear-gradient(135deg, #ecfdf5, #f0fdf4);
+}
+
+.email-card.incorrect, .quiz-option.incorrect {
+    border-color: #ef4444;
+    background: linear-gradient(135deg, #fef2f2, #fef2f2);
+}
+
+/* Buttons */
+button {
+    background: linear-gradient(135deg, #007bff, #0056cc);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 123, 255, 0.4);
+}
+
+/* Score display */
+.score-display {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    padding: 15px 25px;
+    border-radius: 15px;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+/* Progress bar */
+#progress-bar {
+    background: linear-gradient(90deg, #007bff, #00d4ff);
+    height: 100%;
+    transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 4px;
+}
+
+/* Network defense game */
+#network-field {
+    background: rgba(255, 255, 255, 0.1);
+    border: 3px solid #007bff;
+    border-radius: 16px;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+}
+
+.threat {
+    font-size: 24px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    user-select: none;
+}
+
+.threat:hover {
+    transform: scale(1.3);
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.8));
+}
+
+/* Traffic table */
+table {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+th {
+    background: rgba(248, 250, 252, 0.8);
+    padding: 16px;
+    font-weight: 600;
+    color: #475569;
+}
+
+td {
+    padding: 16px;
+    border-bottom: 1px solid rgba(226, 232, 240, 0.5);
+}
+
+tr:hover {
+    background: rgba(59, 130, 246, 0.05);
+}
+
+/* Chart container */
+.chart-container {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    height: 300px;
+}
+
+@media (min-width: 768px) {
+    .chart-container {
+        height: 400px;
+    }
+}
+
+/* Checklist */
+input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #007bff;
+}
+
+label {
+    transition: all 0.3s ease;
+}
+
+/* Glassmorphism effects */
+.glass {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* Floating action button */
+.fab {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #007bff, #00d4ff);
+    color: white;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(0, 123, 255, 0.4);
+    transition: all 0.3s;
+    z-index: 1000;
+    font-size: 20px;
+    display: none;
+}
+
+.fab:hover {
+    transform: scale(1.1);
+    box-shadow: 0 12px 35px rgba(0, 123, 255, 0.6);
+}
+
+/* Animations */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .game-container {
+        padding: 24px;
+        margin: 24px 0;
+    }
+    
+    .defense-tab {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+}
