@@ -1,0 +1,103 @@
+:root{
+  --size:80px;
+  --gap:10px;
+  --bg:#faf8ef;
+  --board:#bbada0;
+  --cell:#cdc1b4;
+  font-size:16px;
+}
+
+*{box-sizing:border-box}
+body{
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  margin:0;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+}
+
+h1{margin:0 0 6px 0;
+    font-weight:700;
+    font-size:48px;
+    color:#776e65;
+}
+
+#game-container{
+  display:grid;
+  grid-template-columns: repeat(4, var(--size));
+  grid-template-rows: repeat(4, var(--size));
+  gap: var(--gap);
+  background: var(--board);
+  padding: var(--gap);
+  border-radius: 10px;
+}
+h1 {
+  top: -15px; /* moves 2048 title slightly up */
+  position: relative;
+}
+
+#score-container {
+  position: relative;
+  width: fit-content;
+  margin-bottom: 10px;
+}
+
+#score-board {
+  position: absolute;
+  top: -25px;
+  left: -160px;
+  background: #bbada0;
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+#restart-btn {
+  position: absolute;
+  top: -25px;
+  right: -160px;
+  background: #8f7a66;
+  color: #fff;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#restart-btn:hover {
+  background: #9f8675;
+}
+
+
+
+.cell{
+  width: var(--size);
+  height: var(--size);
+  background: var(--cell);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:700;
+  font-size:22px;
+  border-radius:5px;
+  user-select:none;
+}
+
+.cell[data-value="2"]{background:#eee4da}
+.cell[data-value="4"]{background:#ede0c8}
+.cell[data-value="8"]{background:#f2b179;color:#fff}
+.cell[data-value="16"]{background:#f59563;color:#fff}
+.cell[data-value="32"]{background:#f67c5f;color:#fff}
+.cell[data-value="64"]{background:#f65e3b;color:#fff}
+.cell[data-value="128"]{background:#edcf72;color:#fff}
+.cell[data-value="256"]{background:#edcc61;color:#fff}
+.cell[data-value="512"]{background:#edc850;color:#fff}
+.cell[data-value="1024"]{background:#edc53f;color:#fff}
+.cell[data-value="2048"]{background:#edc22e;color:#fff}

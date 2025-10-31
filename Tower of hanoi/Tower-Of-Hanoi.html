@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tower of Hanoi Simulator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        header {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .subtitle {
+            font-size: 1rem;
+            opacity: 0.95;
+        }
+
+        /* Main Content */
+        .main-content {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            padding: 30px;
+            margin-bottom: 20px;
+        }
+
+        /* Controls Section */
+        .controls-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .control-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        label {
+            font-weight: 600;
+            color: #667eea;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        input[type="range"],
+        select {
+            padding: 10px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+
+        input[type="range"]:focus,
+        select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .disk-count-display {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #667eea;
+            text-align: center;
+        }
+
+        /* Button Group */
+        .button-group {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        button {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: inherit;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            flex: 1;
+            min-width: 120px;
+        }
+
+        .btn-primary:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-primary:active:not(:disabled) {
+            transform: translateY(0);
+        }
+
+        .btn-primary:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .btn-secondary {
+            background: #f0f0f0;
+            color: #333;
+            border: 2px solid #ddd;
+            flex: 1;
+            min-width: 100px;
+        }
+
+        .btn-secondary:hover:not(:disabled) {
+            background: #e0e0e0;
+            border-color: #999;
+        }
+
+        .btn-secondary:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* Visualization Area */
+        .visualization {
+            display: flex;
+            justify-content: space-around;
+            gap: 20px;
+            margin: 40px 0;
+            min-height: 450px;
+            background: #f9f9f9;
+            padding: 30px;
+            border-radius: 15px;
+        }
+
+        .rod-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+            min-width: 150px;
+        }
+
+        .rod-label {
+            font-weight: 600;
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .rod {
+            width: 100%;
+            height: 350px;
+            background: linear-gradient(to bottom, #f0f0f0, #e8e8e8);
+            border-radius: 10px;
+            border: 2px solid #ddd;
+            position: relative;
+            display: flex;
+            flex-direction: column-reverse;
+            align-items: center;
+            padding: 10px;
+            gap: 3px;
+            overflow: hidden;
+        }
+
+        .rod-base {
+            width: 80%;
+            height: 8px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 4px;
+            margin-top: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .disk {
+            position: absolute;
+            height: 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            cursor: grab;
+            transition: all 0.2s ease;
+            bottom: 10px;
+        }
+
+        .disk:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        }
+
+        .disk.moving {
+            z-index: 1000;
+            animation: moveToTop 0.4s ease-in-out;
+        }
+
+        .disk.placing {
+            animation: placeOnRod 0.4s ease-in-out;
+        }
+
+        .disk1 { width: 30%; background: linear-gradient(135deg, #ff6b6b 0%, #ff8787 100%); }
+        .disk2 { width: 45%; background: linear-gradient(135deg, #ffd93d 0%, #ffed4e 100%); }
+        .disk3 { width: 60%; background: linear-gradient(135deg, #51cf66 0%, #69db7c 100%); }
+        .disk4 { width: 75%; background: linear-gradient(135deg, #4dabf7 0%, #74c0fc 100%); }
+        .disk5 { width: 90%; background: linear-gradient(135deg, #da77f2 0%, #e599f7 100%); }
+        .disk6 { width: 100%; background: linear-gradient(135deg, #ff922b 0%, #ffa94d 100%); }
+        .disk7 { width: 110%; background: linear-gradient(135deg, #a78bfa 0%, #c4b5fd 100%); }
+        .disk8 { width: 120%; background: linear-gradient(135deg, #06b6d4 0%, #22d3ee 100%); }
+
+        @keyframes moveToTop {
+            0% {
+                bottom: 50px;
+            }
+            50% {
+                bottom: 200px;
+            }
+            100% {
+                bottom: 50px;
+            }
+        }
+
+        @keyframes placeOnRod {
+            0% {
+                bottom: 200px;
+            }
+            100% {
+                bottom: auto;
+            }
+        }
+
+        /* Info Section */
+        .info-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .info-card {
+            background: #f0f5ff;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+
+        .info-label {
+            font-size: 0.85rem;
+            color: #666;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        .info-value {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        /* Moves List */
+        .moves-section {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .moves-title {
+            font-weight: 600;
+            color: #667eea;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .moves-list {
+            max-height: 200px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column-reverse;
+            gap: 8px;
+        }
+
+        .move-item {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 6px;
+            border-left: 3px solid #667eea;
+            font-size: 0.9rem;
+            color: #333;
+            animation: slideIn 0.3s ease-out;
+        }
+
+        .move-item.current {
+            background: #e3f2fd;
+            border-left-color: #ff6b6b;
+            font-weight: 600;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Status Messages */
+        .status-box {
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-weight: 600;
+            text-align: center;
+            opacity: 0;
+            transition: all 0.3s ease;
+            display: none;
+        }
+
+        .status-box.show {
+            opacity: 1;
+            display: block;
+        }
+
+        .status-success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .status-info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+
+        /* Speed Control */
+        .speed-display {
+            text-align: center;
+            color: #666;
+            font-size: 0.85rem;
+            margin-top: 5px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .main-content {
+                padding: 20px;
+            }
+
+            .visualization {
+                flex-direction: column;
+                min-height: auto;
+                gap: 30px;
+            }
+
+            .rod {
+                height: 250px;
+            }
+
+            .controls-section {
+                grid-template-columns: 1fr;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            button {
+                width: 100%;
+            }
+        }
+
+        /* Info Box */
+        .info-box {
+            background: #fff9e6;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #ffd93d;
+            margin-top: 20px;
+        }
+
+        .info-box-title {
+            font-weight: 600;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .info-box-text {
+            font-size: 0.9rem;
+            color: #333;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🗼 Tower of Hanoi Simulator</h1>
+            <p class="subtitle">Watch the step-by-step solution with animated disk movements</p>
+        </header>
+
+        <div class="main-content">
+            <!-- Controls -->
+            <div class="controls-section">
+                <div class="control-group">
+                    <label for="diskCount">Number of Disks:</label>
+                    <input type="range" id="diskCount" min="1" max="8" value="3">
+                    <div class="disk-count-display" id="diskCountDisplay">3</div>
+                </div>
+
+                <div class="control-group">
+                    <label for="speedControl">Animation Speed:</label>
+                    <input type="range" id="speedControl" min="1" max="5" value="3">
+                    <div class="speed-display" id="speedDisplay">Normal</div>
+                </div>
+
+                <div class="button-group">
+                    <button class="btn-primary" onclick="solveHanoi()">▶ Solve</button>
+                    <button class="btn-secondary" onclick="resetHanoi()">🔄 Reset</button>
+                    <button class="btn-secondary" onclick="pauseHanoi()" id="pauseBtn">⏸ Pause</button>
+                </div>
+            </div>
+
+            <!-- Status Message -->
+            <div class="status-box" id="statusBox"></div>
+
+            <!-- Visualization -->
+            <div class="visualization">
+                <div class="rod-container">
+                    <div class="rod-label">Rod A (Source)</div>
+                    <div class="rod" id="rodA"></div>
+                    <div class="rod-base"></div>
+                </div>
+
+                <div class="rod-container">
+                    <div class="rod-label">Rod B (Auxiliary)</div>
+                    <div class="rod" id="rodB"></div>
+                    <div class="rod-base"></div>
+                </div>
+
+                <div class="rod-container">
+                    <div class="rod-label">Rod C (Destination)</div>
+                    <div class="rod" id="rodC"></div>
+                    <div class="rod-base"></div>
+                </div>
+            </div>
+
+            <!-- Info Section -->
+            <div class="info-section">
+                <div class="info-card">
+                    <div class="info-label">Total Moves</div>
+                    <div class="info-value" id="totalMoves">0</div>
+                </div>
+                <div class="info-card">
+                    <div class="info-label">Current Move</div>
+                    <div class="info-value" id="currentMove">0</div>
+                </div>
+                <div class="info-card">
+                    <div class="info-label">Status</div>
+                    <div class="info-value" id="statusValue">Ready</div>
+                </div>
+            </div>
+
+            <!-- Moves List -->
+            <div class="moves-section">
+                <div class="moves-title">📝 Move Sequence</div>
+                <div class="moves-list" id="movesList"></div>
+            </div>
+
+            <!-- Info Box -->
+            <div class="info-box">
+                <div class="info-box-title">💡 About Tower of Hanoi</div>
+                <div class="info-box-text">
+                    The Tower of Hanoi is a classic puzzle solved using recursion. The goal is to move all disks from Rod A to Rod C, 
+                    following these rules: (1) Only one disk can be moved at a time, (2) A disk can only be placed on top of a larger disk or on an empty rod, 
+                    (3) For n disks, minimum moves = 2ⁿ - 1. This puzzle demonstrates the power of divide-and-conquer algorithms!
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ============ State Variables ============
+        let rods = {
+            A: [],
+            B: [],
+            C: []
+        };
+
+        let moves = [];
+        let moveIndex = 0;
+        let solving = false;
+        let paused = false;
+
+        // ============ DOM Elements ============
+        const diskCountInput = document.getElementById('diskCount');
+        const diskCountDisplay = document.getElementById('diskCountDisplay');
+        const speedControl = document.getElementById('speedControl');
+        const speedDisplay = document.getElementById('speedDisplay');
+        const rodElements = {
+            A: document.getElementById('rodA'),
+            B: document.getElementById('rodB'),
+            C: document.getElementById('rodC')
+        };
+        const movesList = document.getElementById('movesList');
+        const statusBox = document.getElementById('statusBox');
+        const totalMovesDisplay = document.getElementById('totalMoves');
+        const currentMoveDisplay = document.getElementById('currentMove');
+        const statusValue = document.getElementById('statusValue');
+        const pauseBtn = document.getElementById('pauseBtn');
+
+        // ============ Initialize ============
+        function init() {
+            diskCountInput.addEventListener('input', () => {
+                diskCountDisplay.textContent = diskCountInput.value;
+                resetHanoi();
+            });
+
+            speedControl.addEventListener('input', updateSpeedDisplay);
+            updateSpeedDisplay();
+            resetHanoi();
+        }
+
+        function updateSpeedDisplay() {
+            const speed = parseInt(speedControl.value);
+            const speeds = ['Very Slow', 'Slow', 'Normal', 'Fast', 'Very Fast'];
+            speedDisplay.textContent = speeds[speed - 1];
+        }
+
+        // ============ Hanoi Algorithm ============
+        function generateMoves(n, source, auxiliary, destination) {
+            if (n === 1) {
+                moves.push({ from: source, to: destination });
+            } else {
+                generateMoves(n - 1, source, destination, auxiliary);
+                moves.push({ from: source, to: destination });
+                generateMoves(n - 1, auxiliary, source, destination);
+            }
+        }
+
+        // ============ Visualization Functions ============
+        function renderRods() {
+            Object.keys(rods).forEach(rod => {
+                rodElements[rod].innerHTML = '';
+                rods[rod].forEach((diskSize, index) => {
+                    const disk = document.createElement('div');
+                    disk.className = `disk disk${diskSize}`;
+                    disk.textContent = diskSize;
+                    disk.style.bottom = (index * 35) + 50 + 'px';
+                    rodElements[rod].appendChild(disk);
+                });
+            });
+        }
+
+        async function executeMoves() {
+            solving = true;
+            moveIndex = 0;
+            pauseBtn.disabled = false;
+            pauseBtn.textContent = '⏸ Pause';
+
+            while (moveIndex < moves.length) {
+                while (paused) {
+                    await sleep(100);
+                }
+
+                const move = moves[moveIndex];
+                const disk = rods[move.from].pop();
+                rods[move.to].push(disk);
+
+                renderRods();
+                highlightMove(moveIndex);
+
+                moveIndex++;
+                currentMoveDisplay.textContent = moveIndex;
+
+                const delay = getDelay();
+                await sleep(delay);
+            }
+
+            solving = false;
+            statusBox.className = 'status-box show status-success';
+            statusBox.textContent = `✅ Puzzle Solved! ${moveIndex} moves completed.`;
+            statusValue.textContent = 'Completed';
+            pauseBtn.disabled = true;
+        }
+
+        function highlightMove(index) {
+            const moveItems = movesList.querySelectorAll('.move-item');
+            moveItems.forEach((item, i) => {
+                item.classList.remove('current');
+                if (i === movesList.children.length - 1 - index) {
+                    item.classList.add('current');
+                }
+            });
+        }
+
+        function renderMovesList() {
+            movesList.innerHTML = '';
+            [...moves].reverse().forEach((move, index) => {
+                const moveItem = document.createElement('div');
+                moveItem.className = 'move-item';
+                moveItem.textContent = `${moves.length - index}. Move from Rod ${move.from} to Rod ${move.to}`;
+                movesList.appendChild(moveItem);
+            });
+        }
+
+        // ============ Control Functions ============
+        function resetHanoi() {
+            if (solving) return;
+
+            const diskCount = parseInt(diskCountInput.value);
+            rods = { A: [], B: [], C: [] };
+            moves = [];
+
+            // Initialize rods with disks
+            for (let i = diskCount; i >= 1; i--) {
+                rods.A.push(i);
+            }
+
+            renderRods();
+            movesList.innerHTML = '';
+            moveIndex = 0;
+            currentMoveDisplay.textContent = '0';
+            totalMovesDisplay.textContent = '0';
+            statusValue.textContent = 'Ready';
+            statusBox.classList.remove('show');
+            pauseBtn.disabled = true;
+            pauseBtn.textContent = '⏸ Pause';
+            paused = false;
+        }
+
+        function solveHanoi() {
+            if (solving) return;
+
+            resetHanoi();
+            const diskCount = parseInt(diskCountInput.value);
+            moves = [];
+            generateMoves(diskCount, 'A', 'B', 'C');
+
+            totalMovesDisplay.textContent = moves.length;
+            renderMovesList();
+
+            statusValue.textContent = 'Solving...';
+            executeMoves();
+        }
+
+        function pauseHanoi() {
+            if (!solving) return;
+
+            paused = !paused;
+            pauseBtn.textContent = paused ? '▶ Resume' : '⏸ Pause';
+            statusValue.textContent = paused ? 'Paused' : 'Solving...';
+        }
+
+        // ============ Utility Functions ============
+        function getDelay() {
+            const speed = parseInt(speedControl.value);
+            const delays = [1000, 600, 400, 200, 100];
+            return delays[speed - 1];
+        }
+
+        function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+
+        // Initialize
+        init();
+    </script>
+</body>
+</html>

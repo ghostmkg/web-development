@@ -34,6 +34,10 @@ function flipCard() {
     secondCard = this;
     checkForMatch();
 }
+function emoji(){
+    
+}
+
 
 function checkForMatch() {
     lockBoard = true;

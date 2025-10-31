@@ -1,4 +1,38 @@
-body{
+body {
   text-align: center;
-  padding: 40vh;
+  padding: 10vh 20px; /* Reduce vertical padding to avoid too much whitespace */
+  background: linear-gradient(135deg, #a8edea, #fed6e3);
+  margin: 0; /* Ensure no default margin */
+}
+
+.oswald {
+  font-family: "Oswald", sans-serif;
+  font-weight: 700;
+}
+
+input {
+  padding: 8px 12px;
+  margin: 5px 0;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 150px;
+  text-align: center;
+}
+
+button {
+  background-color: #2ecc71;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-weight: bold;
+}
+button:hover {
+  background-color: #27ae60;
+}
+
+h2, h3 {
+  margin: 10px 0;
 }

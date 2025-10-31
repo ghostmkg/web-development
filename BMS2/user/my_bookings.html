@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700;900&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Bookings</title>
+    <link rel="stylesheet" href="style.css"> 
+    <style>
+        body { min-height: 100vh; display: block; }
+        header { text-align: center; padding: 20px 0; background-color: #222; width: 100%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); color: #fff; }
+        header h1 { font-size: 2.5em; margin: 0; }
+         #auth-links-container a, #auth-links-container button, #auth-links-container span {
+            color: #ffdb58; text-decoration: none; margin-left: 15px; font-weight: bold; font-size:0.9em;
+        }
+        #auth-links-container button {
+            background-color: #555; color: white; border: none; padding: 8px 12px;
+            border-radius: 4px; cursor: pointer;
+        }
+        #auth-links-container button.logout-btn { background-color: #c0392b; }
+        .bookings-container { max-width: 800px; margin: 20px auto; padding: 15px; }
+        .booking-item { background-color: #333; color: #fff; border: 1px solid #444; border-radius: 8px; padding: 15px; margin-bottom: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.3); }
+        .booking-item h3 { margin-top: 0; color: #ff5733; }
+        .booking-item p { margin: 8px 0; font-size: 0.95em; line-height: 1.5; }
+        .booking-item .actions { margin-top: 10px; }
+        .booking-item .actions a, .booking-item .actions button { display: inline-block; margin-top: 5px; margin-right: 10px; padding: 8px 12px; text-decoration: none; border-radius: 4px; font-size: 0.9em; cursor: pointer; border: none; transition: opacity 0.2s ease; }
+        .booking-item .actions .view-details-btn { background-color: #007bff; color: white; }
+        .booking-item .actions .cancel-booking-btn { background-color: #dc3545; color: white; }
+        .booking-item .actions a:hover, .booking-item .actions button:hover { opacity: 0.85; }
+        .no-bookings { text-align: center; font-style: italic; color: #aaa; padding: 20px; }
+        .back-link-container { text-align: center; margin: 20px 0; }
+        .back-link-container a { color: #ff5733; text-decoration: none; font-weight: bold; padding: 10px; }
+        .back-link-container a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>My Booked Tickets</h1>
+        <div id="auth-links-container" style="text-align: right; padding: 0 20px 10px 0;">
+            <!-- Auth links will be populated by auth.js -->
+        </div>
+    </header>
+
+    <div class="back-link-container">
+        <a href="index.html">← Back to Movie Listings</a>
+    </div>
+
+    <div class="bookings-container" id="bookingsList">
+        <p class="no-bookings">Loading your bookings...</p>
+    </div>
+
+    <script src="auth.js"></script>
+    <!-- In my_bookings.html -->
+<script>
+    document.addEventListener('DOMContentLoaded', async function() {
+        await new Promise(resolve => setTimeout(resolve, 100)); 
+        const bookingsListContainer = document.getElementById('bookingsList');
+        const loginStatus = await checkLoginStatus(); // From auth.js
+        if (!loginStatus.isLoggedIn) { /* ... redirect logic from before ... */ return; }
+
+        async function fetchAndDisplayBookings() {
+            console.log("[MY_BOOKINGS_LOG] Fetching /api/my-bookings");
+            try {
+                const response = await fetch('http://127.0.0.1:5000/api/my-bookings', { // <<< USE 127.0.0.1
+                    method: 'GET',
+                    credentials: 'include'
+                });
+                // ... (rest of the display and delete logic from previous full my_bookings.html script) ...
+                 console.log("[MY_BOOKINGS_LOG] GET /api/my-bookings - Status:", response.status);
+                if (!response.ok) { /* ... error handling ... */  
+                    let errorText = `Failed to load. Status: ${response.status}`;
+                    if (response.status === 401) { errorText = "Auth error. Please log in again."; setTimeout(() => { window.location.href = 'login.html?redirect=' + encodeURIComponent(window.location.pathname); }, 500); } 
+                    else { try { const errRes = await response.json(); errorText = errRes.message || errorText; } catch(e){} }
+                    throw new Error(errorText);
+                }
+                const bookings = await response.json();
+                console.log("[MY_BOOKINGS_LOG] Fetched bookings:", bookings);
+                bookingsListContainer.innerHTML = ''; 
+                if (bookings.length === 0) { /* ... "no bookings" message ... */ bookingsListContainer.innerHTML = '<p class="no-bookings">You have no bookings yet.</p>'; return; }
+                bookings.forEach(booking => { /* ... create and append bookingDiv ... */ 
+                    const bookingDiv = document.createElement('div');
+                    bookingDiv.className = 'booking-item';
+                    bookingDiv.setAttribute('data-booking-id', booking._id);
+                    let seatsDisplay = booking.seats && booking.seats.length > 0 ? booking.seats.join(', ') : 'N/A';
+                    bookingDiv.innerHTML = `<h3>${booking.movieName||'N/A'}</h3><p><strong>Booked name:</strong> ${booking.userNameFromBooking||'N/A'}</p><p><strong>Showtime:</strong> ${booking.showTime||'N/A'}</p><p><strong>Seats:</strong> ${seatsDisplay}</p><p><strong>ID:</strong> ${booking._id||'N/A'}</p><div class="actions"><a href="ticket.html?bookingId=${booking._id}" class="view-details-btn">Details</a><button class="cancel-booking-btn" data-id="${booking._id}">Cancel</button></div>`;
+                    bookingsListContainer.appendChild(bookingDiv);
+                });
+                document.querySelectorAll('.cancel-booking-btn').forEach(button => {
+                    button.addEventListener('click', async function() {
+                        const bookingIdToCancel = this.getAttribute('data-id');
+                        if (confirm(`Cancel booking ID ${bookingIdToCancel}?`)) {
+                            try {
+                                const deleteResponse = await fetch(`http://127.0.0.1:5000/api/bookings/${bookingIdToCancel}`, { // <<< USE 127.0.0.1
+                                    method: 'DELETE',
+                                    credentials: 'include'
+                                });
+                                // ... (handle deleteResponse) ...
+                                const deleteResult = await deleteResponse.json();
+                                if (!deleteResponse.ok) { throw new Error(deleteResult.message || `Failed to delete.`); }
+                                alert(deleteResult.message);
+                                fetchAndDisplayBookings(); 
+                            } catch (error) { /* ... error alert ... */ alert(`Failed to cancel: ${error.message}`); }
+                        }
+                    });
+                });
+            } catch (error) { /* ... error display ... */ bookingsListContainer.innerHTML = `<p class="error-message">Could not load: ${error.message}</p>`; }
+        }
+        fetchAndDisplayBookings();
+    });
+</script>
+</body>
+</html>

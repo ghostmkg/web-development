@@ -55,13 +55,21 @@ const getRandomQuestion = () => {
   }
   // Filter out already asked questions and choose a random one
   const availableQuestions = categoryQuestions.filter((_, index) => !questionsIndexHistory.includes(index));
+  if (availableQuestions.length === 0) {
+    // No more available questions → show results
+    return showQuizResult();
+  }
   const randomQuestion = availableQuestions[Math.floor(Math.random() * availableQuestions.length)];
   questionsIndexHistory.push(categoryQuestions.indexOf(randomQuestion));
   return randomQuestion;
 };
 // Highlight the correct answer option and add icon
 const highlightCorrectAnswer = () => {
-  const correctOption = answerOptions.querySelectorAll(".answer-option")[currentQuestion.correctAnswer];
+  const options = answerOptions.querySelectorAll(".answer-option");
+  if (!currentQuestion || !options || options.length === 0) return;
+  const correctIndex = currentQuestion.correctAnswer;
+  if (correctIndex == null || correctIndex < 0 || correctIndex >= options.length) return;
+  const correctOption = options[correctIndex];
   correctOption.classList.add("correct");
   const iconHTML = `<span class="material-symbols-rounded"> check_circle </span>`;
   correctOption.insertAdjacentHTML("beforeend", iconHTML);
@@ -115,7 +123,8 @@ const startQuiz = () => {
 // Highlight the selected option on click - category or no. of question
 configContainer.querySelectorAll(".category-option, .question-option").forEach((option) => {
   option.addEventListener("click", () => {
-    option.parentNode.querySelector(".active").classList.remove("active");
+    const prev = option.parentNode.querySelector(".active");
+    if (prev) prev.classList.remove("active");
     option.classList.add("active");
   });
 });

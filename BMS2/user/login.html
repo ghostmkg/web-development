@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700;900&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Movie Ticket Booking</title>
+    <link rel="stylesheet" href="style.css">
+    <style> /* Re-using styles from signup.html for brevity */
+        body { display: block; min-height: 100vh;}
+        header { text-align: center; padding: 20px 0; background-color: #222; width: 100%; color: #fff; }
+        header h1 { font-size: 2.5em; margin: 0; }
+        .auth-container { background-color: #333; padding: 30px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.5); width: 100%; max-width: 400px; margin: 50px auto; color: #fff; }
+        .auth-container h2 { text-align: center; margin-bottom: 20px; color: #ff5733; }
+        .auth-form label { display: block; margin-bottom: 8px; font-weight: bold; }
+        .auth-form input[type="text"], .auth-form input[type="password"] { width: calc(100% - 22px); padding: 10px; margin-bottom: 15px; border-radius: 4px; border: 1px solid #555; background-color: #444; color: #fff; font-size: 1em; }
+        .auth-form button { width: 100%; padding: 12px; background-color: #ff5733; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 1.1em; transition: background-color 0.3s; }
+        .auth-form button:hover { background-color: #e04e2e; }
+        .auth-links { text-align: center; margin-top: 20px; } .auth-links a { color: #ff5733; text-decoration: none; } .auth-links a:hover { text-decoration: underline; }
+        #message { text-align: center; margin-top: 15px; padding: 10px; border-radius: 4px; min-height:20px; }
+        #message.success { background-color: #28a745; color: white; } #message.error { background-color: #dc3545; color: white; }
+    </style>
+</head>
+<body>
+    <header><h1>Movie Ticket Booking</h1></header>
+    <div class="auth-container">
+        <h2>Login</h2>
+        <form id="loginForm" class="auth-form">
+            <div><label for="username">Username:</label><input type="text" id="username" name="username" required></div>
+            <div><label for="password">Password:</label><input type="password" id="password" name="password" required></div>
+            <button type="submit">Login</button>
+        </form>
+        <div id="message"></div>
+        <div class="auth-links">
+            <p>Don't have an account? <a href="signup.html">Sign up here</a></p>
+            <p><a href="index.html">Back to Home</a></p>
+        </div>
+    </div>
+    <!-- auth.js is not strictly needed on login page itself if it only updates nav, 
+         but including it won't hurt and ensures consistency if you add shared UI elements later.
+         If login is successful, user is redirected and auth.js on the target page will update nav.
+    <script src="auth.js"></script> 
+    -->
+    <!-- In login.html -->
+<script>
+    document.getElementById('loginForm').addEventListener('submit', async function(event) {
+        event.preventDefault(); 
+        const messageDiv = document.getElementById('message');
+        messageDiv.textContent = ''; messageDiv.className = '';
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+        console.log("[LOGIN.HTML SCRIPT] Login submit. User:", username, "Prevent default called.");
+        if (!username.trim() || !password.trim()) { /* ... validation ... */ return; }
+        try {
+            const response = await fetch('http://127.0.0.1:5000/api/auth/login', { // <<< USE 127.0.0.1
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username, password }),
+                credentials: 'include'
+            });
+            // ... (rest of the login script from before is fine) ...
+            console.log("[LOGIN.HTML SCRIPT] Login fetch status:", response.status);
+            const result = await response.json();
+            console.log("[LOGIN.HTML SCRIPT] Login fetch result:", result);
+            if (response.ok) {
+                messageDiv.textContent = result.message || "Login successful! Redirecting...";
+                messageDiv.className = 'success';
+                const urlParams = new URLSearchParams(window.location.search);
+                const redirectTarget = urlParams.get('redirect');
+                setTimeout(() => {
+                    if (redirectTarget) { window.location.href = decodeURIComponent(redirectTarget); } 
+                    else { window.location.href = 'index.html'; }
+                }, 500);
+            } else {
+                messageDiv.textContent = result.message || 'Login failed.';
+                messageDiv.className = 'error';
+            }
+        } catch (error) {
+            console.error('[LOGIN.HTML SCRIPT] Login fetch/network error:', error);
+            messageDiv.textContent = 'Login request failed (server down or network issue).';
+            messageDiv.className = 'error';
+        }
+    });
+</script>
+</body>
+</html>

@@ -2,6 +2,7 @@ body {
     font-family: Arial, sans-serif;
     text-align: center;
     background-color: #f0f0f0;
+    
 }
 
 h1 {
@@ -35,4 +36,23 @@ h1 {
 
 .card.matched {
     background-color: #FFEB3B;
+}
+div{
+    
+    vertical-align: top;
+    width: 100px;
+    height: 100px;
+    background-color: #4CAF50;
+    display: flex;
+    align-items: center;
+    
+}
+button{
+    margin-top: 350px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }

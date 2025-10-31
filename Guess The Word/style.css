@@ -1,0 +1,290 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  flex-direction: column;
+  color: #333;
+}
+
+.game-container,
+.game-setup,
+.leaderboard {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 16px;
+  max-width: 700px;
+  width: 95%;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  margin-bottom: 30px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.game-container:hover,
+.game-setup:hover,
+.leaderboard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+  color: #007bff;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+h2, h3 {
+  color: #0056b3;
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin: 10px 0 5px;
+  font-weight: 600;
+  color: #444;
+}
+
+select, input[type="text"] {
+  padding: 12px;
+  font-size: 1.1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: calc(100% - 24px);
+  max-width: 300px;
+  margin-bottom: 15px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+select:focus, input[type="text"]:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+  outline: none;
+}
+
+.word-display {
+  font-size: 2.5rem;
+  letter-spacing: 12px;
+  margin: 30px 0;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.word-display .letter {
+  display: inline-block;
+  animation: reveal 0.5s ease;
+  min-width: 1.5rem;
+  text-align: center;
+}
+
+@keyframes reveal {
+  from { opacity: 0; transform: scale(0.5) translateY(-10px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.input-section {
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.input-section.whole-word {
+  margin-top: 10px;
+}
+
+input[type="text"]#letterInput {
+  width: 60px;
+  text-align: center;
+}
+
+input[type="text"]#wordInput {
+  width: 150px;
+}
+
+button {
+  padding: 12px 24px;
+  font-size: 1.1rem;
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+}
+
+button:hover {
+  background: linear-gradient(135deg, #0056b3, #003d80);
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+button:focus {
+  outline: 2px solid #003d80;
+  outline-offset: 2px;
+}
+
+.status p {
+  margin: 12px 0;
+  font-size: 1.1rem;
+  color: #444;
+}
+
+#message {
+  font-weight: 600;
+  color: #dc3545;
+  min-height: 1.5rem;
+}
+
+.hangman-container {
+  height: 200px;
+  width: 200px;
+  margin: 20px auto;
+  position: relative;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+#hangman {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150px;
+  height: 180px;
+}
+
+.base { width: 150px; height: 10px; background: #333; position: absolute; bottom: 0; left: 0; border-radius: 2px; }
+.pole { width: 10px; height: 160px; background: #333; position: absolute; bottom: 10px; left: 20px; border-radius: 2px; }
+.beam { width: 100px; height: 10px; background: #333; position: absolute; top: 10px; left: 20px; border-radius: 2px; }
+.rope { width: 2px; height: 30px; background: #333; position: absolute; top: 20px; left: 110px; }
+.head { width: 40px; height: 40px; border: 5px solid #333; border-radius: 50%; position: absolute; top: 50px; left: 95px; background: #fff; }
+.body { width: 5px; height: 60px; background: #333; position: absolute; top: 90px; left: 112px; }
+.arm.left { width: 40px; height: 5px; background: #333; position: absolute; top: 100px; left: 72px; transform: rotate(30deg); }
+.arm.right { width: 40px; height: 5px; background: #333; position: absolute; top: 100px; left: 112px; transform: rotate(-30deg); }
+.leg.left { width: 40px; height: 5px; background: #333; position: absolute; top: 150px; left: 72px; transform: rotate(30deg); }
+.leg.right { width: 40px; height: 5px; background: #333; position: absolute; top: 150px; left: 112px; transform: rotate(-30deg); }
+
+.leaderboard {
+  max-width: 500px;
+}
+
+.leaderboard ol {
+  list-style: none;
+  padding: 0;
+}
+
+.leaderboard li {
+  background: #f8f9fa;
+  margin: 10px 0;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: background 0.3s;
+}
+
+.leaderboard li:hover {
+  background: #e9ecef;
+}
+
+#confetti {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+.confetti-piece {
+  position: absolute;
+  opacity: 0.9;
+  animation: fall 2.5s linear infinite;
+}
+
+@keyframes fall {
+  to { transform: translateY(100vh) rotate(720deg); }
+}
+
+@media (max-width: 600px) {
+  .game-container, .game-setup, .leaderboard {
+    padding: 20px;
+    width: 100%;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .word-display {
+    font-size: 1.8rem;
+    letter-spacing: 8px;
+  }
+
+  .hangman-container {
+    height: 150px;
+    width: 150px;
+  }
+
+  #hangman {
+    width: 120px;
+    height: 140px;
+  }
+
+  .base { width: 120px; }
+  .pole { height: 120px; }
+  .beam { width: 80px; }
+  .rope { left: 90px; }
+  .head { left: 75px; top: 40px; }
+  .body { left: 92px; top: 80px; height: 50px; }
+  .arm.left { left: 52px; top: 90px; }
+  .arm.right { left: 92px; top: 90px; }
+  .leg.left { left: 52px; top: 130px; }
+  .leg.right { left: 92px; top: 130px; }
+
+  input[type="text"] {
+    width: 100%;
+    max-width: 120px;
+  }
+
+  input[type="text"]#letterInput {
+    width: 50px;
+  }
+
+  button {
+    padding: 10px 16px;
+    font-size: 1rem;
+  }
+
+  .input-section {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+
+@media (max-width: 400px) {
+  h1, h2, h3 {
+    font-size: 1.5rem;
+  }
+
+  .word-display {
+    font-size: 1.5rem;
+    letter-spacing: 6px;
+  }
+
+  .status p {
+    font-size: 0.95rem;
+  }
+}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700;900&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Movie Ticket Booking</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body { display: block; min-height: 100vh;} /* Override from style.css if needed */
+        header { text-align: center; padding: 20px 0; background-color: #222; width: 100%; color: #fff; }
+        header h1 { font-size: 2.5em; margin: 0; }
+        .auth-container { background-color: #333; padding: 30px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.5); width: 100%; max-width: 400px; margin: 50px auto; color: #fff; }
+        .auth-container h2 { text-align: center; margin-bottom: 20px; color: #ff5733; }
+        .auth-form label { display: block; margin-bottom: 8px; font-weight: bold; }
+        .auth-form input[type="text"], .auth-form input[type="password"] { width: calc(100% - 22px); padding: 10px; margin-bottom: 15px; border-radius: 4px; border: 1px solid #555; background-color: #444; color: #fff; font-size: 1em; }
+        .auth-form button { width: 100%; padding: 12px; background-color: #ff5733; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 1.1em; transition: background-color 0.3s; }
+        .auth-form button:hover { background-color: #e04e2e; }
+        .auth-links { text-align: center; margin-top: 20px; } .auth-links a { color: #ff5733; text-decoration: none; } .auth-links a:hover { text-decoration: underline; }
+        #message { text-align: center; margin-top: 15px; padding: 10px; border-radius: 4px; min-height: 20px;}
+        #message.success { background-color: #28a745; color: white; } #message.error { background-color: #dc3545; color: white; }
+    </style>
+</head>
+<body>
+    <header><h1>Movie Ticket Booking</h1></header>
+    <div class="auth-container">
+        <h2>Create Account</h2>
+        <form id="signupForm" class="auth-form">
+            <div><label for="username">Username:</label><input type="text" id="username" name="username" required></div>
+            <div><label for="password">Password:</label><input type="password" id="password" name="password" required minlength="6"></div>
+            <button type="submit">Sign Up</button>
+        </form>
+        <div id="message"></div>
+        <div class="auth-links">
+            <p>Already have an account? <a href="login.html">Login here</a></p>
+            <p><a href="index.html">Back to Home</a></p>
+        </div>
+    </div>
+    <!-- In signup.html -->
+<script>
+    document.getElementById('signupForm').addEventListener('submit', async function(event) {
+        event.preventDefault(); 
+        // ... (messageDiv, username, password, validation from before) ...
+        const messageDiv = document.getElementById('message');
+        messageDiv.textContent = ''; messageDiv.className = '';
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+        console.log("[SIGNUP.HTML SCRIPT] Signup attempt. Username:", username);
+        if (!username.trim() || !password.trim() || password.length < 6) { /* ... validation ... */ return; }
+        try {
+            const response = await fetch('http://127.0.0.1:5000/api/auth/signup', { // <<< USE 127.0.0.1
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', },
+                body: JSON.stringify({ username, password }),
+                credentials: 'include' 
+            });
+            // ... (rest of the signup script from before is fine) ...
+            const result = await response.json();
+            console.log("[SIGNUP.HTML SCRIPT] Signup response status:", response.status, "Result:", result);
+            if (response.ok) {
+                messageDiv.textContent = result.message + " Redirecting to login...";
+                messageDiv.className = 'success';
+                document.getElementById('signupForm').reset();
+                setTimeout(() => { window.location.href = 'login.html'; }, 1500);
+            } else {
+                messageDiv.textContent = result.message || 'Signup failed.';
+                messageDiv.className = 'error';
+            }
+        } catch (error) {
+            console.error('[SIGNUP.HTML SCRIPT] Signup error:', error);
+            messageDiv.textContent = 'An error occurred. Please try again.';
+            messageDiv.className = 'error';
+        }
+    });
+</script>
+</body>
+</html>
