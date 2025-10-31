@@ -1,0 +1,80 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environment
+env/
+venv/
+ENV/
+.venv/
+env.bak/
+venv.bak/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# Environments
+.env
+.env.local
+.env.*.local
+
+# Pyre type checker
+.pyre/
+
+# VS Code settings
+.vscode/
+
+# macOS files
+.DS_Store
+
+# Logs and local databases
+*.log
+*.sqlite3
+*.db
+
+# Unit test / coverage reports
+.coverage
+*.cover
+.hypothesis/
+.pytest_cache/
+
+# Deployment files
+*.bak
+
+# MySQL
+*.sql
+
+# csv files
+*.csv
+
+# HDF5
+*.h5
+
+# Excel files
+*.xls
+*.xlsx
+
+# Pickle files
+*.pkl
+
+# Model files
+*.h5
+*.hdf5
+*.model
+*.pb
+
+# Temporary files
+*.tmp
+*.temp
+*.cache
+
+# Data files
+data/
+dataset/
+
+# Output files
+*.out
+
+# Other
+*.swp
